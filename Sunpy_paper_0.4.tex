@@ -9,7 +9,9 @@
 \title{SunPy - Python for Solar Physics}
 
 \author{S J Mumford}
-\address{Solar Physics \& Space Plasma Research Centre (SP$^{2}$RC), School of Mathematics and Statistics, The University of Sheffield, Hicks Building, Hounsfield Road, Sheffield, S3 7RH U.K.}
+\address{Solar Physics \& Space Plasma Research Centre (SP$^{2}$RC), School of 
+Mathematics and Statistics, The University of Sheffield, Hicks Building, 
+Hounsfield Road, Sheffield, S3 7RH U.K.}
 
 \author{J Bloggs}
 \address{Wibble wiblle wiblle}
@@ -17,14 +19,40 @@
 \ead{sunpy@googlegroups.com}
 
 \begin{abstract}
-This paper presents version 0.4 of SunPy a community developed Python package.
-SunPy provides core datatypes and functionality for the processing, analysis and display of solar observational data.
+This paper presents version 0.4 of SunPy a community developed Python package 
+for solar physics.
 
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
+SunPy is a project dedicated to providing the tools to process and analyse 
+solar data in Python.
+The Python programming language has gained much traction as a scientific 
+programming language in the last decade.
+Projects such as \texttt{NumPy}, \texttt{SciPy}, \texttt{matplotlib} provide 
+the core tools 
+needed 
+for 
+scientific analsysis and visualisation, while other packages such as pandas, 
+Astropy or scikit-image provide more domain specific functionality.
+SunPy aims to provide such domain specific functionality to the solar physics 
+community.
+
+The goal of SunPy is to provide a clean, simple to use and well structured 
+package that provides the \textit{core} tools for solar physics.
+The primary focus of SunPy's development is current providing specialised, 
+linked, datatypes that allow the import, processing and visualisation of solar 
+data. Currently the datatypes implemented are \texttt{Map}, \texttt{LightCurve} 
+and \texttt{Spectrum}, LLthese cover spatial, timeseries and spectral data 
+respectively.
+
+In this paper we will provide an overview of the current functionality of the 
+\texttt{sunpy} library as well as giving details on the development model and 
+community aspects of the SunPy project.
+
+
 
 \section{Core Data Types}
 	
@@ -34,13 +62,15 @@ SunPy provides core datatypes and functionality for the processing, analysis and
 	
 	\subsection{Spectra}
 
-\section{Solar Data Retrieval}
+\section{Solar Data Search and Retrieval}
 
 	\subsection{VSO}
 	
 	\subsection{HEK}
 	
 	\subsection{HELIO}
+	
+	\subsection{The SunPy Database}
 
 \section{Visualisation}
 
