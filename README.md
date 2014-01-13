@@ -29,3 +29,9 @@ This paper is due January 31st, 2014.
   4. General
 1. Development and Community [Stuart]
 1. Future of SunPy [Stuart]
+
+## Timeline:
+First draft by 20/1 workable draft by 27/1 submit 31/1
+
+## SciPy proceedings:
+https://github.com/Cadair/scipy2013_talks/tree/master/talks/stuart_mumford
