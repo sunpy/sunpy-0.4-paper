@@ -13,13 +13,13 @@ Draft of Outling
 
 1. Introduction
 2. Core Data Types
-2.1. Map
-2.2. Lightcurve
-2.3. Spectra
+  1. Map
+  2. Lightcurve
+  3. Spectra
 3. Solar Data Retrieval
-3.1. VSO
-3.2. HEK
-3.3. HELIO
+  1. VSO
+  2. HEK
+  3. HELIO
 4. Visualisation
 5. Coordinates
 6. Development and Community
