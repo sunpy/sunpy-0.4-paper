@@ -35,3 +35,7 @@ First draft by 20/1 workable draft by 27/1 submit 31/1
 
 ## SciPy proceedings:
 https://github.com/Cadair/scipy2013_talks/tree/master/talks/stuart_mumford
+
+##References:
+Add all refs to this group, Stuart will maintain the bib file.
+https://www.zotero.org/groups/sunpy_-_python_for_solar_physicists/items/collectionKey/MNC7JEAA
