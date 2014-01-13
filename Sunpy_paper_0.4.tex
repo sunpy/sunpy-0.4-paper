@@ -45,18 +45,52 @@ package that provides the \textit{core} tools for solar physics.
 The primary focus of SunPy's development is current providing specialised, 
 linked, datatypes that allow the import, processing and visualisation of solar 
 data. Currently the datatypes implemented are \texttt{Map}, \texttt{LightCurve} 
-and \texttt{Spectrum}, LLthese cover spatial, timeseries and spectral data 
+and \texttt{Spectrum}, these cover spatial, timeseries and spectral data 
 respectively.
 
 In this paper we will provide an overview of the current functionality of the 
 \texttt{sunpy} library as well as giving details on the development model and 
 community aspects of the SunPy project.
 
-
-
 \section{Core Data Types}
-	
+One of the primary focus' of the SunPy library is to provide data structures 
+that are 
+specifically designed for the various types of data generally processed for 
+solar physics. Currently \texttt{SunPy} provides three datatypes, each separate 
+from one another to process 2D spatial data (Map), 1D temporal series 
+(LightCurve) and 1 and 2D spectra (Spectrum and Spectra).
+
+This section will give a brief overview of the \textit{current} functionality 
+of each of these modules and then describe the development plan for future 
+improvements to these submodules.
+
 	\subsection{Map}
+	Map is a 2D spatial data type, primarily used for images of the Sun and 
+	inner heliosphere. It provides a wrapper around a data array (numpy 
+	ndarray) and gives easy access to standard meta data in the header of the 
+	image.
+	The \texttt{Map} datatype provides convenience methods for many functions 
+	such as, rotation and re-sampling as well as convenience visualisation 
+	functions.
+	The design of the map submodule is such that each instrument or 
+	detector can subclass the parent \texttt{GenericMap} class to implement 
+	special meta data handling or other data specific functions. Each subclass 
+	of \texttt{GenericMap} can register with the \texttt{Map} factory class and 
+	by implementing a method that returns \texttt{True} if the meta data 
+	matches meta data for that instrument or detector, the \texttt{Map} factory 
+	will automatically return an instance of the specific \texttt{GenericMap} 
+	subclass. As of version 0.4 SunPy has \texttt{Map} specialisations for the 
+	following instruments: \textit{IRIS} SJI frames, \textit{SDO/AIA} and 
+	\textit{HMI}, \textit{SOHO/EIT} and 	\textit{LASCO}, 
+	\textit{STEREO/EUVI} 	and \textit{COR}, \textit{YOHKOH/SXT}, 
+	\textit{RHESSI}, \textit{PROBA2/SWAP} and\textit{HINODE/XRT}.
+	As well as providing the base classes the map submodule provides two 
+	collection classes, \texttt{CompositeMap} and \texttt{MapCube}, for 
+	temporally and spatially aligned data respectively. \texttt{MapCube} 
+	provides methods for animation of its series of \texttt{Map} objects. 
+	\texttt{CompositeMap} provides methods for overlaying spatially aligned 
+	data, with support for visualisation of images and contour lines overlaid 
+	upon each other.
 	
 	\subsection{Lightcurve}
 	
