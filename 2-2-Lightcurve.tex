@@ -1,1 +1,27 @@
 \subsection{Lightcurve}
+
+Time series data and analyses are a fundamental aspect of solar physics for which many data sources are available. In recognition of this fact, SunPy provides a \textit{Lightcurve} object designed to provide a convenient and consistent interface for handling solar time series data. The main engine behind the \textit{Lightcurve} object is the \textit{pandas} data analysis library. This library contains a large amount of functionality for manipulating and analysing time series data, making it an ideal basis for \textit{Lightcurve}.  Like all other SunPy objects, \textit{Lightcurve} is a wrapper around a data object, which in this case is the \textit{pandas} object. 
+
+Currently, the \textit{Lightcurve} object is compatible with the following data sources; the GOES X-ray Sensor (XRS), the SDO EUV Variability Experiment (EVE), and PROBA2/LYRA. For each of these instruments, a sub-class of the \textit{Lightcurve} object is initialized (e.g. \textit{GOESLightCurve, LYRALightCurve}) which inherits from \textit{Lightcurve} but allows instrument-specific functionality to be included. Future developments will introduce support for additional instruments and data products. 
+Since time series data is generally relatively small and there is no established standard as to how it should be stored and distributed, each SunPy \textit{Lightcurve} object provides the ability to download its own data in its constructor.
+
+A \textit{Lightcurve} object may be created using a range of different methods. Firstly, a \textit{Lightcurve} may be created for a specific instrument based on an input time range (see example below). In this example, the Lightcurve constructor searches remote sites for the GOES X-ray data specified by the time interval, downloads the required files and subsequently creates the object.
+
+\begin{lstlisting}[language=Python]
+from sunpy import lightcurve
+goes=lightcurve.GOESLightCurve.create(`2011-06-07 06:00',
+`2011-06-07 08:00')
+goes.peek()
+
+\end{lstlisting}
+
+Alternatively, if the data file already exists on the local system, the \textit{Lightcurve} object may instead be initialized using that file as input (see example below).
+
+\begin{lstlisting}[language=Python]
+from sunpy import lightcurve
+file=`lyra_20110607-000000_lev2_std.fits'
+lyra=lightcurve.LYRALightCurve.create(file)
+lyra.peek()
+
+\end{lstlisting}
+
