@@ -1,9 +1,32 @@
 \section{Utilities}
+SunPy is meant to provide a consistent environment for solar data analysis. In order to
+achieve this goal SunPy provides a number of utility functions which are used by the other
+SunPy modules and are made available to the user. Two modules are described in this Section, 
+namely, solar coordinates (coords), and the Sun module (sun). 
 	
-	\subsection{Coordinates}
+\subsection{Coordinates}
+Coordinate transformations are frequently a necessary task within the solar data analysis
+workflow. Likely the most often used transformation is from observer coordinates (e.g. 
+sky coordinates) to a coordinate system which is mapped onto the solar surface (e.g.
+latitude and longitude). This transformation is necessary to compare the true physical
+distance between different solar features. This type of transformation is not unique
+to solar observations (e.g. planetary) but it is not provided by Astropy coordinates 
+package. 
+
+\subsubsection{Sun}
+The purpose of this module is to provide solar-specific data
+
+\subsubsection{constants}
+The purpose of the constants package is to provide a number of solar-related constants 
+in order to provide consistency in the calculations of derived solar values both within the
+SunPy code base but also to the user. Every solar constants is provided as a Constant objects as defined by Astropy. 
+Each Constant object defines a Quantity, a number associated with a unit, along with the constant's provenance
+(i.e. reference) as well as its uncertainty. Using Astropy's Quantities, any solar constant
+can easily be converted between different units as can be seen in Figure~\ref{fig:constants_code} as well
+as between SI or cgs with a single command.  As these objects inherit from Numpy's ndarray,
+they work well with standard representations of numbers.
+For convenience a number shortcuts to frequently used constants are provided directly when importing
+the module. A larger list of constants can be accessed through an interface modelled 
+on that provided by the SciPy constants package. To view all of the available constants
+a print_all() function can be used.   
 	
-	\subsection{Constants}
-	
-	\subsection{Sun}
-	
-	\subsection{General}
