@@ -13,3 +13,67 @@ improvements to these submodules.
 \input{2-1-Map}
 \input{2-2-Lightcurve}
 \input{2-3-Spectra}
+
+\subsection{Visualisation}
+As has been demonstrated in this section, the core SunPy datatypes include 
+visualisation code that is specialised to that data type. These visualisation 
+methods all currently utilise the matplotlib package, and are designed in such 
+a way that they integrate well with the pyplot functional interface of 
+matplotlib, as demonstrated in Listing \ref{code:mpl_1}.
+
+\begin{listing}[h]
+\begin{minipage}{0.49\columnwidth}
+\begin{minted}{python}
+import sunpy.map
+import matplotlib.pyplot as plt
+
+#Read in a aia file using SunPy
+aiamap = sunpy.map.Map('aia.fits')
+
+#Create the figure and axis 
+#explicitly
+fig = plt.figure()
+ax = plt.subplot()
+
+#Create a image plot with raw data
+im = ax.imshow(aiamap.data,...)
+#add a colour bar
+plt.colorbar(im,ax=ax)
+
+#Add a title
+plt.title("My AIA plot")
+plt.show()
+\end{minted}
+\end{minipage}
+\begin{minipage}{0.49\columnwidth}
+\begin{minted}{python}
+import sunpy.map
+import matplotlib.pyplot as plt
+
+#Read in a aia file using SunPy
+aiamap = sunpy.map.Map('aia.fits')
+
+#Create the figure and axis 
+#explicitly
+fig = plt.figure()
+ax = plt.subplot()
+
+#Plot the AIA map
+im = aiamap.plot(axes=ax)
+#add a colour bar
+plt.colorbar(im,ax=ax)
+
+#Add a title
+plt.title("My AIA plot")
+plt.show()
+\end{minted}
+\end{minipage}
+\caption{A simple example of how SunPy's plotting functions provide similar 
+behaviour to matplotlib's pyplot interface.}
+\label{code:mpl_1}
+\end{listing}
+
+This design philosophy makes the behaviour of SunPy's visualisation routines 
+intuitive to those who already understand how matplotlib's interface is 
+designed as well as allowing the use of the standard matplotlib commands to 
+change the plot, \textit{e.g.} set the title.
