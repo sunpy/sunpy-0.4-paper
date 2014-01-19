@@ -10,8 +10,25 @@ workflow. Likely the most often used transformation is from observer coordinates
 sky coordinates) to a coordinate system which is mapped onto the solar surface (e.g.
 latitude and longitude). This transformation is necessary to compare the true physical
 distance between different solar features. This type of transformation is not unique
-to solar observations (e.g. planetary) but it is not provided by Astropy coordinates 
-package. 
+to solar observations (e.g. planetary) but it is not provided by the Astropy coordinates 
+package. The coordinates package implements the World Coordinate System (WCS) for solar
+coordinates as described by \cite{Thompson2000}. The coordinate system transformations
+currently implemented as those most useful for most solar data analysis, namely 
+converting from Helioprojective-Cartesian (HPC) to Heliographic coordinates (HG). HPC 
+which describes the positions on the Sun as angles measured from the center of the solar 
+disk (usually in arcseconds) using cartesian coordinates (X, Y) This is the coordinates 
+most often defined in solar image data (e.g. SDO/AIA images, SOHO/EIT, TRACE). HG
+coordinates express positions on the Sun using longitude and latitude on the solar 
+sphere. There are two standards for this coordinate system, Stonyhurst-Heliographic 
+where the origin is at the intersection of the solar equator and 
+the central meridian as seen from Earth and Carrington-Heliographic is a system which is
+fixed to the Sun and does not depend on Earth. The implementation of these transformations
+pass through common coordinate system called Heliocentric-Cartesian (HCC) where positions 
+are expressed in true (deprojected) physical distances instead of angles on the celestial sphere.
+These transformations require some knowledge of the location of the observer which is
+usually provided by the image header information. In case where it is not, the observer
+is assumed to be at Earth.
+
 
 \subsubsection{Sun}
 The purpose of this module is to provide solar-specific data
@@ -28,5 +45,7 @@ they work well with standard representations of numbers.
 For convenience a number shortcuts to frequently used constants are provided directly when importing
 the module. A larger list of constants can be accessed through an interface modelled 
 on that provided by the SciPy constants package. To view all of the available constants
-a print_all() function can be used.   
+a print_all() function can be used.
+
+
 	
