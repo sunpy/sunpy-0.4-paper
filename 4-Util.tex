@@ -43,9 +43,30 @@ can easily be converted between different units as can be seen in Figure~\ref{fi
 as between SI or cgs with a single command.  As these objects inherit from Numpy's ndarray,
 they work well with standard representations of numbers.
 For convenience a number shortcuts to frequently used constants are provided directly when importing
-the module. A larger list of constants can be accessed through an interface modelled 
-on that provided by the SciPy constants package. To view all of the available constants
-a print_all() function can be used.
+the sub-package. A larger list of constants can be accessed through an interface modelled 
+on that provided by the SciPy constants package and are available as a dictionary called
+physical_constants. To view all quickly a print_all() function is available.
 
+\begin{listing}[h]
+\begin{minted}{pycon}
 
+>>> from sunpy.sun import constants as sun
+>>> print(sun.mass)
+  Name   = Solar mass
+  Value  = 1.9891e+30
+  Error  = 5e+25
+  Units  = kg
+  Reference = Allen's Astrophysical Quantities 4th Ed.
+Verify the average density of the Sun and convert to cgs
+>>> (sun.mass/sun.volume).cgs
+<Quantity 1.40851154227 g / (cm3)>
+Check to see if the age of the Sun is available and grab the unit and value separately
+>>> sun.find('age')
+['age', 'average angular size', 'average density', 'average intensity']
+>>> sun.value('age'), sun.unit('age')
+
+\end{minted}
+\caption{Using sunpy.sun.constants sub-package.}
+\label{code:constants_code}
+\end{listing}
 	
