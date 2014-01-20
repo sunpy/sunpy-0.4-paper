@@ -1,1 +1,28 @@
-\subsection{Spectra}
+\subsection{Spectra}\label{sec:spectra}
+
+Spectroscopy consists in the study of the radiative energy related to the its wavelength.
+An spectrum is normally obtained by observing a range of frequencies at the same time; 
+this can be done either for example in radio wavelengths by swiping over different frequencies - e.g., with radio receiver - 
+or in visible and ultraviolet by the dispersion of the incident light through a diffraction grating or prism.
+By analysing the resultant spectrum properties such temperature, density, speed and other kinematics can be obtained. Therefore, spectroscopy provides to the solar physicists invaluable information about the composition and the physical properties of the Sun.  
+
+Sunpy intents to provide support to most of solar spectroscopy instrument, however the complexity of this kind of datasets makes very challenging to add support to them all in a general way.  
+Nevertheless, the design of the \textit{Spectra} object is consistent with the other data types available in Sunpy.
+As yet, Sunpy offers a \textit{Spectrogram} object that supports radio spectra from the e-Callisto 
+network\footnote{e-Callisto is an international network of solar radio spectrometers, all the data is available at: \url{http://www.e-callisto.org/} } 
+and STEREO/SWAVES spectrograms.
+These radio spectrograms are consecutive 1D frequency spectra measured over time.  
+However, the study of this type of spectrograms is normally driven by the variation of the spectra through time, therefore the data files normally contains a 2D array, with one axis for frequency and another for time, providing an image as the one shown in figure \ref{spectrogram:example}.
+The Spectrogram object offers some common functionality to both type of instruments to help its analysis, this includes:
+read the data (fits format for e-Callisto, ASCII for STEREO/SWAVES); 
+join different time ranges and frequencies; 
+frequency dependent background subtraction;  
+linearise of frequency axis and automated downsample for proper visualisation on a normal computer screen;  
+and point-and-click functionality to save pixels of interest for further analysis.
+In addition, this object is equipped with a download data interface for e-Callisto that only requires the observatory name and the desired time-range. STEREO/SWAVES can be obtained via the virtual solar observatory (see \s\ref{sec:vso}).
+
+
+% Download Callisto
+% Merge multiple time-ranges / frequencies (just work from downlad!)
+% Merge callisto with swaves
+
