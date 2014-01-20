@@ -33,7 +33,9 @@ for observatory, instruments in datasources.items():
     for inst, detectors in instruments.items():
         for det, measurements in detectors.items():
             for meas, params in measurements.items():
-                print("%s %s: %d" % (observatory, params['nickname'], params['sourceId']))
+                print("%s %s: %d" % (observatory, params['nickname'], 
+                %%%%params['sourceId']))
+\end{minted}
 \caption{Initializing the Helioviewer client and listing the full
   range of image data available.}
 \label{code:hv:datasources}
@@ -56,8 +58,8 @@ Helioviewer.org.
 hv.download_png('2099/01/01', 4.8, "[SDO,AIA,AIA,304,1,100]", x0=0, y0=0, width=512, height=512)
 \end{minted}
 \includegraphics[width=0.8\columnwidth]{helioviewer_latest_aia_304.eps}
-\caption{Acquisition of a PNG file showing the latest AIA 304\AA\ image available at
-  www.helioviewer.org.}
+\caption{Acquisition of a PNG file showing the latest AIA 304\AA\ image 
+available at \url{www.helioviewer.org}.}
 \label{code:hv:downloadlatestpng}
 \end{listing}
 
@@ -90,7 +92,7 @@ based on the request time, resulting in predictable filenames.
 The Helioviewer API allows composition and overlay of images from
 multiple sources, based on the positioning metadata in the source FITS
 file.  SunPy accesses this overlay/composition capability through the
-\texttt{download_png} method of the Helioviewer client.  Example
+\texttt{download\_png} method of the Helioviewer client.  Example
 \ref{code:hv:overlaid} gives an example of the composition of three
 separate images in to a single image.
 
