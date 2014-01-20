@@ -1,1 +1,124 @@
 \subsection{The SunPy Database}
+% TODO: reference / footnote to Summer of Code website?
+The database package has been added as a Google Summer of Code (GSoC) project
+in 2013. Its purpose is to offer a database interface to store and manage data
+that has been retrieved via packages from the net package. Note that currently
+only the VSO package is supported, not the HEK package.
+
+The need for a database package arose because using VSO alone led to two major
+problems:
+\begin{enumerate}
+  \item downloaded data cannot be queried or browsed
+  \item to fetch data that has already been saved on the local hard drive,
+    the VSO has to be queried again
+\end{enumerate}
+
+Here is a list of the main features:
+\begin{itemize}
+  \item detects if certain query has already been used before and queries
+    the database then instead of the VSO
+  % TODO: reference to SA docs? or list all currently supported SQL dialects here?
+  \item many supported SQL dialects
+  % TODO: footnotes for LRU/LFU or some explanation in parens behind them?
+  \item database may act as a Cache (algorithm may be LRU, LFU or a custom one)
+  \item all writing operations can be undone and redone
+\end{itemize}
+
+Using the database package, one uses the Database class to connect with a
+database and perform operations on it.
+
+\begin{listing}
+\begin{minted}{python}
+>>> from sunpy.net import vso
+>>> from sunpy.database import Database
+>>> database = Database('sqlite:///')
+>>> database.download(
+...     vso.attrs.Time((2011, 9, 20, 1), (2011, 9, 20, 2)),
+...     vso.attrs.Instrument('RHESSI'))
+>>> len(database)
+6
+\end{minted}
+\caption{Connecting to a database and adding new entries.}
+\label{code:db_1}
+\end{listing}
+
+In the code listing \ref{code:db_1}, a connection to new SQLite in-memory
+database is established. After that, the attributes from the \textsc{VSO}
+package are used to query the \textsc{VSO} and download the corresponding
+files. The function \texttt{len} can be used to get the number of all database
+records.
+
+Note that the number of new database entries does not depend on the
+number of files being downloaded but on the total number of \textsc{FITS}
+headers in the files! If the used query had been used to query the \textsc{VSO}
+directly, the number of query results would have been 2. You can see in the
+following code example, listing \ref{code:db_2}, that indeed the entries can
+be grouped to two results.
+
+The function \texttt{display\_entries} displays an iterable of database entries
+in a nicely-formatted \textsc{ASCII} table. The headlines correspond to the
+attributes of the respective database entries.
+
+\begin{listing}
+\begin{minted}{python}
+>>> from sunpy.database.tables import display_entries
+>>> print display_entries(
+...     database,
+...     ['id', 'observation_time_start', 'wavemin', 'wavemax', 'download_time'])
+id observation_time_start wavemin        wavemax           download_time             
+-- ---------------------- -------        -------           -------------             
+1  2011-09-20 01:09:20    0.413280643067 7.29318781883e-05 2014-01-18 19:21:35.525397
+2  2011-09-20 01:09:20    0.413280643067 7.29318781883e-05 2014-01-18 19:21:35.525469
+3  2011-09-20 01:09:20    0.413280643067 7.29318781883e-05 2014-01-18 19:21:35.525532
+4  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429665
+5  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429731
+6  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429792
+\end{minted}
+\caption{Displaying database entries in a table.}
+\label{code:db_2}
+\end{listing}
+
+As said before, the database can be used as a cache. By default, the size of
+the cache is not limited which in other words means that caching is disabled.
+To limit the number of database entries to a certain number a posteriori, use
+the method \texttt{set\_cache\_size} and pass it the number of maximum entries.
+The default algorithm to remove entries from the cache is \textsc{LRU}
+(least recently used), i.e. the item whose usage is farthest away is removed
+first.  % FIXME is 'whose' correct here? ^
+
+\begin{listing}
+\begin{minted}{python}
+>>> database.set_cache_size(3)
+>>> print display_entries(
+...     database,
+...     ['id', 'observation_time_start', 'wavemin', 'wavemax', 'download_time'])
+id observation_time_start wavemin        wavemax           download_time             
+-- ---------------------- -------        -------           -------------             
+4  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429665
+5  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429731
+6  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429792
+\end{minted}
+\caption{Displaying database entries in a table.}
+\label{code:db_3}
+\end{listing}
+
+In code listing \ref{code:db_3} the entries with the IDs \#1 -- \#3 have been
+removed because they have been added first and are therefore the entries that
+have been used least recently. To undo this operation, the \texttt{undo} method
+is used in code listing \ref{code:db_4} to add the 3 removed entries back to
+the database. The \texttt{redo} method removes them again.
+
+\begin{listing}
+\begin{minted}{python}
+>>> database.undo()
+>>> len(database)
+6
+>>> database.redo()
+>>> len(database)
+3
+\end{minted}
+\caption{Undoing and redoing operations.}
+\label{code:db_4}
+\end{listing}
+
+% TODO: 'clever fetching'

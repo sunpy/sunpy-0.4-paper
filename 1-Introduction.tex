@@ -1,22 +1,67 @@
 \section{Introduction}
-SunPy is a project dedicated to providing the tools to process and analyse 
-solar data in Python.
-The Python programming language has gained much traction as a scientific 
-programming language in the last decade.
-Projects such as \texttt{NumPy}, \texttt{SciPy}, \texttt{matplotlib} provide 
-the core tools needed for scientific analysis and visualisation, while other 
-packages such as pandas, Astropy or scikit-image provide more domain specific 
-functionality. SunPy aims to provide such domain specific functionality to the 
-solar physics community.
+Modern solar physics, similar to astrophysics, requires increasingly complex software 
+tools both for the retrieval as well as the analysis of data. The Sun is the most well-observed 
+star. As such, solar physics is unique in its ability to access large amounts of high 
+resolution ground- and space-based observations of the Sun at many different wavelengths 
+and spatial scales with high time cadence. Modern solar physics, similar to astrophysics, 
+therefore requires increasingly complex software tools, both for the retrieval and the 
+analysis of data. For example, NASA's Solar Dynamics Observatory (SDO) satellite records 
+over 1 TB of data per day all of which is telemetered to the ground and available for 
+analysis. As a result, scientists have to process large volumes of complex data products. 
+In order to make meaningful advances in solar physics, it is important for the software 
+tools to be standardized, easy to use, and transparent, so that the community can build 
+upon a common foundation.
 
-The goal of SunPy is to provide a clean, simple to use and well structured 
+Currently, most solar data analysis is performed with a large library of routines called 
+SolarSoft [SSW]. SolarSoft is a set of integrated software libraries, databases, and 
+system utilities which provide a common programming and data analysis environment for
+solar physics. It is overwhelmingly an environment which relies upon IDL (Interactive Data Language),
+a commercial and closed-source interactive data analysis environment sold by 
+Exelis a global aerospace, defense, information and services company. The SSW gen package
+provides the base analysis capabilities such as time series analysis, time conversions,
+spectral fitting, image display, and file I/O. It is composed of 89\% IDL code while the remainder
+is mostly perl (5.4\%) and csh scripts (3.8\%). According to data generated using 
+David A. Wheeler's 'SLOCCount', SSW/gen is composed of 289,724 lines of code with a total approximate
+value of \$10.4M (based on the Basic COCOMO model). 
+Individual missions and instruments provide additional optional packages. For example, 
+the SDO package is 100\% IDL code and is 11k lines of code (\$360k) and the SOHO package is
+100k lines of code (\$3M) and is 99.9\% IDL code. SSW is hosted and distributed by the 
+Lockheed Martin Solar and Astrophysics Laboratory.
+
+%The RHESSI package is 99.97\% IDL code and is 145k total lines of code (\$5M)
+
+While SSW is open-source and freely available, the IDL core is not. In addition, the development
+of SolarSoft is neither open nor transparent to the public. Also IDL is fairly limited in 
+its ability to interact with other languages. One of SunPy's key aims is to 
+provide a free and modern alternative to the SolarSoft (gen) library. This is made possible
+by the recent rise of the scientific Python community. Python is general purpose 
+high-level programming language. It is free to use, cross-platform, and has a strong
+emphasis on readability a concept which is well-aligned with the scientific endeavor.
+Python has a very large user community which extends far outside of the solar physics
+or astronomy communities. It is very extensible with C, C++, Fortran or even IDL. It is 
+easy to learn. Many books and on-line documentation is available. For example at the time
+of this writing a search on Amazon for books on IDL programming generated 189 results while a search
+for Python yielded 1,788 results. Additionally, students may already have learned Python during their 
+undergraduate which means that research projects can begin quickly without the need for 
+the student to learn a new (and relatively niche) language. Finally, knowledge of Python is a skill which is useful
+and well compensated outside of the scientific community (average salary of \$110k in Washington DC area according
+to indeed.com at the time of writing). Finally, the astronomy community has begun to
+move away from IDL to Python. For all of these reasons, Python is an ideal platform for
+the generation of solar physics data analysis environment.
+
+SunPy is built on top of the core scientific Python packages namely \texttt{NumPy}, \texttt{SciPy}, 
+\texttt{matplotlib}, and \texttt{Pandas}. As of the release 0.4, SunPy is also using the 
+newly release \texttt{Astropy} package (0.3). Leveraging all of these packages has allowed 
+the development of SunPy to provide many capabilities without much effort. The design
+philosophy of SunPy is to provide a clean, simple to use, and well structured 
 package that provides the \textit{core} tools for solar physics.
-The primary focus of SunPy's development is current providing specialised, 
+The primary focus of SunPy's development early development is to providing specialised, 
 linked, datatypes that allow the import, processing and visualisation of solar 
 data. Currently the datatypes implemented are \texttt{Map}, \texttt{LightCurve} 
 and \texttt{Spectrum}, these cover spatial, timeseries and spectral data 
 respectively.
 
-In this paper we will provide an overview of the current functionality of the 
-\texttt{sunpy} library as well as giving details on the development model and 
-community aspects of the SunPy project.
+The purpose of this paper is to provide an overview of SunPy's current capabilities, an 
+overview of the development model and community aspects of the SunPy project
+as well as future plans. The latest release of SunPy is available in 
+PyPI and can be installed in the usual manner.
