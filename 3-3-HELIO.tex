@@ -24,10 +24,10 @@ The current version of SunPy has includes an interface to access the
 \textit{HELIO Event Catalogue} (HEC) service developed as part of Google
 Summer of Code project in 2013.
 This service provides at the moment access to 84 catalogues from different
-sources (automated and manual classification, event lists from publications, \cdot).
+sources (automated and manual classification, event lists from publications, \ldots).
 HEC results (as the rest of HELIO services) provides the results in VOTable 
 data format (defined by IVOA \cite{ochsenbein_ivoa_2011})
-which the \textttt{astropy.io.votable} can interact with.
+which the \texttt{astropy.io.votable} can interact with.
 This format has the advantage of contain metadata with information like
 data provenance and the performed query.
 
@@ -48,9 +48,11 @@ Obtain from all the catalogues these which name contain our event of interest
 >>> catalogues = hc.get_table_names()
 >>> catalogues_event = [l[0] for l in catalogues if event_type in l[0]]
 >>> print catalogues_event
+******** This need to be added!
 
 Query all the catalogues that comes from cactus
->>> results = [hc.time_query(tstart, tend, event) for event in catalogues_event if 'cactus' in event]
+>>> results = [hc.time_query(tstart, tend, event) 
+...            for event in catalogues_event if 'cactus' in event]
 >>> print results
 ********** This need to be added!
 \end{minted}
