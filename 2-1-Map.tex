@@ -4,10 +4,13 @@ inner heliosphere. It provides a wrapper around a data array (\texttt{numpy}
 \texttt{ndarray}) and gives easy access to standard meta data in the header of 
 the image, via the \texttt{.meta} attribute as well as some convienience 
 properties for more standard meta data, \textit{i.e.} \texttt{.instrument}, 
-\texttt{.wavelength} or \texttt{.coordinate\_system}.
-The \texttt{Map} data type provides convenience methods for many functions 
+\texttt{.wavelength} or \texttt{.coordinate\_system}. Demonstrated in Listing 
+\ref{code:aia_1} is this meta data parsing and `pretty printing' of the Map.
+The \texttt{Map} object provides convenience methods for many functions 
 such as, rotation and re-sampling as well as convenience visualisation 
 functions, providing a easy to use as well as powerful interface.
+Listing \ref{code:aia_1} also demonstrates the quick plot functionality of 
+\texttt{Map}, see Section \ref{subsec:Viz} for more discussion of plotting.
 
 The design of the map submodule is such that each instrument or 
 detector can subclass the parent \texttt{GenericMap} class to implement 
@@ -22,10 +25,12 @@ following instruments: \textit{IRIS} SJI frames, \textit{SDO/AIA} and
 \textit{COR}, \textit{YOHKOH/SXT}, \textit{RHESSI}, \textit{PROBA2/SWAP} and 
 \textit{HINODE/XRT}.
 
-As can been seen in Listing \ref{code:aia_1} the map datatype parses header 
-information for many purposes including visualisation on correct physical axes 
-and limb plotting as well as making this information easily available to the 
-user.
+\texttt{GenericMap} is a subclass of \texttt{astropy.nddata.NDData} which is a 
+generic wrapper around a \texttt{ndarray} with a \texttt{.meta} attribute, like 
+\texttt{Map}. Having this inheritance structure with \texttt{astropy} provides 
+potential for simple integration with other parts of \texttt{astropy} and other 
+packages based on \texttt{astropy}, as \texttt{GenericMap} should form a 
+drop-in replacement for \texttt{NDData}.
 
 \begin{listing}[H]
 \begin{minted}{pycon}
