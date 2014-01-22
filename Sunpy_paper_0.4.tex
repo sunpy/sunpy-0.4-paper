@@ -1,7 +1,7 @@
 \documentclass[12pt]{iopart}
 
 \usepackage{minted}
-
+\usepackage{hyperref}
 %Uncomment next line if AMS fonts required
 %\usepackage{iopams}
 \usepackage{graphicx}
@@ -11,15 +11,14 @@
 
 \title{SunPy - Python for Solar Physics}
 
+\author{The SunPy Community}
+\address{\url{http://sunpy.org}}
+\ead{sunpy@googlegroups.com}
+
 \author{S J Mumford}
 \address{Solar Physics \& Space Plasma Research Centre (SP$^{2}$RC), School of 
 Mathematics and Statistics, The University of Sheffield, Hicks Building, 
 Hounsfield Road, Sheffield, S3 7RH U.K.}
-
-\author{J Bloggs}
-\address{Wibble wiblle wiblle}
-
-\ead{sunpy@googlegroups.com}
 
 \begin{abstract}
 This paper presents version 0.4 of SunPy a community developed Python package 
@@ -30,16 +29,22 @@ for solar physics.
 \maketitle
 
 \input{1-Introduction}
+\label{sec:Intro}
 
 \input{2-Data_Types}
+\label{sec:DataTypes}
 
 \input{3-Retrieval}
+\label{sec:retrevial}
 
 \input{4-Util}
+\label{sec:util}
 
 \input{5-Dev}
+\label{sec:dev}
 
 \input{6-Future}
+\label{sec:future}
 
 %%% References
 \bibliography{sunpy_paper_0.4}{}

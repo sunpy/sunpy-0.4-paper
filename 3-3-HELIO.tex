@@ -1,1 +1,25 @@
-\subsection{HELIO}
+\subsection{HELIO}\label{ssec:helio}
+
+The HELiophysics Integrated Observatory 
+(HELIO)\footnote{\url{http://helio-vo.eu}} has put together a list of web 
+services which allows the scientist to query them in order to discover data in 
+the heliosphere (\textit{e.g.}, solar, planetary, inter-planetary data, 
+...)\cite{dps2012}. 
+HELIO has been built with a Service-Oriented Architecture, 
+\textit{i.e.} HELIO capabilities are split into a number of tasks that are 
+implemented as separate services. 
+HELIO counts with up to nine different public services, which allows to the scientist to look up in different catalogues of registered events, features on the sun and data from instruments in the heliosphere. 
+Additionally, HELIO provides of a service that uses a propagation model to link the data in different points of the solar system by its original nature 
+(\textit{e.g.}, Earth auroras are a signature of magnetic field disturbances 
+produced few days before on the Sun).
+The main interface to acccess to HELIO is through its front-end\footnote{
+\url{http://hfe.helio-vo.eu}},
+but since the system is based in webservices they can be accessed from many different tools.
+
+The current version of Sunpy has implemented an interface to access the \textit{HELIO Event Catalogue} service.  
+HELIO results are provided as VOTable format\footnote{\bf{info about votables IVOAA standard!}} 
+which reader have been integrated within Astropy, this has an additional advantage of getting metadata with information as data provenance and the performed query.
+
+%example on how to use it
+
+%In the future, when the rest of services are implemented HELIO tools could interact with other services like database or data visualisation in a seemlessly way.
