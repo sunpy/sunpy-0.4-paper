@@ -85,23 +85,3 @@ the method \texttt{set\_cache\_size} and pass it the number of maximum entries.
 The default algorithm to remove entries from the cache is \textsc{LRU}
 (least recently used), i.e. the item whose usage is farthest away is removed
 first.  % FIXME is 'whose' correct here? ^
-
-\begin{listing}
-\begin{minted}{python}
->>> database.set_cache_size(3)
->>> print display_entries(
-...     database,
-...     ['id', 'observation_time_start', 'wavemin', 'wavemax', 'download_time'])
-id observation_time_start wavemin        wavemax           download_time             
--- ---------------------- -------        -------           -------------             
-4  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429665
-5  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429731
-6  2011-09-19 23:33:40    0.413280643067 7.29318781883e-05 2014-01-18 19:24:53.429792
-\end{minted}
-\caption{Displaying database entries in a table.}
-\label{code:db_3}
-\end{listing}
-
-In code listing \ref{code:db_3} the entries with the IDs \#1 -- \#3 have been
-removed because they have been added first and are therefore the entries that
-have been used least recently.
