@@ -37,7 +37,12 @@ not, the observer is assumed to be at Earth.
 
 
 \subsubsection{Sun}
-The purpose of this module is to provide solar-specific data
+The purpose of this module is to provide solar-specific data for example ephemeris and
+solar constants. The main namespace contains a number of functions which provide solar
+ephemeris such as sun to earth distance, solar cycle number, the mean anomaly, etc.
+All of these functions take a time as their input which can be provided in any parse_time
+compatible format. A future version of SunPy will integrate with the AstroPy coordinates package.
+
 
 \subsubsection{constants}
 The purpose of the constants package is to provide a number of solar-related 
