@@ -17,25 +17,26 @@ SunPy accesses this information through the \texttt{hek} module, which
 was developed through support from the European Space Agency Summer of
 Code in Space (ESA-SOCIS) 2011.  The \texttt{hek} module makes use of
 the HEK API
-(http://vso.stanford.edu/hekwiki/ApplicationProgrammingInterface?action=print).
+(\url{http://vso.stanford.edu/hekwiki/ApplicationProgrammingInterface?action=print}).
 Every event type has required and optional properties; the current
 list of events maintained by the HEK and their properties can be found
-at http://www.lmsal.com/hek/VOEvent_Spec.html.
+at \url{http://www.lmsal.com/hek/VOEvent_Spec.html}.
 
 Simple HEK queries consist of start time, an end time, and an event
 type (Example \ref{code:hek:simple}). Times can be specified in any
 SunPy-acceptable format. Event types are specified as upper case, two
 letter strings, and are identical to the two letter abbreviations
-found at the HEK website, http://www.lmsal.com/hek/VOEvent_Spec.html.
+found at the HEK website, \url{http://www.lmsal.com/hek/VOEvent_Spec.html}.
 
-\begin{listing}
+\begin{listing}[H]
 \begin{minted}{python}
 from sunpy.net import hek
 client = hek.HEKClient()
 tstart = '2011/08/09 07:23:56'
 tend = '2011/08/09 12:40:29'
-event_type = 'FL'
-result = client.query(hek.attrs.Time(tstart,tend), hek.attrs.EventType(event_type))
+event\_type = 'FL'
+result = client.query(hek.attrs.Time(tstart,tend), 
+hek.attrs.EventType(event\_type))
 \end{minted}
 \caption{Simple HEK query, returning 19 entries.}
 \label{code:hek:simple}
@@ -55,9 +56,10 @@ above, the HEK stores feature/event metadata obtained in different
 ways, known generally as {\it feature recognition methods}, or FRMs.
 Example \ref{code:hek:frm} filters the results of the previous result
 to return only those events that have the FRM 'SSW Latest Events'.
-\begin{listing}
+\begin{listing}[H]
 \begin{minted}{python}
-result = client.query(hek.attrs.Time(tstart,tend), hek.attrs.EventType(event_type), hek.attrs.FRM.Name == 'SSW Latest Events')
+result = client.query(hek.attrs.Time(tstart,tend), 
+hek.attrs.EventType(event\_type), hek.attrs.FRM.Name == 'SSW Latest Events')
 \end{minted}
 \caption{An HEK query that returns only those flares that were
   detected by the 'SSW Latest Events' feature recognition method.}
@@ -71,14 +73,17 @@ and OR. This makes complex queries easy to create: example
 \ref{code:hek:or} returns flares west of 50 arcseconds or those that
 have a peak flux above 1000.0 (the units of the flux are FRM dependent
 and are described at the HEK website).
-\begin{listing}
+\begin{listing}[H]
 \begin{minted}{python}
-result = client.query(hek.attrs.Time(tstart,tend), hek.attrs.EventType(event_type), (hek.attrs.Event.Coord1 > 50) or (hek.attrs.FL.PeakFlux > 1000.0) )
+result = client.query(hek.attrs.Time(tstart,tend), 
+hek.attrs.EventType(event\_type), (hek.attrs.Event.Coord1 > 50) or 
+(hek.attrs.FL.PeakFlux > 1000.0) )
+\end{minted}
 \caption{HEK query using the 'or' operator.}
 \label{code:hek:or}
 \end{listing}
 All FRMs report the required feature attributes (as described at
-http://www.lmsal.com/hek/VOEvent_Spec.html), but the optional
+\url{http://www.lmsal.com/hek/VOEvent_Spec.html}), but the optional
 attributes are FRM dependent.  If a FRM does not have one of the
 optional attribute, a 'None' is returned by the \texttt{hek} module.
 

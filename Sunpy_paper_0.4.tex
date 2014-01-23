@@ -1,12 +1,13 @@
 \documentclass[12pt]{iopart}
 
+\usepackage{natbib}
 \usepackage{minted}
 \usepackage{hyperref}
 %Uncomment next line if AMS fonts required
 %\usepackage{iopams}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
-
+\newcommand*{\newblock}{Bibliography}
 \begin{document}
 
 \title{SunPy - Python for Solar Physics}
@@ -15,10 +16,7 @@
 \address{\url{http://sunpy.org}}
 \ead{sunpy@googlegroups.com}
 
-\author{The SunPy Collaboration}
-\address{}
-
-\author{S J Mumford}
+\author{Stuart J Mumford}
 \address{Solar Physics \& Space Plasma Research Centre (SP$^{2}$RC), School of 
 Mathematics and Statistics, The University of Sheffield, Hicks Building, 
 Hounsfield Road, Sheffield, S3 7RH U.K.}
@@ -54,9 +52,8 @@ for solar physics.
 
 \section{Conclusion}
 
-\section*{Bibliography}
 %%% References
-\bibliographystyle{plainnat}
+\bibliographystyle{stunat}
 \bibliography{Sunpy_paper_0.4}{}
 
 \end{document}

@@ -20,7 +20,7 @@ $\rightarrow$ measurement, where '$\rightarrow$' means 'provides
 can be found through the code snippet, Example
 \ref{code:hv:datasources}.
 
-\begin{listing}
+\begin{listing}[H]
 \begin{minted}{python}
 from sunpy.net.helioviewer import HelioviewerClient
 
@@ -52,7 +52,7 @@ Example \ref{code:hv:downloadlatestpng} demonstrates how to download a
 PNG image of the latest AIA 304\AA\ image available on
 Helioviewer.org.
 
-\begin{listing}
+\begin{listing}[H]
 \begin{minted}{python}
 hv.download_png('2099/01/01', 4.8, "[SDO,AIA,AIA,304,1,100]", x0=0, y0=0,
  width=512, height=512)
@@ -96,7 +96,7 @@ file.  SunPy accesses this overlay/composition capability through the
 \ref{code:hv:overlaid} gives an example of the composition of three
 separate images in to a single image.
 
-\begin{listing}
+\begin{listing}[H]
 \begin{minted}{python}
 hv.download_png('2099/01/01', 6, 
 "[SDO,AIA,AIA,304,1,100],[SDO,AIA,AIA,193,1,50], \
@@ -139,7 +139,7 @@ object.  This functionality allows users to visualize and manipulate
 Helioviewer-supplied image data in an identical fashion to a SunPy map
 object generated from FITS data (see Section \ref{sec:maps}).
 
-\begin{listing}
+\begin{listing}[H]
 \begin{minted}{python}
 filepath = hv.download_jp2('2012/07/05 00:30:00', observatory='SDO',
  instrument='HMI', detector='HMI', measurement='continuum')

@@ -1,28 +1,49 @@
 \section{Future of SunPy}
-SunPy as a project has existed for roughly three years. In this time the code 
-base has grown to over 110,000 lines. SunPy in it's current form is a useful 
-package for the analysis of calibrated solar data, however, the code base is 
+SunPy as a project has existed for roughly three years. In this time 
+the code 
+base has grown to over 110,000 lines. SunPy in it's current form is a 
+useful 
+package for the analysis of calibrated solar data, however, the code 
+base is 
 still very changeable from release to release.
 
 As discussed in Section \ref{sec:Intro}, the primary focus of the 
-\texttt{sunpy} library is the analysis and visualisation of `high level' solar 
-data. This means data that has been put through instrument processing and 
-calibration routines, and contains full (WCS) coordinate information. The 
-development plan for SunPy is to continue development within this scope. The 
-primary components of this plan are to provide a set of data types that are 
-interchangeable with one another, \textit{i.e.} if you slice a \texttt{MapCube} 
-along one coordinate a \texttt{LightCurve} of intensity along the time range of 
-the \texttt{MapCube} should be returned. To achieve this goal all the data 
-types need to share a unified coordinate system architecture so that each data 
-type is aware of what the physical type of it's data is and how operations on 
+\texttt{sunpy} library is the analysis and visualisation of `high 
+level' solar 
+data. This means data that has been put through instrument processing 
+and 
+calibration routines, and contains full (WCS) coordinate information. 
+The 
+development plan for SunPy is to continue development within this 
+scope. The 
+primary components of this plan are to provide a set of data types 
+that are 
+interchangeable with one another, \textit{i.e.} if you slice a 
+\texttt{MapCube} 
+along one coordinate a \texttt{LightCurve} of intensity along the 
+time range of 
+the \texttt{MapCube} should be returned. To achieve this goal all the 
+data 
+types need to share a unified coordinate system architecture so that 
+each data 
+type is aware of what the physical type of it's data is and how 
+operations on 
 that data should be performed.
 
-In concert with the work on the data types further integration with the 
-\texttt{astropy} package will enable SunPy to inherit the large amounts of work 
-done in that project to support a platform for astronomical data analysis. For 
-example the \texttt{astropy.units} submodule provides a simple and efficient 
-way of representing physical units in Python data types, there are plans to 
-incorporate this widely in the SunPy code-base. In the past 12 months the 
-collaboration with the Astropy project \cite{theastropycollaboration2013} and 
-it's community has grown, this direct collaboration between Astropy and 
+In concert with the work on the data types further integration with 
+the 
+\texttt{astropy} package will enable SunPy to inherit the large 
+amounts of work 
+done in that project to support a platform for astronomical data 
+analysis. For 
+example the \texttt{astropy.units} submodule provides a simple and 
+efficient 
+way of representing physical units in Python data types, there are 
+plans to 
+incorporate this widely in the SunPy code-base. In the past 12 months 
+the 
+collaboration with the Astropy project 
+\citep{theastropycollaboration2013} and 
+it's community has grown, this direct collaboration between Astropy 
+and 
 SunPy will be one of the key strengths of SunPy going forward.
