@@ -1,27 +1,46 @@
 \section{Core Data Types}
 One of the primary focus' of the SunPy library is to provide data structures 
-that are 
-specifically designed for the various types of data generally processed for 
-solar physics. Currently \texttt{SunPy} provides three datatypes, each separate 
-from one another to process 2D spatial data (Map), 1D temporal series 
-(LightCurve) and 1 and 2D spectra (Spectrum and Spectra).
+that are specifically designed for the various types of data generally 
+processed for solar physics. Currently SunPy provides three data 
+types, each separate from one another to process 2D spatial data 
+(\texttt{Map}), 1D temporal series (\texttt{LightCurve}) and 1 and 2D spectra 
+(\texttt{Spectrum} and \texttt{Spectra}).
+
+The design of SunPy's core data types is as a wrapper around a data object, 
+either a \texttt{numpy} \texttt{ndarray} or a \texttt{pandas} 
+\texttt{DataFrame}, for \texttt{Map} and \texttt{Spectra} and 
+\texttt{LightCurve} respectively. Each data type has a \texttt{.data} 
+attribute where this data object is located and some meta data. It is 
+possible to instantiate the data types from various different 
+sources, \textit{e.g.} files, urls, arrays or time ranges. The 
+specific sources supported is dependant upon which data type and 
+which instrument. All the SunPy data types support specialisation on 
+a per-instrument basis, \textit{i.e.} \texttt{Map} has a 
+\texttt{AIAMap} sub-type. This design allows simple extensions to 
+cope with the diversity of data from different sources in solar 
+physics. As well as support for different instruments and data 
+sources each data type supports different visualisation wrappers that 
+allow both quick view plotting (the peek command) and more 
+fine-grained control plotting that integrates well with 
+\texttt{matplotlib} (the plot command).
 
 This section will give a brief overview of the \textit{current} functionality 
-of each of these modules and then describe the development plan for future 
-improvements to these submodules.
+of each of these modules.
 
 \input{2-1-Map}
 \input{2-2-Lightcurve}
 \input{2-3-Spectra}
 
 \subsection{Visualisation}
-As has been demonstrated in this section, the core SunPy datatypes include 
-visualisation code that is specialised to that data type. These visualisation 
-methods all currently utilise the matplotlib package, and are designed in such 
-a way that they integrate well with the pyplot functional interface of 
-matplotlib, as demonstrated in Listing \ref{code:mpl_1}.
+\label{subsec:Viz}
+As has been demonstrated in this section, the core SunPy datatypes 
+include visualisation code that is specialised to that data type. 
+These visualisation methods all currently utilise the matplotlib 
+package, and are designed in such a way that they integrate well with 
+the pyplot functional interface of matplotlib, as demonstrated in 
+Listing \ref{code:mpl_1}.
 
-\begin{listing}[h]
+\begin{listing}[H]
 \begin{minipage}{0.49\columnwidth}
 \begin{minted}{python}
 import sunpy.map
@@ -73,7 +92,17 @@ behaviour to matplotlib's pyplot interface.}
 \label{code:mpl_1}
 \end{listing}
 
-This design philosophy makes the behaviour of SunPy's visualisation routines 
-intuitive to those who already understand how matplotlib's interface is 
-designed as well as allowing the use of the standard matplotlib commands to 
-change the plot, \textit{e.g.} set the title.
+This design philosophy makes the behaviour of SunPy's visualisation 
+routines intuitive to those who already understand how matplotlib's 
+interface is designed as well as allowing the use of the standard 
+matplotlib commands to change the plot, \textit{e.g.} set the title. 
+More technically what is done in the plotting routines is firstly, to 
+make sure that the current state of the figure and axes is mantined 
+in the same way as it is inside the \texttt{pyplot} functions. For 
+\texttt{Map} this means setting \texttt{pyplot.sci()} or set current 
+image, so that \texttt{plt.colorbar()} 
+automatically detects the plotted \texttt{AxesImage} object. 
+Secondly, it also means returning the same type of object as the 
+\texttt{pyplot} interfaces function, \textit{i.e.} for \texttt{Map} 
+it returns the \texttt{AxesImage} instance which is the same type of 
+return as \texttt{pyplot.imshow}.
