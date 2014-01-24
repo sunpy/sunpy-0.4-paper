@@ -2,48 +2,69 @@
 SunPy is meant to provide a consistent environment for solar data analysis. In 
 order to achieve this goal SunPy provides a number of utility functions which 
 are used by the other SunPy modules and are made available to the user. Two 
-modules are described in this Section, namely, solar coordinates (coords), and 
+modules are described in this Section, namely, solar coordinates (wcs), and 
 the Sun module (sun). 
 	
-\subsection{Coordinates}
+\subsection{WCS Coordinates}
 Coordinate transformations are frequently a necessary task within the solar 
 data analysis workflow. Likely the most often used transformation is from 
 observer coordinates (e.g. sky coordinates) to a coordinate system which is 
 mapped onto the solar surface (e.g. latitude and longitude). This 
 transformation is necessary to compare the true physical distance between 
 different solar features. This type of transformation is not unique
-to solar observations (e.g. planetary) but it is not provided by the Astropy 
-coordinates package. The coordinates package implements the World Coordinate 
-System (WCS) for solarcoordinates as described by \cite{Thompson2000}. The 
-coordinate system transformations currently implemented as those most useful 
+to solar observations (e.g. planetary) but is not often considered by astronomical packages
+such as the Astropy 
+coordinates package. The wcs package implements the World Coordinate 
+System (WCS) for solar coordinates as described by \cite{Thompson2000}. The 
+coordinate system transformations currently implemented are those most useful 
 for most solar data analysis, namely converting from Helioprojective-Cartesian 
-(HPC) to Heliographic coordinates (HG). HPC which describes the positions on 
+(HPC) to Heliographic coordinates (HG). HPC describes the positions on 
 the Sun as angles measured from the center of the solar disk (usually in 
-arcseconds) using cartesian coordinates (X, Y) This is the coordinates 
+arcseconds) using cartesian coordinates (X, Y). This is the coordinates 
 most often defined in solar image data (e.g. SDO/AIA images, SOHO/EIT, TRACE). 
 HG coordinates express positions on the Sun using longitude and latitude on 
-the 
-solar sphere. There are two standards for this coordinate system, 
+the solar sphere. There are two standards for this coordinate system, 
 Stonyhurst-Heliographic where the origin is at the intersection of the solar 
 equator and the central meridian as seen from Earth and 
-Carrington-Heliographic 
-is a system which is fixed to the Sun and does not depend on Earth. The 
-implementation of these transformations pass through common coordinate system 
+Carrington-Heliographic is a system which is fixed to the Sun and does not depend on Earth. The 
+implementation of these transformations pass through a common coordinate system 
 called Heliocentric-Cartesian (HCC) where positions are expressed in true 
 (deprojected) physical distances instead of angles on the celestial sphere.
 These transformations require some knowledge of the location of the observer 
-which is usually provided by the image header information. In case where it is 
-not, the observer is assumed to be at Earth.
+which is usually provided by the image header . In case where it is 
+not, the observer is assumed to be at Earth. An example of the 
 
+\begin{listing}[H]
+\begin{minted}{pycon}
+>>> from sunpy import wcs
+Find the helioprojective coordinate of a given longitude and latitude on the Sun
+>>> wcs.convert_hg_hpc(10,53)
+(100.49244115330731, 767.97438321917502)
+Convert that position back to heliographic coordinates
+>>> wcs.convert_hpc_hg(100.49, 767.97)
+(9.9996521808465175, 52.999563684874893)
+Try to convert a position which is not on the Sun to heliographic coordinates
+>>> wcs.convert_hpc_hg(-1500,0)
+sunpy/wcs/wcs.py:180: RuntimeWarning: invalid value encountered in sqrt
+  distance = q - np.sqrt(distance)
+(nan, nan)
+Convert sky coordinate to a position on the Sun in cartesian coordinates (HCC)
+>>> wcs.convert_hpc_hcc(-300,400, z = True)
+(-216716967.63331246, 288956420.9477042, 594364636.2208252)
+\end{minted}
+\caption{Using the sunpy.wcs sub-package.}
+\label{code:wcs_code}
+\end{listing}
 
 \subsubsection{Sun}
 The purpose of this module is to provide solar-specific data for example ephemeris and
 solar constants. The main namespace contains a number of functions which provide solar
-ephemeris such as sun to earth distance, solar cycle number, the mean anomaly, etc.
+ephemeris such as the sun to earth distance, solar cycle number, the mean anomaly, etc.
 All of these functions take a time as their input which can be provided in any 
 parse\_time
-compatible format. A future version of SunPy will integrate with the AstroPy coordinates package.
-
+compatible format. 
+A future version of SunPy will integrate with the AstroPy coordinates package and will 
+likely make use of an ephemeris package.
 
 \subsubsection{constants}
 The purpose of the constants package is to provide a number of solar-related 
@@ -56,11 +77,11 @@ Astropy's Quantities, any solar constant can easily be converted between
 different units as can be seen in Figure~\ref{fig:constants_code} as well
 as between SI or cgs with a single command.  As these objects inherit from 
 Numpy's ndarray, they work well with standard representations of numbers.
-For convenience a number shortcuts to frequently used constants are provided 
+For convenience a number of shortcuts to frequently used constants are provided 
 directly when importing the sub-package. A larger list of constants can be 
 accessed through an interface modelled on that provided by the SciPy constants 
 package and are available as a dictionary called \texttt{physical\_constants}. 
-To view all quickly a \texttt{print\_all()} function is available.
+To view them all quickly a \texttt{print\_all()} function is available.
 
 \begin{listing}[H]
 \begin{minted}{pycon}
@@ -81,7 +102,7 @@ Check to see if the age of the Sun is available and grab the unit and value sepa
 >>> sun.value('age'), sun.unit('age')
 
 \end{minted}
-\caption{Using sunpy.sun.constants sub-package.}
+\caption{Using the sunpy.sun.constants sub-package.}
 \label{code:constants_code}
 \end{listing}
 	
