@@ -3,29 +3,54 @@
 The database package has been added as a Google Summer of Code (GSoC) project
 in 2013. Its purpose is to offer a database interface to store and manage data
 that has been retrieved via packages from the net package. Note that currently
-only the VSO package is supported, not the HEK package.
+only the \textsc{VSO} package is supported, not the HEK package. It is also
+possible to add entries by file or directory which is especially useful when
+\textsc{FITS} files already exist on the user's local hard drive. This
+facilitates the transition to using the database package for users who have
+been using the \textsc{VSO} package isolated before.
 
-The need for a database package arose because using VSO alone led to two major
-problems:
+The need for a database package arose because using \textsc{VSO} alone led to
+two major problems:
+
 \begin{enumerate}
   \item downloaded data cannot be queried or browsed
   \item to fetch data that has already been saved on the local hard drive,
     the VSO has to be queried again
 \end{enumerate}
 
-Here is a list of the main features:
-\begin{itemize}
-  \item detects if certain query has already been used before and queries
-    the database then instead of the VSO
-  % TODO: reference to SA docs? or list all currently supported SQL dialects here?
-  \item many supported SQL dialects
-  % TODO: footnotes for LRU/LFU or some explanation in parens behind them?
-  \item database may act as a Cache (algorithm may be LRU, LFU or a custom one)
-  \item all writing operations can be undone and redone
-\end{itemize}
+Because the Python library SQLAlchemy\footnote{\url{http://www.sqlalchemy.org}}
+is used, many SQL dialects are supported. Using a file-based SQLite database
+has the advantage of being easy to set up (the file will be created
+automatically, so the user doesn't have to configure anything beforehand).
+It is also handy to be passed around because all the database entries are just
+in one single file. A server-based database, on the other hand, is the better
+option for collaborative teams who work together from different machines on the
+same data: a central database server stores all data and the clients connect to
+it to read or write data.
 
-Using the database package, one uses the Database class to connect with a
-database and perform operations on it.
+Each database is a cache with a certain size limit (the size is determined by
+the number of saved database entries). If no cache size is given, it is per
+default $\infty$, which in practice means that caching is disabled then. There
+are two builtin caching algorithm to choose from (LRU\footnote{Least Recently
+Used}, LFU\footnote{Least Frequently Used}) but it's also possible to implement
+a custom algorithm.
+
+To solve the second problem that was mentioned above, the database saves all
+queries which have been sent to the \textsc{VSO} to add new entries. If a query
+has already been used once and the \texttt{fetch} method of the \texttt{Database}
+class is called, the database is queried instead of the \textsc{VSO}. This
+reduces bandwidth and is especially advantageous if there are big files behind
+the query or if the query results in a big list of files.
+
+A very special feature of the database package is the support to \texttt{undo}
+and \texttt{redo} all writing operations. This is particularly convenient in
+interactive sessions of the Python interpreter to revert accidental operations
+easily. But looking ahead, this feature will also be desired when creating a
+frontend for this package, for example a graphical user interface
+(\textsc{GUI}).
+
+Using the database package, one uses the \texttt{Database} class to connect
+with a database and perform operations on it.
 
 \begin{listing}
 \begin{minted}{python}
@@ -53,7 +78,9 @@ number of files being downloaded but on the total number of \textsc{FITS}
 headers in the files! If the used query had been used to query the \textsc{VSO}
 directly, the number of query results would have been 2. You can see in the
 following code example, listing \ref{code:db_2}, that indeed the entries can
-be grouped to two results.
+be grouped to two results. The reason for six entries in the database is that
+these RHESSI files have three headers each in this case, so the total number of
+FITS headers is $2 \times 3 = 6$ headers.
 
 The function \texttt{display\_entries} displays an iterable of database entries
 in a nicely-formatted \textsc{ASCII} table. The headlines correspond to the
@@ -77,11 +104,3 @@ id observation_time_start wavemin        wavemax           download_time
 \caption{Displaying database entries in a table.}
 \label{code:db_2}
 \end{listing}
-
-As said before, the database can be used as a cache. By default, the size of
-the cache is not limited which in other words means that caching is disabled.
-To limit the number of database entries to a certain number a posteriori, use
-the method \texttt{set\_cache\_size} and pass it the number of maximum entries.
-The default algorithm to remove entries from the cache is \textsc{LRU}
-(least recently used), i.e. the item whose usage is farthest away is removed
-first.  % FIXME is 'whose' correct here? ^
