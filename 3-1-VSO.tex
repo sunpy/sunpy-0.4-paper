@@ -24,7 +24,7 @@ Listing~\ref{code:vso_query} shows few examples of queries made using
 such attributes.
 
 \begin{listing}[h]
-\begin{minted}{pycon}
+\begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net import vso
 >>> client=vso.VSOClient()
 >>> tstart, tend = '2011/6/7 05:30', '2011/6/7 10:30'
@@ -68,7 +68,7 @@ Listing~\ref{code:vso_down} exemplifies such case.
 
 
 \begin{listing}[h]
-\begin{minted}{pycon}
+\begin{minted}[bgcolor=bg]{pycon}
 >>> pathformat = '/data/{instrument}/{detector}/{file}.fits'
 >>> results = client.get(coronographs, 
 ...                      path = pathformat)
