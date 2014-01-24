@@ -4,22 +4,21 @@ that are specifically designed for the various types of data generally
 processed for solar physics. Currently SunPy provides three data 
 types, each separate from one another to process 2D spatial data 
 (\texttt{Map}), 1D temporal series (\texttt{LightCurve}) and 1 and 2D spectra 
-(\texttt{Spectrum} and \texttt{Spectra}).
+(\texttt{Spectrum} and \texttt{Spectrogram}).
 
 The design of SunPy's core data types is as a wrapper around a data object, 
-either a \texttt{numpy} \texttt{ndarray} or a \texttt{pandas} 
-\texttt{DataFrame}, for \texttt{Map} and \texttt{Spectra} and 
-\texttt{LightCurve} respectively. Each data type has a \texttt{.data} 
+either a \texttt{numpy} \texttt{ndarray} -- for \texttt{Map} and \texttt{Spectra} -- or a \texttt{pandas} \texttt{DataFrame} -- for \texttt{LightCurve}.
+ Each data type has a \texttt{.data} 
 attribute where this data object is located and some meta data. It is 
 possible to instantiate the data types from various different 
 sources, \textit{e.g.} files, urls, arrays or time ranges. The 
 specific sources supported is dependant upon which data type and 
 which instrument. All the SunPy data types support specialisation on 
-a per-instrument basis, \textit{i.e.} \texttt{Map} has a 
+a per-instrument basis, \textit{i.e.} \texttt{Map} has an 
 \texttt{AIAMap} sub-type. This design allows simple extensions to 
 cope with the diversity of data from different sources in solar 
 physics. As well as support for different instruments and data 
-sources each data type supports different visualisation wrappers that 
+sources each data type provides different visualisation wrappers that 
 allow both quick view plotting (the peek command) and more 
 fine-grained control plotting that integrates well with 
 \texttt{matplotlib} (the plot command).
