@@ -1,27 +1,29 @@
-\section{Utilities}
+\section{Additional functionality}
 SunPy is meant to provide a consistent environment for solar data analysis. In 
-order to achieve this goal SunPy provides a number of utility functions which 
-are used by the other SunPy modules and are made available to the user. Two 
-modules are described in this Section, namely, solar coordinates (wcs), and 
-the Sun module (sun). 
+order to achieve this goal SunPy provides a number of utility functions and packages which 
+are used by the other SunPy modules and are made available to the user. This section 
+briefly describes some of these functions.
+
+%Two modules are described in this Section, namely, solar coordinates (WCS), and 
+%the Sun module. 
 	
-\subsection{WCS Coordinates}
+\subsection{World Coordinate System (WCS) Coordinates}
 Coordinate transformations are frequently a necessary task within the solar 
 data analysis workflow. Likely the most often used transformation is from 
 observer coordinates (e.g. sky coordinates) to a coordinate system which is 
 mapped onto the solar surface (e.g. latitude and longitude). This 
 transformation is necessary to compare the true physical distance between 
 different solar features. This type of transformation is not unique
-to solar observations (e.g. planetary) but is not often considered by astronomical packages
+to solar observations, but is not often considered by astronomical packages
 such as the Astropy 
-coordinates package. The wcs package implements the World Coordinate 
+coordinates package. The \verb|wcs| package in SunPy implements the World Coordinate 
 System (WCS) for solar coordinates as described by \cite{Thompson2000}. The 
-coordinate system transformations currently implemented are those most useful 
+transformations currently implemented are those most useful 
 for most solar data analysis, namely converting from Helioprojective-Cartesian 
 (HPC) to Heliographic coordinates (HG). HPC describes the positions on 
 the Sun as angles measured from the center of the solar disk (usually in 
-arcseconds) using cartesian coordinates (X, Y). This is the coordinates 
-most often defined in solar image data (e.g. SDO/AIA images, SOHO/EIT, TRACE). 
+arcseconds) using cartesian coordinates (X, Y). This is the coordinate system 
+most often defined in solar imaging data (see for example, images from SDO/AIA, SOHO/EIT, and TRACE). 
 HG coordinates express positions on the Sun using longitude and latitude on 
 the solar sphere. There are two standards for this coordinate system, 
 Stonyhurst-Heliographic where the origin is at the intersection of the solar 
@@ -31,8 +33,8 @@ implementation of these transformations pass through a common coordinate system
 called Heliocentric-Cartesian (HCC) where positions are expressed in true 
 (deprojected) physical distances instead of angles on the celestial sphere.
 These transformations require some knowledge of the location of the observer 
-which is usually provided by the image header . In case where it is 
-not, the observer is assumed to be at Earth. An example of the 
+which is usually provided by the image header. In the case where it is 
+not, the observer is assumed to be at Earth.Listing \ref{code:wcs_code} shows some examples of coordinate transforms carried out in SunPy using the \verb|wcs| utilities. 
 
 \begin{listing}[H]
 \begin{minted}{pycon}
