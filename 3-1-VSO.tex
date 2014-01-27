@@ -13,11 +13,13 @@ SunPy's \texttt{vso} module accesses the VSO via the SOAP service using the
 \texttt{suds} package.
 This module was developed under the ESA's Summer of Code programme of 2011.
 
-Listing~\ref{code:vso_query} shows a number of examples of how to make queries
+Listing~\ref{code:vso_query_simple} shows an example of how to query the VSO
 using the \texttt{vso} module.
 Each query is constructed by one or more attributes objects, where each
 attribute object is a constraint on a parameter of the data set, such as the
 time, instrument, wavelength, or  other properties.
+Listing~\ref{code:vso_query_advanced} shows examples of how to make advanced
+queries by combining attribute objects.
 Two attribute objects can be combined with a logical \texttt{or} operation
 using the ``$|$'' operator.
 All attribute objects provided to the query as keyword arguments are combined
@@ -27,35 +29,38 @@ with a logical \texttt{and} operation.
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net import vso
 >>> client = vso.VSOClient()
->>> tstart, tend = '2011/6/7 05:30', '2011/6/7 05:45'
-
-Querying a single instrument over a time range
+>>> tstart, tend = '2011/6/7 05:30', '2011/6/7 10:30'
 >>> lasco_query = client.query(vso.attrs.Time(tstart, tend),
 ...                            vso.attrs.Instrument('lasco'))
 >>> lasco_query.num_records()
-2
+40
 >>> lasco_query.show() 
 Start time           End time             Source  Instrument  Type
 ----------           --------             ------  ----------  ----
 2011-06-07 05:35:23  2011-06-07 05:35:48  SOHO    LASCO       CORONA
 2011-06-07 05:43:09  2011-06-07 05:43:29  SOHO    LASCO       CORONA
+...
+\end{minted}
+\caption{Example of querying a single instrument over a time range.}
+\label{code:vso_query_simple}
+\end{listing}
 
+\begin{listing}[h]
+\begin{minted}[bgcolor=bg]{pycon}
 Querying multiple instruments/missions over the same time range
 >>> instrument_condition = ( vso.attrs.Instrument('lasco') |
 ...                          vso.attrs.Detector('cor1') )
 >>> coronagraphs = client.query(vso.attrs.Time(tstart, tend),
 ...                             instrument_condition)
 >>> coronagraphs.num_records()
-30
->>> coronographs.show() 
+485
+>>> coronagraphs.show()
 Start time           End time             Source    Instrument  Type
 ----------           --------             ------    ----------  ----
 2011-06-07 05:35:23  2011-06-07 05:35:48  SOHO      LASCO       CORONA
-2011-06-07 05:43:09  2011-06-07 05:43:29  SOHO      LASCO       CORONA
-2011-06-07 05:30:00  2011-06-07 05:30:01  STEREO_A  SECCHI      CORONA
 ...
-2011-06-07 05:43:13  2011-06-07 05:43:15  STEREO_B  SECCHI      CORONA
-2011-06-07 05:45:00  2011-06-07 05:45:01  STEREO_A  SECCHI      CORONA
+2011-06-07 10:25:43  2011-06-07 10:25:45  STEREO_B  SECCHI      CORONA
+2011-06-07 10:30:00  2011-06-07 10:30:01  STEREO_A  SECCHI      CORONA
 
 Querying two wavelength ranges over the same time range
 >>> wavelength_condition = ( vso.attrs.Wave(125, 135) |
@@ -63,7 +68,7 @@ Querying two wavelength ranges over the same time range
 >>> euv = client.query(vso.attrs.Time(tstart, tend),
 ...                    wavelength_condition)
 >>> euv.num_records()
-199
+3989
 >>> euv.show()
 Start time           End time             Source    Instrument  Type
 ----------           --------             ------    ----------  ----
@@ -71,10 +76,11 @@ Start time           End time             Source    Instrument  Type
 ...
 2011-06-07 05:31:09  2011-06-07 05:31:19  PROBA2    SWAP        FULLSUN
 ...
-2011-06-07 05:45:00  2011-06-07 05:45:01  SDO       AIA         FULLDISK
+2011-06-07 10:30:00  2011-06-07 10:30:01  SDO       AIA         FULLDISK
 \end{minted}
-\caption{Examples of different VSO queries using attribute objects.}
-\label{code:vso_query}
+\caption{Examples of advanced VSO queries using attribute objects,
+continuing from listing~\ref{code:vso_query_simple}.}
+\label{code:vso_query_advanced}
 \end{listing}
 
 Listing~\ref{code:vso_down} shows how to download the data using the result
@@ -88,7 +94,7 @@ instrument names.
 >>> pathformat = '/data/{instrument}/{detector}/{file}.fits'
 >>> results = client.get(coronagraphs, path = pathformat)
 \end{minted}
-\caption{Example of how to download data using a query result (see
-listing~\ref{code:vso_query}).}
+\caption{Example of how to download data using a query result, continuing from
+listing~\ref{code:vso_query_advanced}).}
 \label{code:vso_down}
 \end{listing}
