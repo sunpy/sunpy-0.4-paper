@@ -1,26 +1,27 @@
 \section{Core Data Types}
-The primary focus of the SunPy package is to provide data structures 
-that are specifically designed for the various types of solar physics data, namely
-images, time series, and spectra. SunPy provides three data core
-objects to support these data types, 2D spatial data 
-(\texttt{Map}), 1D temporal series (\texttt{LightCurve}) and 1 and 2D spectra 
-(\texttt{Spectrum} and \texttt{Spectrogram}).
+The primary focus of SunPy is to provide data structures 
+that are specifically designed for the various kinds of solar physics data, namely
+images, time series, and spectra. SunPy provides three core data
+types using Python classes:
+\texttt{Map} (2D spatial data),
+\texttt{LightCurve} (1D temporal series)
+and \texttt{Spectrum}/\texttt{Spectrogram} (1 and 2D spectra). 
 
-The philosophy of these objects is that they should provide a access to the original data
-along with associated meta data and provide appropriate convenience functions to
-enable data analysis and visualization. For all core data types, the data is stored in 
-stored in the \texttt{.data}) attribute while the meta data is stored 
+The classes provide access to the original data
+along with associated metadata and provide appropriate convenience functions to
+enable data analysis and visualization. For each of these classes, the data is
+stored in the \texttt{.data} attribute while the metadata is stored 
 in the \texttt{.meta} attribute. It is 
 possible to instantiate the data types from various different 
-sources, \textit{e.g.} files, urls, arrays or time ranges.  In order to provide
-instrument-specific specialisation, all the core SunPy data types support specialisation, 
-\textit{i.e.} \texttt{Map} has an \texttt{AIAMap} sub-type. 
-Data visualisation is provided by two functions; \texttt{peek()}, allows quick view plotting
-, while more fine-grained control plotting that integrates with 
-\texttt{matplotlib} is provided by \texttt{plot()}.
+sources: \textit{e.g.}, files, URLs, arrays or time ranges.  In order to provide
+instrument-specific specialisation, all the core SunPy data types support specialisation;
+\textit{e.g.}, \texttt{Map} has an \texttt{AIAMap} sub-type. 
+Data visualisation is provided by two functions: \texttt{peek()}, for quick plotting,
+and \texttt{plot()}, for more fine-grained control plotting that integrates with 
+\texttt{matplotlib}.
 
 This section will give a brief overview of the \textit{current} functionality 
-of each of these modules.
+of each of these data types.
 
 \input{2-1-Map}
 \input{2-2-Lightcurve}
@@ -29,10 +30,10 @@ of each of these modules.
 \subsection{Visualisation}
 \label{subsec:Viz}
 As has been demonstrated in this section, the core SunPy datatypes 
-include visualisation code that is specialised to that data type. 
+include visualisation code that is tailored to that data type. 
 These visualisation methods all currently utilise the matplotlib 
 package, and are designed in such a way that they integrate well with 
-the pyplot functional interface of matplotlib, as demonstrated in 
+the \texttt{pyplot} functional interface of \texttt{matplotlib}, as demonstrated in 
 Figure \ref{code:mpl_1}.
 
 %schriste - I vote for removing all of the following code as being too down in the weeds
@@ -84,16 +85,18 @@ plt.show()
 \end{minted}
 \end{minipage}
 \caption{A simple example of how SunPy's plotting functions provide similar 
-behaviour to matplotlib's pyplot interface.}
+behaviour to the \texttt{matplotlib.pyplot} interface.}
 \label{code:mpl_1}
 \end{listing}
 
 This design philosophy makes the behaviour of SunPy's visualisation 
-routines intuitive to those who already understand how matplotlib's 
-interface is designed as well as allowing the use of the standard 
-matplotlib commands to change the plot, \textit{e.g.} set the title. 
+routines intuitive to those who already understand the \texttt{matplotlib}
+interface, as well as allowing the use of the standard 
+\texttt{matplotlib} commands to manipulate the plot parameters, such as the title.
+
+%ayshih - I recommend removing the following sentences
 More technically what is done in the plotting routines is firstly, to 
-make sure that the current state of the figure and axes is mantained 
+make sure that the current state of the figure and axes is maintained 
 in the same way as it is inside the \texttt{pyplot} functions. For 
 \texttt{Map} this means setting \texttt{pyplot.sci()} or set current 
 image, so that \texttt{plt.colorbar()} 

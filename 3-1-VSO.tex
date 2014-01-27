@@ -30,7 +30,7 @@ using the ``$|$'' operator.
 All attribute objects provided to the query as keyword arguments are combined
 with a logical \texttt{and} operation.
 
-\begin{listing}[h]
+\begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from SunPy.net import vso
 >>> client = vso.VSOClient()
@@ -55,9 +55,9 @@ Start time           End time             Source  Instrument  Type
 %schriste - what about just listing the sources as an array to instead of doing a show
 %           to make the point that the | query worked appropriately? That would make this
 %            listing much shorter.
-\begin{listing}[h]
+\begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
-Querying multiple instruments/missions over the same time range
+#Querying multiple instruments/missions over the same time range
 >>> instrument_condition = ( vso.attrs.Instrument('lasco') |
 ...                          vso.attrs.Detector('cor1') )
 >>> coronagraphs = client.query(vso.attrs.Time(tstart, tend),
@@ -72,7 +72,7 @@ Start time           End time             Source    Instrument  Type
 2011-06-07 10:25:43  2011-06-07 10:25:45  STEREO_B  SECCHI      CORONA
 2011-06-07 10:30:00  2011-06-07 10:30:01  STEREO_A  SECCHI      CORONA
 
-Querying two wavelength ranges over the same time range
+#Querying two wavelength ranges over the same time range
 >>> wavelength_condition = ( vso.attrs.Wave(125, 135) |
 ...                          vso.attrs.Wave(165, 175) ) # in angstroms
 >>> euv = client.query(vso.attrs.Time(tstart, tend),
