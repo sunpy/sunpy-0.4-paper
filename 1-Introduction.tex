@@ -1,124 +1,43 @@
 \section{Introduction}
-Modern solar physics, similar to astrophysics, requires increasingly 
-complex software tools both for the retrieval as well as the analysis 
-of data. The Sun is the most well-observed star. As such, solar 
-physics is unique in its ability to access large amounts of high 
-resolution ground- and space-based observations of the Sun at many 
-different wavelengths and spatial scales with high time cadence. 
-Solar physics therefore requires
-increasingly complex software tools, both for the retrieval and the 
-analysis of data. For example, NASA's Solar Dynamics Observatory 
-(SDO) satellite records over 1 TB of data per day all of which is 
-telemetered to the ground and available for analysis. As a result, 
-scientists have to process large volumes of complex data products. In 
-order to make meaningful advances in solar physics, it is important 
-for the software tools to be standardised, easy to use, and 
-transparent, so that the community can build upon a common foundation.
+Modern solar physics and astrophysics, along with most of modern science is 
+increasingly becoming data-driven. Where observational and numerical data is 
+being produced at a faster rate than new hypotheses. For example, NASA's Solar 
+Dynamics Observatory (SDO) satellite records over 1 TB of data per day all of 
+which is telemetered to the ground and available for analysis.
+Solar physics therefore requires increasingly complex software tools to enable 
+scientific discovery by analysis of this data. To make meaningful and 
+reproducible advances in our understanding of the Sun it is important that the 
+software tools to be standardised, easy to use, and transparent, so that the 
+community can build upon a common foundation.
 
-Currently, most solar data analysis is performed with a large library 
-of routines called SolarSoft, also referred to as SSW 
-\cite{freeland1998}. SolarSoft is a set of integrated software 
-libraries, databases, and system utilities which provide a common 
-programming and data analysis environment for solar physics. 
-SSW is structured by a package system which contains
-specialised software for different instrument or tools, 
-allowing the installation of just the needed packages.
-It is 
-overwhelmingly an environment which relies upon IDL (Interactive Data 
-Language), a commercial and closed-source interactive data analysis 
-environment sold by Exelis, a global aerospace, defence, information 
-and services company. The SSW gen package provides the base analysis 
-capabilities such as time series analysis, time conversions, spectral 
-fitting, image display, and file I/O. It is composed of 89\% IDL code 
-while the remainder is mostly Perl (5.4\%) and csh scripts (3.8\%)
-\footnote{{\bf This data was calculated using...}}. 
-According to data generated using David A. Wheeler's 'SLOCCount'\footnote{
-\url{http://www.dwheeler.com/sloccount/}}, 
-SSW/gen is composed of 289,724 lines of code with a total approximate 
-value of \$10.4M (based on the Basic COCOMO model \cite{_cocomo_2014}).
-\footnote{{\bf This data was calculated using...} If we can add them to the
-repository will improve the quality of the paper and we can always repeat the calculation in the future}. 
-Individual 
-missions and instruments provide additional optional packages to 
-support and process their data. For example, the SDO package 
-\cite{sdo} is 100\% IDL code and is 11k lines of code (\$360k) 
-and the SOHO package \cite{soho} is 100k lines of code (\$3M) and is 
-99.9\% IDL code. SSW is hosted and distributed by the Lockheed Martin 
-Solar and Astrophysics Laboratory.
-\footnote{Do we know whether they have some licence owning it? do we know the SolarSoft licence at all?}
-%The RHESSI package is 99.97\% IDL code and is 145k total lines of code (\$5M)
-While SSW is open-source and freely available, the IDL core is not. The cost 
-of IDL is prohibitive for many undergraduates as well as institutions 
-with limited means. 
+SunPy aims to provide a free, open source and openly developed software package 
+for the analysis and visualisation of solar data. SunPy makes use of the Python 
+programming language and the breath of high-quality scientific focused packages 
+available for it. The Python programming language is a general purpose, 
+powerful and easy to learn high-level programming language. Python is one of 
+the top ten most popular programming languages in the world according to the 
+2014 TIOBE Index 
+\footnote{\url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}},
+ and is widely used outside of scientific fields in web development, education 
+and even 3D game design.
 
-One of SunPy's key aims is to provide a free and modern alternative 
-to the SolarSoft (gen) library. This is made possible by the recent 
-rise of the scientific Python community. Python is a general purpose 
-high-level programming language. It is free to use, cross-platform 
-and is both an accessible and powerful programming language. Python 
-is one of the top ten most popular programming languages in the world 
-according to the 2014 TIOBE Index 
-\footnote{\url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}}.
-It therefore has a very large user community which extends far outside 
-of the solar physics or astronomy communities. It is very extensible 
-with C, C++, FORTRAN or even IDL. Many books and on-line 
-documentation is available. For example at the time writing a search
-\footnote{We need to be careful with this! IDL means more things that
-our beloved ``Interactive Data Language''. If we search for that
-and programming then we get just 7 books! - from which 5 are just the same.
-I don't know how we could make a more accurate search.
-If we script it it would be amazing!  Also, I would just provide the order
-of magnitude, and not a exact number, i.e. 190 and 1800 results} 
-on Amazon for books on IDL programming generated $189$ results while 
-a search for Python yielded $1\,788$ results. Python has a strong 
-emphasis on readability a concept which is well-aligned with the 
-scientific endeavour.
-Additionally, Python is increasingly being taught in universities,
-which means that research projects can begin quickly 
-without the need for students to learn a new (and relatively niche) 
-language. Finally, knowledge of Python is a skill which is useful and well 
-compensated outside of the scientific community (average salary of 
-\$110k in the Washington DC area according to indeed.com at the time 
-of writing). Python continues to see increased use in the astronomy 
-community \cite{greenfield2011} which has similar goals and 
-requirements as the solar physics community. Finally, Python plays 
-well with many technologies such as web servers \cite{dolgert2008}, 
-SQL databases, interactive and shareable notebook-based computing 
-\cite{perez2007}. For all of these reasons, Python is an ideal 
-platform for a modern solar physics data analysis environment.
+The development of a package such as SunPy in Python is made possible by the 
+rich scientific Python ecosystem of packages available. Core packages in this 
+ecosystem such as \texttt{NumPy}, \texttt{SciPy} and \texttt{matplotlib} 
+provide the basic functionality expected of a scientific programming language, 
+\textit{i.e.} array manipulation, core numerical algorithms and visualisation. 
+Ontop of this packages such as \texttt{Astropy}, \texttt{pandas} and 
+\texttt{scikit-image} provide a tremendous amount of more domain-specific 
+functionality.
 
-SunPy is built on top of the core scientific Python packages namely 
-\texttt{NumPy}, \texttt{SciPy}, \texttt{matplotlib}. These core 
-packages provide capabilities surpassing that provided by IDL for 
-array manipulation and 2-d plotting \cite{greenfield2011}. Providing 
-similar capabilities as SSW/gen in Python is made easier by 
-leveraging the diverse Python community. For example, SunPy makes use 
-of the \texttt{Pandas} package to provide high-performance, 
-easy-to-use data structures and data analysis tools for time series 
-data\cite{mckinney2012}. \texttt{Pandas} was originally developed for 
-quantitative analysis of financial data and has seen grown into a 
-generalised data analysis package. SunPy also relies on and is 
-coordinating with the \texttt{Astropy} package 
-\cite{theastropycollaboration2013}. It is still in active development 
-but already provides many relevant capabilities such as full-featured
-support for FITS files, absolute dates and time conversions, units 
-and unit conversions, and model-fitting. Pandas (134k lines of code) 
-and Astropy (90k lines of code) allow SunPy to leverage a total value 
-of \$7.6M worth of development which is close to the \$10.4M for 
-SSW/gen assuming a rough equivalency between a line of Python code 
-and a line of IDL code. 
+The design philosophy of SunPy is to provide a clean, simple to use, and well 
+structured package that provides the \textit{core} tools for solar physics. The 
+primary focus of SunPy's early development is to provide specialised, linked, 
+datatypes that allow the acquisition, processing and visualisation of all types 
+of solar data.
 
-The design philosophy of SunPy is to provide a clean, simple to use, 
-and well structured package that provides the \textit{core} tools for 
-solar physics. The primary focus of SunPy's development early 
-development is to provide specialised, linked, datatypes that allow 
-the acquisition, processing and visualisation of all types of solar data. 
-These include \texttt{Map}, \texttt{LightCurve} and 
-\texttt{Spectrum}, these cover spatial, timeseries and spectral data  
-respectively. 
-
-The purpose of this paper is to provide an overview of SunPy's 
-current capabilities, an overview of the development model and 
-community aspects of the SunPy project as well as future plans. The 
-latest release of SunPy is available in PyPI and can be installed in 
-the usual manner.
+The purpose of this paper is to provide an overview of SunPy's current 
+capabilities, an overview of the development model and community aspects of the 
+SunPy project as well as future plans. The latest release of SunPy is available 
+in PyPI and can be installed in the usual manner for a Python package
+\footnote{http://docs.sunpy.org/en/latest/sunpy/guide/installation/index.html}.
