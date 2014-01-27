@@ -108,4 +108,6 @@ Check to see if the age of the Sun is available and grab the unit and value sepa
 \label{code:constants_code}
 \end{listing}
 	
+\subsubsection{Instruments}
+In addition to providing support for instrument-specific solar data via the main data classes \texttt{Map}, \texttt{LightCurve} and \texttt{Spectrum}, some instrument-specific functions may be found within the \texttt{instr} package. These functions are generally those that are unique to one particular solar instrument, rather than of general use, for example a function to construct a GOES flare event list or a function to query the LYRA timeline annotation file. Currently, support is included in this way for the GOES, LYRA, RHESSI and IRIS instruments, while future developments will include support for additional missions. It is anticipated that, ultimately, solar missions requiring a large suite of software tools will be supported via a separately maintained package affiliated with SunPy.
 
