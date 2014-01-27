@@ -2,40 +2,39 @@
 
 The HELiophysics Integrated Observatory 
 (HELIO)\footnote{\url{http://helio-vo.eu}} has put together a list of web 
-services which allows the scientist to query them in order to discover data in 
+services which allows scientists to query and discover data throughout 
 the heliosphere (\textit{e.g.}, solar, planetary, inter-planetary data, 
-...)\cite{dps2012}. 
+\ldots)\cite{dps2012}. 
 HELIO has been built with a Service-Oriented Architecture, 
 \textit{i.e.} its capabilities are split into a number of tasks that are 
 implemented as separate services. 
-HELIO counts with up to nine different public services, which allows to the 
-scientist to search in different catalogues of registered events, solar features,
+HELIO comprises nine different public services, which allows scientists
+to search in different catalogues of registered events, solar features,
 data from instruments in the heliosphere and other information like planets or 
 spacecraft position in time. 
-Additionally, HELIO provides of a service that uses a propagation model to link 
+Additionally, HELIO provides a service that uses a propagation model to link 
 the data in different points of the solar system by its original nature 
 (\textit{e.g.}, Earth auroras are a signature of magnetic field disturbances 
 produced few days before on the Sun).
-The main interface to access to HELIO is through its front-end\footnote{
-\url{http://hfe.helio-vo.eu}},
-but since the system is based in webservices they can be accessed from many different tools.
+In addition to the primary, web-based interface to HELIO
+(\url{http://hfe.helio-vo.eu}), the services can be separately accessed.
 
-The current version of SunPy has includes an interface to access the 
-\textit{HELIO Event Catalogue} (HEC) service developed as part of Google
-Summer of Code project in 2013.
-This service provides at the moment access to 84 catalogues from different
+SunPy's \texttt{hec} module provides an interface to the
+\textit{HELIO Event Catalogue} (HEC) service, and this module was developed as
+part of a Google Summer of Code project in 2013.
+The HEC service currently provides access to 84 catalogues from different
 sources (automated and manual classification, event lists from publications, \ldots).
-HEC results (as the rest of HELIO services) provides the results in VOTable 
-data format (defined by IVOA \cite{ochsenbein_ivoa_2011})
-which the \texttt{astropy.io.votable} can interact with.
-This format has the advantage of contain metadata with information like
+As with all of the HELIO services, the HEC service provides results in VOTable 
+data format (defined by IVOA \cite{ochsenbein_ivoa_2011}), and the \texttt{hec}
+module parses this output using the \texttt{astropy.io.votable} package.
+This format has the advantage of containing metadata with information like
 data provenance and the performed query.
 
-On listing~\ref{code:helio} we show some an example on how to obtain information
-from different \textit{Coronal Mass Ejections}(CMEs) catalogues.
+Listing~\ref{code:helio} shows an example of how to obtain information
+from different catalogues of coronal mass ejections (CMEs).
 
 \begin{listing}[h]
-\begin{minted}{pycon}
+\begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net.helio import hec
 >>> hc = hec.Client()
 
@@ -56,10 +55,6 @@ Query all the catalogues that comes from cactus
 >>> print results
 ********** This need to be added!
 \end{minted}
-\caption{Demonstration of the \texttt{helio.hec} interface.}
+\caption{Example of querying the HEC service.}
 \label{code:helio}
 \end{listing}
-
-It is in the SunPy roadmap to add support from the other HELIO services and improve
-the usability of them towards a seamlessly interaction of this tool with the rest of
-the environment, as for example with data visualisation or the database module.
