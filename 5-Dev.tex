@@ -1,62 +1,78 @@
 \section{Development and Community}
-SunPy is a community developed library, it is designed and developed for and by 
+SunPy is a community-developed library, designed and developed for and by 
 the solar physics community. Not only is all the source code publicly available 
 online under the permissive 2-clause BSD licence 
 \footnote{\url{http://opensource.org/licenses/BSD-2-Clause}}, the whole 
 development 
 process is also online and open for anyone to contribute to.
-The primary media by which SunPy's development is facilitated is the online 
-service GitHub \footnote{\url{http://github.com}} which makes use of the 
-distributed 
-version control software \href{http://git-scm.com/}{git}.
+SunPy's development makes use of the online 
+service GitHub \footnote{\url{http://github.com}} and \href{http://git-scm.com/}{git} 
+as its distributed version control software. 
 
+The continued success of an open source projects depends on many factors of which 
+three of the most important are (1) utility and quality of the code, (2) documentation, and (3) an
+active community \cite{bangerth2013}. Several tools (some specific to Python) are used by
+Sunpy to make achieving these goals more accessible. To maintain high quality code, a 
+transparent and collaborative development workflow made possible by Github is used (described
+further below). Sunpy includes a number of unit tests which test the functionality 
+of the code base. Additionally, Sunpy makes use of `continuous integration' provided by
+Travis\footnote{\url{http://travis-ci.org}}, a process by which the addition of any new code 
+automatically triggers a comprehensive review of all unit tests. If any single test
+fails then the community is alerted before the code is accepted. The unit test coverage is
+also monitored by the \href{http://coveralls.io}{Coveralls} service.
+
+Quality documentation is
+one of the most important factors determining the success of any software project. 
+Thankfully powerful tools already exist in Python to support this thanks to native
+Python's focus on its own documentation. Sunpy makes use of the Sphinx\footnote{\url{http://sphinx-doc.org}}
+documentation generator. Sphinx uses reStructuredText as its markup language, 
+an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax. It supports
+many output formats most notably HTML as well as PDF, and ePub and provides a rich
+hierarchically structured view of in-code documentation strings. The Sunpy documentation 
+s built automatically and hosted on Readthedocs \footnote{\url{http://readthedocs.org}} 
+at \url{http://docs.sunpy.org}. 
+
+In order to maintain an active community communication is key.  The Sunpy community makes
+use of a number of channels to communicate. For immediate communications, an active IRC chat
+room (\#SunPy) is hosted on freenode.net. For more involved or less immediate needs such as
+developer comments or discussion, a open mailing list is used hosted on Google groups. 
+Discussion of bugs and bug tracking are provided directly on Github as well as new code
+review discussions.
+
+Many of the larger features in SunPy have been developed 
+with the support of both the ESA's Summer Of Code In Space (SOCIS) and the Google
+Summer of Code (GSOC). Initial development of SunPy's VSO and HEK 
+implementations were funded by the SOCIS program as well as a prototyped GUI 
+and N-Dimensional datatype implementations. Sunpy was supported by GSOC in 2013 
+through the Python Software Foundation (PSF). It supported development of the HELIO and 
+database sub-packages.
+
+\subsection{Development Workflow}
 The development workflow that GitHub enables is simple and transparent. The 
 primary source code repository \url{http://github.com/sunpy/sunpy} can be 
 `forked' by anyone with a GitHub account who can then modify their fork as they 
 wish. Upon completion of any modifications it is possible for a user to create 
 a 'Pull Request' (\url{http://github.com/sunpy/sunpy/pulls}) to the main SunPy 
-repository where it can be reviewed by anyone and then accepted by one of the 
-development team who have commit rights to the main SunPy repository.
+repository in order to incorporate their modification into the Sunpy code base. 
+Pull requests are reviewed by the Sunpy community before being accepted. Community consensus
+is required to add new features.
 
 Pull requests are a very powerful tool to maintain code quality, as each line 
-of code that has been modified is highlighted for review. For code to be 
-accepted into the SunPy repository three primary things have to have been 
-completed:
+of code that has been modified is highlighted for review and can be commented on. 
+In order to maintain high quality code the following conditions must typically be met 
+before code is accepted.
 
 \begin{enumerate}
-	\item  The code has to follow 	
+	\item  The code must follow 	
 	\href{http://www.python.org/dev/peps/pep-0008/}{PEP8} the Python style 
-	guidelines, this keeps all the code in SunPy (and 99\% of all other Python 
-	code) styled in a consistent manner and easy to read.
+	guidelines, this keeps all the code in Sunpy styled in a consistent manner and easy to read.
 	
-	\item The code must be documented. SunPy's documentation is generated by 
-	the Sphinx package, which is automatically run and hosted by 
-	\url{http://readthedocs.org}.
+	\item All new features require documentation in the form of doc strings as well as user
+	guides. 
 	
-	\item The code must contain full unit test coverage. SunPy code is well 
-	tested and coverage is increasing all the time. All SunPy's tests are 
-	automatically run for each `Pull Request' and branch by the 
-	\href{http://travis-ci.org/sunpy/sunpy}{Travis-CI }	service, and a test 
-	coverage record is kept by 
-	\href{http://coveralls.io/r/sunpy/sunpy}{Coveralls}
+	\item The code must contain significant unit test coverage.
 \end{enumerate}
 
 This kind of development model is widely used within the scientific Python 
-community as well as buy a wide variety of other projects both open and closed 
+community as well as by a wide variety of other projects both open and closed 
 source.
-
-As well as having a open source and open development model SunPy has a active 
-community, with lots of both on-topic and off-topic chat on the \#SunPy IRC 
-channel on freenode.net and on the mailing lists. The project always welcomes 
-new contributions of any scale.
-
-Many of the larger features added to SunPy during it's life have been added 
-with the aid of both ESA's Summer Of Code In Space (SOCIS) program and Google's 
-Summer of Code (GSOC) program. Initial development of SunPy's VSO and HEK 
-implementations were funded by the SOCIS program as well as a prototyped GUI 
-and N-Dimensional datatype implementations. 2013 was the first year that SunPy 
-obtained GSOC funding, through the Python Software Foundation (PSF). The two 
-projects that were undertaken was the development of a HELIO package and a 
-package for integration between the HEK and VSO, allowing the download of data 
-from VSO relating to a HEK query. As well as the Database module, which 
-provides a single query-able interface between local data and the VSO.
