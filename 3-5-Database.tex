@@ -6,9 +6,9 @@ Sunpy which is meant to solve this problem by providing a unified database to st
 local data files. The database package was developed as part of the 2013 
 Google Summer of Code. 
 
-The database sub-package makes use of a SQLite database supported by  
+The database sub-package makes use of a database supported by
 SQLAlchemy\footnote{\url{http://www.sqlalchemy.org}}. This library was chosen
-since it supports many SQL dialects. The database is stored as a single file which is 
+since it supports many SQL dialects. If SQLite is choosen, the database is stored as a single file which is
 created automatically. This solution makes it possible to easily backup, copy and distribute
 a database file. A server-based database, on the other hand, could be used by a collaboration 
 who work together from different machines on the
@@ -33,7 +33,7 @@ This feature will also be desirable when creating a GUI frontend for this packag
 
 Using the database package, one uses the \texttt{Database} class to connect
 with a database and perform operations on it. Figure~\ref{code:database} shows how to connect
-to an in-memory database and download data from the \textsc{VSO}. These entried are
+to an in-memory database and download data from the \textsc{VSO}. These entries are
 automatically added to the database. The function \texttt{len} is used to get the number of
 records. The function \texttt{display\_entries} displays an iterable of database entries
 in a nicely-formatted \textsc{ASCII} table. The headlines correspond to the

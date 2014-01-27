@@ -45,3 +45,9 @@ https://www.zotero.org/groups/sunpy_-_python_for_solar_physicists/items/collecti
 ## Typesetting Python Code
 To make Python code look pretty use the [minted package](http://code.google.com/p/minted/) to 
 use this you need to append `-shell-escape` to whereever you call pdflatex.
+
+## Building
+To build the paper use
+
+    pdflatex -shell-escape Sunpy_paper_0.4.tex
+
