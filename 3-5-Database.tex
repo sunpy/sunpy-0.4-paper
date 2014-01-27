@@ -2,12 +2,12 @@
 Easy access to large quantities of solar data frequently leads to datafiles accumulating
 in local storage such as laptops and desktop computers. Keeping data organized and available
 is typically a cumbersome task for the average user. The file database is a sub-package of 
-Sunpy which is meant to solve this problem by providing a unified database to store and manage information about 
+SunPy which is meant to solve this problem by providing a unified database to store and manage information about 
 local data files. The database package was developed as part of the 2013 
 Google Summer of Code. 
 
 The database sub-package makes use of a database supported by
-SQLAlchemy\footnote{\url{http://www.sqlalchemy.org}}. This library was chosen
+SQLAlchemy(\url{http://www.sqlalchemy.org}). This library was chosen
 since it supports many SQL dialects. If SQLite is choosen, the database is stored as a single file which is
 created automatically. This solution makes it possible to easily backup, copy and distribute
 a database file. A server-based database, on the other hand, could be used by a collaboration 
@@ -32,7 +32,7 @@ interactive sessions to easily revert accidental operations.
 This feature will also be desirable when creating a GUI frontend for this package.
 
 Using the database package, one uses the \texttt{Database} class to connect
-with a database and perform operations on it. Figure~\ref{code:database} shows how to connect
+with a database and perform operations on it. Listing~\ref{code:database} shows how to connect
 to an in-memory database and download data from the \textsc{VSO}. These entries are
 automatically added to the database. The function \texttt{len} is used to get the number of
 records. The function \texttt{display\_entries} displays an iterable of database entries

@@ -1,14 +1,15 @@
 \section{Introduction}
-Modern solar physics and astrophysics, along with most of modern science is 
-increasingly becoming data-driven. Where observational and numerical data is 
-being produced at a faster rate than new hypotheses. For example, NASA's Solar 
-Dynamics Observatory (SDO) satellite records over 1 TB of data per day all of 
-which is telemetered to the ground and available for analysis.
-Solar physics therefore requires increasingly complex software tools to enable 
-scientific discovery by analysis of this data. To make meaningful and 
-reproducible advances in our understanding of the Sun it is important that the 
-software tools to be standardised, easy to use, and transparent, so that the 
-community can build upon a common foundation.
+Science, including solar physics and astrophysics, is driven by the analysis 
+and summarizing of data. Modern advances in sensor technology combined with 
+the availability of cheap storage and large bandwidth communications has led to 
+a rapid and overwhelming increase in amount of data which scientists are responsible
+for analyzing. For example, NASA's Solar 
+Dynamics Observatory (SDO) satellite records over 1 TB of data per day. To analyze this 
+mountain of data and enable scientific discovery requires increasingly complex software 
+tools. Standardised, easy to use,
+and transparent software tools are a key enabling technology in the scientific endeavor
+so that the community can build upon a common foundation.
+%schriste - the opening paragraph still needs work
 
 SunPy aims to provide a free, open source and openly developed software package 
 for the analysis and visualisation of solar data. SunPy makes use of the Python 
@@ -16,19 +17,17 @@ programming language and the breath of high-quality scientific focused packages
 available for it. The Python programming language is a general purpose, 
 powerful and easy to learn high-level programming language. Python is one of 
 the top ten most popular programming languages in the world according to the 
-2014 TIOBE Index 
-\footnote{\url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}},
- and is widely used outside of scientific fields in web development, education 
-and even 3D game design.
+2014 TIOBE Index\footnote{\url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}},
+and is widely used outside of scientific fields in web development, education 
+and `big data' analytics.
 
 The development of a package such as SunPy in Python is made possible by the 
 rich scientific Python ecosystem of packages available. Core packages in this 
 ecosystem such as \texttt{NumPy}, \texttt{SciPy} and \texttt{matplotlib} 
 provide the basic functionality expected of a scientific programming language, 
 \textit{i.e.} array manipulation, core numerical algorithms and visualisation. 
-Ontop of this packages such as \texttt{Astropy}, \texttt{pandas} and 
-\texttt{scikit-image} provide a tremendous amount of more domain-specific 
-functionality.
+Build upon these foundations, packages such as \texttt{Astropy}, \texttt{pandas} and 
+\texttt{scikit-image} provide more domain-specific functionality.
 
 The design philosophy of SunPy is to provide a clean, simple to use, and well 
 structured package that provides the \textit{core} tools for solar physics. The 
@@ -38,6 +37,7 @@ of solar data.
 
 The purpose of this paper is to provide an overview of SunPy's current 
 capabilities, an overview of the development model and community aspects of the 
-SunPy project as well as future plans. The latest release of SunPy is available 
-in PyPI and can be installed in the usual manner for a Python package
-\footnote{http://docs.sunpy.org/en/latest/sunpy/guide/installation/index.html}.
+SunPy project as well as future plans. The latest release of SunPy (0.4) from
+the sunpy website (\url{http://sunpy.org}) or can be installed using 
+the Python package index (\mbox{\url{http://pypi.python.org/pypi}}).
+%schriste - the mbox prevents latex from breaking the url across different lines.

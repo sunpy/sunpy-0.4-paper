@@ -1,42 +1,44 @@
-\subsection{Lightcurve}
+\subsection{Lightcurve}\label{ssec:lightcurve}
 
-Time series data and analyses are a fundamental aspect of solar physics 
-for which many data sources are available. 
-Sunpy therefore provides a \texttt{LightCurve} object 
-designed to provide a convenient and consistent interface for handling 
-time series data. 
-The main engine behind the \texttt{LightCurve} object is the \texttt{pandas}\footnote{\url{http://pandas.pydata.org}} 
-data analysis library. 
-This library contains a large amount of functionality for manipulating 
-and analysing time series data, making it an ideal basis for 
-\texttt{LightCurve}.  
-Like all other Sunpy objects, \texttt{LightCurve} is a wrapper around 
-a data object, which in this case is the \texttt{pandas} object. 
+Time series data and their analysis are a fundamental aspect of solar
+physics for which many data sources are available.  In recognition of
+this fact, SunPy provides a \texttt{LightCurve} object designed to
+provide a convenient and consistent interface for handling solar time
+series data.  The main engine behind the \texttt{LightCurve} object is
+the \texttt{pandas} data analysis library (available at
+\url{http://pandas.pydata.org}).  This library contains a large amount
+of functionality for manipulating and analysing time series data,
+making it an ideal basis for \texttt{LightCurve}.  Like other SunPy
+objects, \texttt{LightCurve} is a wrapper around a data object, which
+in this case is the \texttt{pandas} object.  \texttt{LightCurve}
+assumes that the input data are time-ordered list(s) of numbers.  Each
+list becomes a column in a \texttt{pandas} DataFrame object.
 
-Currently, the \texttt{LightCurve} object is compatible with the following 
-data sources: the GOES X-ray Sensor (XRS), PROBA2/LYRA, 
-and the SDO EUV Variability Experiment (EVE). 
-For each of these instruments, a sub-class of the \texttt{LightCurve} object 
-is initialised (e.g. \texttt{GOESLightCurve, LYRALightCurve}) which inherits 
-from \texttt{LightCurve} but allows instrument-specific functionality to be 
-included. 
-Future developments will introduce support for additional instruments and data 
-products. 
-Since time series data is generally relatively small and there is no 
-established standard as to how it should be stored and distributed, 
-each Sunpy \texttt{LightCurve} object provides the ability to download 
-its own data in its constructor.
+Currently, the \texttt{LightCurve} object is compatible with the
+following data sources: the GOES X-ray Sensor (XRS), PROBA2/LYRA, and
+the SDO EUV Variability Experiment (EVE; only the level ``OCS'' and
+average CSV files - see \url{http://lasp.colorado.edu/home/eve/data/}
+for more detail).  For each of these instruments, a sub-class of the
+\texttt{LightCurve} object is initialised
+(e.g. \texttt{GOESLightCurve, LYRALightCurve}) which inherits from
+\texttt{LightCurve} but allows instrument-specific functionality to be
+included.  Future developments will introduce support for additional
+instruments and data products.  Since time series data is generally
+relatively small and there is no established standard as to how it
+should be stored and distributed, each SunPy \texttt{LightCurve}
+object provides the ability to download its own data in its
+constructor.
 
 %\subsubsection{Creating and using Lightcurves}
 
 A \texttt{LightCurve} object may be created using a range of different methods. 
 Firstly, a \texttt{LightCurve} may be created for a specific instrument based 
-on an input time range. In Figure~\ref{code:goes_lc_code}, 
+on an input time range. In Listing~\ref{code:goes_lc}, 
 the LightCurve constructor searches a remote site for the GOES X-ray data 
 specified by the time interval, downloads the required files and subsequently 
 creates the object.
 
-\begin{Figure}[H]
+\begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy import lightcurve
 >>> from sunpy.time import TimeRange
@@ -44,21 +46,22 @@ creates the object.
 ...                                       '2011-06-07 10:00')
 >>> goes.peek()
 >>> trange=TimeRange('2011-06-07 06:00','2011-06-07 07:00')
->>> goes_zoom = goes.truncate(trange)
+%>>> goes_zoom = goes.truncate(trange)
 % the above does not work!
 >>> resampled_goes = goes.data.resample("1H")
 \end{minted}
-\includegraphics[width=14cm]{goes_lightcurve.pdf}
+\begin{center}
+\includegraphics[width=10cm]{goes_lightcurve.pdf}
+\end{center}
 \caption{Example usage of a GOES lightcurve for the time interval 06:00 - 08:00 UT on 
 2011 June 7 using a time range, and the result of the \texttt{peek()} method.
 A sub-interval is then extracted from the Lightcurve and finally the data is resampled
 to 1 hour cadence.}
 \label{code:goes_lc}
-\end{Figure}
+\end{listing}
+%schriste - note to self, fix this example, add resampled points on top of plot?
 
 Alternatively, if the data file already exists on the local system, the 
 \texttt{Lightcurve} object may instead be initialised using that file as input.
 Once the \texttt{Lightcurve} has been created it may be manipulated in 
 a variety of ways in order to perform time series analysis. 
-Continuing from Figure~\ref{code:lyra_lc}, we show a few simple 
-examples of using a LYRA lightcurve.

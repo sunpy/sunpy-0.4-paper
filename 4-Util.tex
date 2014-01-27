@@ -39,18 +39,17 @@ not, the observer is assumed to be at Earth.Listing \ref{code:wcs_code} shows so
 \begin{listing}[H]
 \begin{minted}{pycon}
 >>> from sunpy import wcs
-Find the helioprojective coordinate of a given longitude and latitude on the Sun
 >>> wcs.convert_hg_hpc(10,53)
 (100.49244115330731, 767.97438321917502)
-Convert that position back to heliographic coordinates
+# Convert that position back to heliographic coordinates
 >>> wcs.convert_hpc_hg(100.49, 767.97)
 (9.9996521808465175, 52.999563684874893)
-Try to convert a position which is not on the Sun to heliographic coordinates
+# Try to convert a position which is not on the Sun to HG
 >>> wcs.convert_hpc_hg(-1500,0)
 sunpy/wcs/wcs.py:180: RuntimeWarning: invalid value encountered in sqrt
   distance = q - np.sqrt(distance)
 (nan, nan)
-Convert sky coordinate to a position on the Sun in cartesian coordinates (HCC)
+Convert sky coordinate to a position in HCC
 >>> wcs.convert_hpc_hcc(-300,400, z = True)
 (-216716967.63331246, 288956420.9477042, 594364636.2208252)
 \end{minted}
@@ -95,19 +94,28 @@ To view them all quickly a \texttt{print\_all()} function is available.
   Error  = 5e+25
   Units  = kg
   Reference = Allen's Astrophysical Quantities 4th Ed.
-Verify the average density of the Sun and convert to cgs
+# Verify the average density of the Sun and convert to cgs
 >>> (sun.mass/sun.volume).cgs
 <Quantity 1.40851154227 g / (cm3)>
-Check to see if the age of the Sun is available and grab the unit and value separately
+# Search for the age of the Sun
 >>> sun.find('age')
 ['age', 'average angular size', 'average density', 'average intensity']
 >>> sun.value('age'), sun.unit('age')
-
+(4600000000.0, Unit("yr"))
 \end{minted}
 \caption{Using the sunpy.sun.constants sub-package.}
 \label{code:constants_code}
 \end{listing}
 	
 \subsubsection{Instruments}
-In addition to providing support for instrument-specific solar data via the main data classes \texttt{Map}, \texttt{LightCurve} and \texttt{Spectrum}, some instrument-specific functions may be found within the \texttt{instr} package. These functions are generally those that are unique to one particular solar instrument, rather than of general use, for example a function to construct a GOES flare event list or a function to query the LYRA timeline annotation file. Currently, support is included in this way for the GOES, LYRA, RHESSI and IRIS instruments, while future developments will include support for additional missions. It is anticipated that, ultimately, solar missions requiring a large suite of software tools will be supported via a separately maintained package affiliated with SunPy.
+In addition to providing support for instrument-specific solar data via the main data 
+classes \texttt{Map}, \texttt{LightCurve} and \texttt{Spectrum}, 
+some instrument-specific functions may be found within the \texttt{instr} package. 
+These functions are generally those that are unique to one particular solar instrument, 
+rather than of general use, for example a function to construct a GOES flare event list 
+or a function to query the LYRA timeline annotation file. Currently, some support is included
+ in this way for the GOES, LYRA, RHESSI and IRIS instruments, while future developments 
+ will include support for additional missions. It is anticipated that, ultimately, solar
+  missions requiring a large suite of software tools will be supported via a separately 
+  maintained package affiliated with SunPy.
 

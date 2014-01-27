@@ -1,7 +1,7 @@
 \subsection{HELIO}\label{ssec:helio}
 
 The HELiophysics Integrated Observatory 
-(HELIO)\footnote{\url{http://helio-vo.eu}} has put together a list of web 
+(HELIO, \url{http://helio-vo.eu}) has put together a list of web 
 services which allows scientists to query and discover data throughout 
 the heliosphere (\textit{e.g.}, solar, planetary, inter-planetary data, 
 \ldots)\citep{dps2012}.
@@ -37,8 +37,6 @@ from different catalogues of coronal mass ejections (CMEs).
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net.helio import hec
 >>> hc = hec.Client()
-
-Desired time range and event type
 >>> tstart, tend = '2011-06-07T06:00:00', '2011-06-07T12:00:00'
 >>> event_type = 'cme'
 
