@@ -1,13 +1,13 @@
 \subsection{Helioviewer}\label{ssec:hv}
 
-SunPy provides the ability to download images from Helioviewer Project 
-servers.  The aim of the Helioviewer Project is to enable the exploration of 
+SunPy provides the ability to download images hosted by the Helioviewer Project.  
+The aim of the Helioviewer Project is to enable the exploration of 
 solar and heliospheric data from multiple data sources (such as instrumentation 
 and feature/event catalogs) via easy-to-use visual interfaces.  The primary 
 data provided by the Helioviewer Project are images in the JPEG2000 format (for 
-further details on the Helioviewer Project see \cite{muller2009} 
-\footnote{SunPy is used in Helioviewer production servers to manage the 
-download and ingestion of JPEG2000 files from remote servers.}.)  The JPEG2000 
+further details on the Helioviewer Project see \cite{muller2009}). 
+SunPy is used in Helioviewer production servers to manage the 
+download and ingestion of JPEG2000 files from remote servers.  The JPEG2000 
 files are typically highly compressed compared to the source FITS files they 
 are generated from, and so can be a used as a shortcut to visualize large 
 amounts of data from multiple sources.
@@ -19,21 +19,20 @@ $\rightarrow$ measurement, where '$\rightarrow$' means 'provides
 (possibly multiple)'.  The full list of image data sources available
 can be found through the code snippet, Example
 \ref{code:hv:datasources}.
-
+%schriste - what is the point of the following listing? remove?
 \begin{listing}[H]
-\begin{minted}{python}
-from sunpy.net.helioviewer import HelioviewerClient
-
-hv = HelioviewerClient()
-datasources = hv.get_data_sources()
+\begin{minted}{pycon}
+>>> from sunpy.net.helioviewer import HelioviewerClient
+>>> hv = HelioviewerClient()
+>>> datasources = hv.get_data_sources()
 
 # print a list of datasources and their associated ids
-for observatory, instruments in datasources.items():
-    for inst, detectors in instruments.items():
-        for det, measurements in detectors.items():
-            for meas, params in measurements.items():
-                print("%s %s: %d" % (observatory, params['nickname'], 
-                %%%%params['sourceId']))
+>>> for observatory, instruments in datasources.items():
+>>>     for inst, detectors in instruments.items():
+>>>         for det, measurements in detectors.items():
+>>>             for meas, params in measurements.items():
+>>>                 print(observatory, params['nickname'], 
+>>>                 params['sourceId']))
 \end{minted}
 \caption{Initializing the Helioviewer client and listing the full
   range of image data available.}
@@ -102,7 +101,9 @@ hv.download_png('2099/01/01', 6,
 "[SDO,AIA,AIA,304,1,100],[SDO,AIA,AIA,193,1,50], \
 [SOHO,LASCO,C2,white-light,1,100]", x0=0, y0=0, width=768, height=768)
 \end{minted}
+\begin{center}
 \includegraphics[width=0.8\columnwidth]{helioviewer_overlay_example}
+\end{center}
 \caption{Acquisition of a PNG image composed from data from three
   separate sources.}
 \label{code:hv:overlaid}
@@ -114,7 +115,6 @@ argument).  The layer string has three separate comma separated
 entries detailing the data source, its visibility and its opacity.
 This functionality makes it simple for SunPy users to generate complex
 images from multiple, correctly overlaid, image data sources.
-
 
 \subsubsection{Download a JPEG2000 file}\label{sssec:hv:jp}
 
@@ -140,14 +140,17 @@ Helioviewer-supplied image data in an identical fashion to a SunPy map
 object generated from FITS data (see Section \ref{sec:maps}).
 
 \begin{listing}[H]
-\begin{minted}{python}
-filepath = hv.download_jp2('2012/07/05 00:30:00', observatory='SDO',
- instrument='HMI', detector='HMI', measurement='continuum')
-from sunpy.map import Map
-hmi = Map(filepath)
-hmi.submap([200,550],[-400,-200]).peek()
+\begin{minted}{pycon}
+>>> filepath = hv.download_jp2('2012/07/05 00:30:00', observatory='SDO',
+>>>                            instrument='HMI', detector='HMI', 
+>>>                            measurement='continuum')
+>>> from sunpy.map import Map
+>>> hmi = Map(filepath)
+>>> hmi.submap([200,550],[-400,-200]).peek()
 \end{minted}
+\begin{center}
 \includegraphics[width=0.8\columnwidth]{helioviewer_hmi_continuum_jp2_to_map}
+\end{center}
 \caption{Acquisition and display of a Helioviewer JPEG2000 file as a
   SunPy map object.}
 \label{code:downloadjp2}
