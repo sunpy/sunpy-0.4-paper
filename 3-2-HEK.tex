@@ -30,10 +30,8 @@ identical to the two letter abbreviations found at the HEK website,
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net import hek
 >>> client = hek.HEKClient()
->>> tstart = '2011/08/09 00:00:00'
->>> tend = '2011/08/10 00:00:00'
-# FL = flare
->>> event_type = 'FL'
+>>> tstart, tend = '2011/08/09 00:00:00', '2011/08/10 00:00:00'
+>>> event_type = 'FL' # 'FL' indicates flare
 >>> result = client.query(hek.attrs.Time(tstart,tend), 
 ...                       hek.attrs.EventType(event_type))
 >>> len(result)
