@@ -48,18 +48,18 @@ correspond to the attributes of the respective database entries.
 >>> from sunpy.database import Database
 >>> database = Database('sqlite:///')
 >>> database.download(
-...     vso.attrs.Time((2011, 9, 20, 1), (2011, 9, 20, 2)),
-...     vso.attrs.Instrument('RHESSI'))
+...     vso.attrs.Time('2012-08-05', '2012-08-05 00:00:05'),
+...     vso.attrs.Instrument('AIA'))
 >>> len(database)
-6
+2
 >>> from sunpy.database.tables import display_entries
 >>> print display_entries(
 ...     database,
 ...     ['id', 'observation_time_start', 'wavemin', 'wavemax'])
-id observation_time_start wavemin        wavemax    
--- ---------------------- -------        -------    
-1  2011-09-20 01:09:20    0.413280643067 7.29318781883e-05
-
+id observation_time_start wavemin wavemax
+-- ---------------------- ------- -------
+1  2012-08-05 00:00:01    9.4     9.4    
+2  2012-08-05 00:00:02    33.5    33.5   
 \end{minted}
 \caption{Example usage of the database sub-package.}
 \label{code:database}
