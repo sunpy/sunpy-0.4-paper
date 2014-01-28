@@ -1,6 +1,6 @@
 \section{Core Data Types}
 The primary focus of SunPy is to provide data structures 
-that are specifically designed for the various kinds of solar physics data, namely
+that are specifically designed for the primary varieties of solar physics data, namely
 images, time series, and spectra. SunPy provides three core data
 types using Python classes:
 \texttt{Map} (2D spatial data),
@@ -19,6 +19,9 @@ instrument-specific specialisation, all the core SunPy data types support specia
 Data visualisation is provided by two functions: \texttt{peek()}, for quick plotting,
 and \texttt{plot()}, for more fine-grained control plotting that integrates with 
 \texttt{matplotlib}.
+% LightCurve does NOT have a meta attribute.  Needs to be fixed in the
+% re-write of LightCurve
+
 
 This section will give a brief overview of the \textit{current} functionality 
 of each of these data types.
@@ -36,7 +39,10 @@ package, and are designed in such a way that they integrate well with
 the \texttt{pyplot} functional interface of \texttt{matplotlib}, as demonstrated in 
 Figure \ref{code:mpl_1}.
 
-%schriste - I vote for removing all of the following code as being too down in the weeds
+%schriste - I vote for removing all of the following code as being too
+%down in the weeds
+%ji -  I agree.  Do we even need to say much more than give a brief
+%outline of the .peek and .plot methods?
 \begin{listing}[H]
 \begin{minipage}{0.49\columnwidth}
 \begin{minted}[bgcolor=bg]{python}
