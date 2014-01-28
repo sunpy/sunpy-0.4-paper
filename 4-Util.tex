@@ -37,7 +37,7 @@ which is usually provided by the image header. In the case where it is
 not, the observer is assumed to be at Earth.Listing \ref{code:wcs_code} shows some examples of coordinate transforms carried out in SunPy using the \verb|wcs| utilities. 
 
 \begin{listing}[H]
-\begin{minted}{pycon}
+\begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy import wcs
 >>> wcs.convert_hg_hpc(10,53)
 (100.49244115330731, 767.97438321917502)
@@ -85,8 +85,7 @@ package and is available as a dictionary called \texttt{physical\_constants}.
 To view them all quickly a \texttt{print\_all()} function is available.
 
 \begin{listing}[H]
-\begin{minted}{pycon}
-
+\begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.sun import constants as sun
 >>> print(sun.mass)
   Name   = Solar mass
