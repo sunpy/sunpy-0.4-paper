@@ -4,20 +4,21 @@ Easy access to large quantities of solar data frequently leads to datafiles accu
 in local storage such as laptops and desktop computers. Keeping data organised and available
 is typically a cumbersome task for the average user. The file database is a sub-package of 
 SunPy which is meant to solve this problem by providing a unified database to store and manage information about 
-local data files. The database package was developed as part of GSOC 2013.
+local data files. The database package was developed as part of the Google 
+Summer Of Code (GSOC) program 2013.
 
 The database sub-package makes use of a database supported by
-SQLAlchemy (\url{http://www.sqlalchemy.org}). This library was chosen
+\href{http://www.sqlalchemy.org}{SQLAlchemy}. This library was chosen
 since it supports many SQL dialects. 
 If SQLite is chosen, the database is stored as a single file which is
-created automatically. This solution makes it possible to easily backup, copy and distribute
-a database file. A server-based database, on the other hand, could be used by a collaboration 
-who work together from different machines on the
+created automatically.A server-based database, on the other hand, could be used 
+by a collaboration who work together from different machines on the
 same data: a central database server stores all data and the clients connect to
 it to read or write data.
 
-The database can store and manage all data that is retrieved via SunPy from the net
-package though currently only the \textsc{VSO} package is supported. 
+The database can store and manage all data that can be read via SunPy's 
+\texttt{io} subpackage, while direct integration with the \textsc{VSO} 
+subpackage is supported.
 It also possible to add entries manually by file or directory. The package also provides
 a \texttt{fetch} method which provides a unified data search which includes both local files
 and files on the \textsc{VSO} are searched. This reduces the likelihood of downloading the same file 
@@ -25,20 +26,21 @@ multiple times. When a file is added to the database the file is scanned and a f
 The current date is associated with the entry along with metadata summaries such 
 as instrument, date of observation, field of view, etc. 
 The database also provides the ability to associate custom meta-data to 
-each database entry such as keywords, comments, and favouring.
+each database entry such as keywords, comments, and favouring, as well as 
+querying the full metadata (\textit{i.e.} FITS header) of each entry.
 
 A very special feature of the database package is the support of \texttt{undo}
 and \texttt{redo} operations. This is particularly convenient in
 interactive sessions to easily revert accidental operations. 
 This feature will also be desirable when creating a GUI frontend for this package.
 
-Using the database package, one uses the \texttt{Database} class to connect
-with a database and perform operations on it. Listing~\ref{code:database} shows how to connect
+The \texttt{Database} class connects to a database and allows the user to 
+perform operations on it. Listing~\ref{code:database} shows how to connect
 to an in-memory database and download data from the \textsc{VSO}. These entries are
 automatically added to the database. The function \texttt{len} is used to get the number of
-records. The function \texttt{display\_entries} displays an iterable of database entries
-in a nicely-formatted \textsc{ASCII} table. The headlines correspond to the
-attributes of the respective database entries.
+records. The function \texttt{display\_entries} displays an iterable of 
+database entries in a nicely-formatted \textsc{ASCII} table. The headlines 
+correspond to the attributes of the respective database entries.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -53,10 +55,10 @@ attributes of the respective database entries.
 >>> from sunpy.database.tables import display_entries
 >>> print display_entries(
 ...     database,
-...     ['id', 'observation_time_start', 'wavemin', 'wavemax', 'download_time'])
-id observation_time_start wavemin        wavemax           download_time      
--- ---------------------- -------        -------           -------------      
-1  2011-09-20 01:09:20    0.413280643067 7.29318781883e-05 2014-01-18 19:21:35
+...     ['id', 'observation_time_start', 'wavemin', 'wavemax'])
+id observation_time_start wavemin        wavemax    
+-- ---------------------- -------        -------    
+1  2011-09-20 01:09:20    0.413280643067 7.29318781883e-05
 
 \end{minted}
 \caption{Example usage of the database sub-package.}
