@@ -2,13 +2,13 @@
 
 The HELiophysics Integrated Observatory (\href{http://helio-vo.eu}{HELIO}) has 
 put together a list of web services which allows scientists to query and 
-discover data throughout the heliosphere (\textit{e.g.}, solar, planetary, 
-inter-planetary data, \ldots)\citep{dps2012}.
+discover data throughout the heliosphere, from solar, and magnetospheric to planetary and 
+inter-planetary data \citep{dps2012}.
 HELIO has been built with a Service-Oriented Architecture, 
 \textit{i.e.} its capabilities are split into a number of tasks that are 
 implemented as separate services. 
 \href{http://helio-vo.eu}{HELIO} comprises nine different public services, 
-which allows scientiststo search in different catalogues of registered events, 
+which allows scientists to search different catalogues of registered events, 
 solar features, data from instruments in the heliosphere and other information 
 like planets or spacecraft position in time. 
 Additionally, \href{http://helio-vo.eu}{HELIO} provides a service that uses a 
@@ -19,10 +19,10 @@ In addition to the primary, web-based interface to
 \href{http://helio-vo.eu}{HELIO}, the services can be separately accessed.
 
 SunPy's \texttt{hec} module provides an interface to the
-\textit{HELIO Event Catalogue} (HEC) service, and this module was developed as
+\textit{HELIO Event Catalogue} (HEC) service (not to be confused with the HEK, discussed in Section \ref{ssec:hek}), and this module was developed as
 part of a Google Summer of Code (GSOC) project in 2013.
 The HEC service currently provides access to 84 catalogues from different
-sources (automated and manual classification, event lists from publications, \ldots).
+sources.
 As with all of the HELIO services, the HEC service provides results in VOTable 
 data format (defined by IVOA \cite{ochsenbein_ivoa_2011}), and the \texttt{hec}
 module parses this output using the \texttt{astropy.io.votable} package.

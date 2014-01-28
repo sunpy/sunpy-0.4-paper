@@ -27,7 +27,7 @@ included.  Future developments will introduce support for additional
 instruments and data products, as well as implementing a factory interface 
 similar to that of \texttt{Map}.  Since there is no established standard
 as to how time-series data should be stored and distributed, each SunPy 
-\texttt{LightCurve} object provides the ability to download its corresponding 
+\texttt{LightCurve} object sub-class provides the ability to download its corresponding 
 specific data format in its constructor and parse that file type.
 
 A \texttt{LightCurve} object may be created using a number of different methods. 
@@ -42,19 +42,16 @@ subsequently creates and plots the object.
 >>> from sunpy import lightcurve
 >>> from sunpy.time import TimeRange
 >>> goes = lightcurve.GOESLightCurve.create('2011-06-07 06:00',
-...                                         '2011-06-07 10:00')
+...                                         '2011-06-07 08:00')
 >>> goes.peek()
->>> resampled_goes = goes.data.resample("1H")
-% Does 1h resample makes sense?? I vote for an example with some utility
-% an example is an example right.
+%removed the resample part of the example - really we need to fix truncate!
 \end{minted}
 \begin{center}
 \includegraphics[width=10cm]{goes_lightcurve.pdf}
 \end{center}
 \caption{Example retrieval of a GOES lightcurve for the time interval 
 06:00--08:00 UT on 2011 June 7 using a time range, and the output of the 
-\texttt{peek()} method.
-Finally the data is resampled to a 1 hour cadence.}
+\texttt{peek()} method.}
 \label{code:goes_lc}
 \end{listing}
 %schriste - note to self, fix this example, add resampled points on top of plot?
@@ -65,3 +62,4 @@ Once the \texttt{Lightcurve} has been created, it may be manipulated in
 a variety of ways in order to perform time-series analysis.
 
 %Stuart: Where did the pandas section go?
+%ARI - looks like it's up top
