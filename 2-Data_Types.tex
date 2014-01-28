@@ -1,30 +1,27 @@
 \section{Core Data Types}
-One of the primary focus' of the SunPy library is to provide data structures 
-that are specifically designed for the various types of data generally 
-processed for solar physics. Currently SunPy provides three data 
-types, each separate from one another to process 2D spatial data 
-(\texttt{Map}), 1D temporal series (\texttt{LightCurve}) and 1 and 2D spectra 
-(\texttt{Spectrum} and \texttt{Spectrogram}).
+The primary focus of SunPy is to provide data structures 
+that are specifically designed for the various kinds of solar physics data, namely
+images, time series, and spectra. SunPy provides three core data
+types using Python classes:
+\texttt{Map} (2D spatial data),
+\texttt{LightCurve} (1D temporal series)
+and \texttt{Spectrum}/\texttt{Spectrogram} (1 and 2D spectra). 
 
-The design of SunPy's core data types is as a wrapper around a data object, 
-either a \texttt{numpy} \texttt{ndarray} -- for \texttt{Map} and \texttt{Spectra} -- or a \texttt{pandas} \texttt{DataFrame} -- for \texttt{LightCurve}.
- Each data type has a \texttt{.data} 
-attribute where this data object is located and some meta data. It is 
+The classes provide access to the original data
+along with associated metadata and provide appropriate convenience functions to
+enable data analysis and visualization. For each of these classes, the data is
+stored in the \texttt{.data} attribute while the metadata is stored 
+in the \texttt{.meta} attribute. It is 
 possible to instantiate the data types from various different 
-sources, \textit{e.g.} files, urls, arrays or time ranges. The 
-specific sources supported is dependant upon which data type and 
-which instrument. All the SunPy data types support specialisation on 
-a per-instrument basis, \textit{i.e.} \texttt{Map} has an 
-\texttt{AIAMap} sub-type. This design allows simple extensions to 
-cope with the diversity of data from different sources in solar 
-physics. As well as support for different instruments and data 
-sources each data type provides different visualisation wrappers that 
-allow both quick view plotting (the peek command) and more 
-fine-grained control plotting that integrates well with 
-\texttt{matplotlib} (the plot command).
+sources: \textit{e.g.}, files, URLs, arrays or time ranges.  In order to provide
+instrument-specific specialisation, all the core SunPy data types support specialisation;
+\textit{e.g.}, \texttt{Map} has an \texttt{AIAMap} sub-type. 
+Data visualisation is provided by two functions: \texttt{peek()}, for quick plotting,
+and \texttt{plot()}, for more fine-grained control plotting that integrates with 
+\texttt{matplotlib}.
 
 This section will give a brief overview of the \textit{current} functionality 
-of each of these modules.
+of each of these data types.
 
 \input{2-1-Map}
 \input{2-2-Lightcurve}
@@ -33,12 +30,13 @@ of each of these modules.
 \subsection{Visualisation}
 \label{subsec:Viz}
 As has been demonstrated in this section, the core SunPy datatypes 
-include visualisation code that is specialised to that data type. 
+include visualisation code that is tailored to that data type. 
 These visualisation methods all currently utilise the matplotlib 
 package, and are designed in such a way that they integrate well with 
-the pyplot functional interface of matplotlib, as demonstrated in 
-Listing \ref{code:mpl_1}.
+the \texttt{pyplot} functional interface of \texttt{matplotlib}, as demonstrated in 
+Figure \ref{code:mpl_1}.
 
+%schriste - I vote for removing all of the following code as being too down in the weeds
 \begin{listing}[H]
 \begin{minipage}{0.49\columnwidth}
 \begin{minted}[bgcolor=bg]{python}
@@ -46,7 +44,7 @@ import sunpy.map
 import matplotlib.pyplot as plt
 
 #Read in a aia file using SunPy
-aiamap = sunpy.map.Map('aia.fits')
+aiamap = SunPy.map.Map('aia.fits')
 
 #Create the figure and axis 
 #explicitly
@@ -65,11 +63,11 @@ plt.show()
 \end{minipage}
 \begin{minipage}{0.49\columnwidth}
 \begin{minted}[bgcolor=bg]{python}
-import sunpy.map
+import SunPy.map
 import matplotlib.pyplot as plt
 
 #Read in a aia file using SunPy
-aiamap = sunpy.map.Map('aia.fits')
+aiamap = SunPy.map.Map('aia.fits')
 
 #Create the figure and axis 
 #explicitly
@@ -87,16 +85,18 @@ plt.show()
 \end{minted}
 \end{minipage}
 \caption{A simple example of how SunPy's plotting functions provide similar 
-behaviour to matplotlib's pyplot interface.}
+behaviour to the \texttt{matplotlib.pyplot} interface.}
 \label{code:mpl_1}
 \end{listing}
 
 This design philosophy makes the behaviour of SunPy's visualisation 
-routines intuitive to those who already understand how matplotlib's 
-interface is designed as well as allowing the use of the standard 
-matplotlib commands to change the plot, \textit{e.g.} set the title. 
+routines intuitive to those who already understand the \texttt{matplotlib}
+interface, as well as allowing the use of the standard 
+\texttt{matplotlib} commands to manipulate the plot parameters, such as the title.
+
+%ayshih - I recommend removing the following sentences
 More technically what is done in the plotting routines is firstly, to 
-make sure that the current state of the figure and axes is mantined 
+make sure that the current state of the figure and axes is maintained 
 in the same way as it is inside the \texttt{pyplot} functions. For 
 \texttt{Map} this means setting \texttt{pyplot.sci()} or set current 
 image, so that \texttt{plt.colorbar()} 

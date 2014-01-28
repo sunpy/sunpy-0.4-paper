@@ -1,14 +1,20 @@
 \documentclass[12pt]{iopart}
+%Uncomment next line if AMS fonts required
+%\usepackage{iopams}
 
 \usepackage{natbib}
+\newcommand*{\newblock}{Bibliography}
+
 \usepackage{minted}
 \definecolor{bg}{rgb}{0.95, 0.95, 0.95}
 \usepackage{hyperref}
-%Uncomment next line if AMS fonts required
-%\usepackage{iopams}
+
 \usepackage{graphicx}
 \graphicspath{{./images/}}
-\newcommand*{\newblock}{Bibliography}
+
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+
 \begin{document}
 
 \title{SunPy - Python for Solar Physics}
@@ -22,7 +28,7 @@
 Mathematics and Statistics, The University of Sheffield, Hicks Building, 
 Hounsfield Road, Sheffield, S3 7RH U.K.}
 
-\author{Steven Christe}
+\author{Steven Christe}\
 \address{NASA Goddard Space Flight Center, Greenbelt, U.S.A.}
 
 \author{David P\'erez-Su\'arez}
@@ -55,18 +61,19 @@ for solar physics.
 \label{sec:DataTypes}
 
 \input{3-Retrieval}
-\label{sec:retrevial}
+\label{sec:retrieval}
 
 \input{4-Util}
 \label{sec:util}
+
+\input{solarsoft}
+\label{sec:ssw}
 
 \input{5-Dev}
 \label{sec:dev}
 
 \input{6-Future}
 \label{sec:future}
-
-\section{Conclusion}
 
 %%% References
 \bibliographystyle{stunat}

@@ -1,80 +1,94 @@
 \subsection{VSO}\label{ssec:vso}
 
-The Virtual Solar Observatory (VSO) was built to facilitate
-access to solar data from the different archives around the 
-world \cite{hill_virtual_2009}.  
-Enabling therefore a single standard query interface to all
-the available products from solar observation.  
-VSO allows to query data not just by instrument or mission for 
-a time range but by physical variables as for example:
-intensity, magnetic field, particle flux or spectral range to name a few.
-VSO's main interface is web-based\footnote{\url{http://virtualsolar.org}}, 
-however a SOAP webservice is also available.
-SunPy access to the VSO through the \texttt{vso} module which it uses 
-the \texttt{suds} package to connect to the webservice.
-This module was developed under the ESA's Summer of Code programme of 2010.
+The Virtual Solar Observatory (VSO) provides a single, standard query
+interface to access solar data from different archives around the world
+ \citep{hill2009}.
+Data products can be requested for specific instruments or missions, but
+can also be requested based on physical parameters of the data product such
+as the wavelength range.
+In addition to the VSO's primary, web-based interface
+(\url{http://virtualsolar.org}), a SOAP (Simple Object Access Protocol)
+service is also available.
+SunPy's \texttt{vso} module accesses the VSO via the SOAP service using the
+\texttt{suds} package.
+This module was developed under the ESA's Summer of Code programme of 2011.
 
-The \texttt{vso} module includes advanced features through the use
-of VSO attributes objects.  
-The time range, the instrument, the wavelength, the physical observable,
-and many other properties are set as attributes objects which could
-be combine using \texttt{and} - just by chaining together the arguments -
-or \texttt{or} operators - by joining the attributes using the ``$|$'' operator.
-Listing~\ref{code:vso_query} shows few examples of queries made using
-such attributes.
+Listing~\ref{code:vso_query_simple} shows an example of how to query the VSO
+using the \texttt{vso} module.
+Each query is constructed by one or more attributes objects, where each
+attribute object is a constraint on a parameter of the data set, such as the
+time, instrument, wavelength, or  other properties.
+The also shows how to download the data using the result
+from the query. One can use the metadata associated with the data sets to specify how the
+files will be named locally, such as creating subdirectories based on the
+instrument names.
 
-\begin{listing}[h]
+Listing~\ref{code:vso_query_advanced} shows examples of how to make advanced
+queries by combining attribute objects.
+Two attribute objects can be combined with a logical \texttt{or} operation
+using the ``$|$'' operator.
+All attribute objects provided to the query as keyword arguments are combined
+with a logical \texttt{and} operation.
+
+\begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
->>> from sunpy.net import vso
->>> client=vso.VSOClient()
+>>> from SunPy.net import vso
+>>> client = vso.VSOClient()
 >>> tstart, tend = '2011/6/7 05:30', '2011/6/7 10:30'
-
-Querying just a single instrument
->>> lasco_query = client.query(vso.attrs.Time(tstart, tend), 
+>>> lasco_query = client.query(vso.attrs.Time(tstart, tend),
 ...                            vso.attrs.Instrument('lasco'))
 >>> lasco_query.num_records()
 40
 >>> lasco_query.show() 
-Start time           End time             Source  Instrument  Type  
-----------           --------             ------  ----------  ----  
+Start time           End time             Source  Instrument  Type
+----------           --------             ------  ----------  ----
 2011-06-07 05:35:23  2011-06-07 05:35:48  SOHO    LASCO       CORONA
 2011-06-07 05:43:09  2011-06-07 05:43:29  SOHO    LASCO       CORONA
 ...
+>>> pathformat = '/data/{instrument}/{detector}/{file}.fits'
+>>> results = client.get(coronagraphs, path = pathformat)
+\end{minted}
+\caption{Example of querying a single instrument over a time range and downloading the data}
+\label{code:vso_query_simple}
+\end{listing}
 
-Adding to the query STEREO's coronographs: COR1
->>> instrument_condition = ( vso.attrs.Instrument('lasco') | 
+%schriste - what about just listing the sources as an array to instead of doing a show
+%           to make the point that the | query worked appropriately? That would make this
+%            listing much shorter.
+\begin{listing}[H]
+\begin{minted}[bgcolor=bg]{pycon}
+#Querying multiple instruments/missions over the same time range
+>>> instrument_condition = ( vso.attrs.Instrument('lasco') |
 ...                          vso.attrs.Detector('cor1') )
->>> coronographs = client.query(vso.attrs.Time(tstart, tend)), 
+>>> coronagraphs = client.query(vso.attrs.Time(tstart, tend),
 ...                             instrument_condition)
->>> coronographs.num_records()
+>>> coronagraphs.num_records()
 485
->>> coronographs.show() 
-Start time           End time             Source    Instrument  Type  
-----------           --------             ------    ----------  ----  
+>>> coronagraphs.show()
+Start time           End time             Source    Instrument  Type
+----------           --------             ------    ----------  ----
 2011-06-07 05:35:23  2011-06-07 05:35:48  SOHO      LASCO       CORONA
-2011-06-07 05:43:09  2011-06-07 05:43:29  SOHO      LASCO       CORONA
 ...
 2011-06-07 10:25:43  2011-06-07 10:25:45  STEREO_B  SECCHI      CORONA
 2011-06-07 10:30:00  2011-06-07 10:30:01  STEREO_A  SECCHI      CORONA
+
+#Querying two wavelength ranges over the same time range
+>>> wavelength_condition = ( vso.attrs.Wave(125, 135) |
+...                          vso.attrs.Wave(165, 175) ) # in angstroms
+>>> euv = client.query(vso.attrs.Time(tstart, tend),
+...                    wavelength_condition)
+>>> euv.num_records()
+3989
+>>> euv.show()
+Start time           End time             Source    Instrument  Type
+----------           --------             ------    ----------  ----
+2011-06-07 00:00:00  2011-06-08 00:00:00  SDO       EVE         FULLDISK
+...
+2011-06-07 05:31:09  2011-06-07 05:31:19  PROBA2    SWAP        FULLSUN
+...
+2011-06-07 10:30:00  2011-06-07 10:30:01  SDO       AIA         FULLDISK
 \end{minted}
-\caption{Examples of different advanced queries through the \texttt{vso} 
-  module using the attributes objects.}
-\label{code:vso_query}
-\end{listing}
-
-The \texttt{vso} module also provides an interface to download the data,
-allowing to customise the directory structure to save the data.
-Listing~\ref{code:vso_down} exemplifies such case.
-
-
-\begin{listing}[h]
-\begin{minted}[bgcolor=bg]{pycon}
->>> pathformat = '/data/{instrument}/{detector}/{file}.fits'
->>> results = client.get(coronographs, 
-...                      path = pathformat)
-
-\end{minted}
-\caption{From listing~\ref{code:vso_query}, this examples shows the 
-  download method of the \texttt{vso} module.}
-\label{code:vso_down}
+\caption{Examples of advanced VSO queries using attribute objects,
+continuing from listing~\ref{code:vso_query_simple}.}
+\label{code:vso_query_advanced}
 \end{listing}
