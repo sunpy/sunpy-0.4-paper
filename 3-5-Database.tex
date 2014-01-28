@@ -5,13 +5,13 @@ in local storage such as laptops and desktop computers. Keeping data organised a
 is typically a cumbersome task for the average user. The file database is a sub-package of 
 SunPy which is meant to solve this problem by providing a unified database to store and manage information about 
 local data files. The database package was developed as part of the Google 
-Summer Of Code (GSOC) program 2013.
+Summer Of Code (GSoC) program 2013.
 
 The database sub-package makes use of a database supported by
 \href{http://www.sqlalchemy.org}{SQLAlchemy}. This library was chosen
 since it supports many SQL dialects. 
-If SQLite is chosen, the database is stored as a single file which is
-created automatically.A server-based database, on the other hand, could be used 
+If SQLite is selected, the database is stored as a single file which is
+created automatically. A server-based database, on the other hand, could be used
 by a collaboration who work together from different machines on the
 same data: a central database server stores all data and the clients connect to
 it to read or write data.
