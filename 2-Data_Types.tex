@@ -1,4 +1,5 @@
-\section{Core Data Types}
+\section{Core Data Types}\label{sec:DataTypes}
+
 The primary focus of SunPy is to provide data structures 
 that are specifically designed for the primary varieties of solar physics data, namely
 images, time series, and spectra. SunPy provides three core data
@@ -9,7 +10,7 @@ and \texttt{Spectrum}/\texttt{Spectrogram} (1 and 2D spectra).
 
 The classes provide access to the original data
 along with associated metadata and provide appropriate convenience functions to
-enable data analysis and visualization. For each of these classes, the data is
+enable data analysis and visualisation. For each of these classes, the data is
 stored in the \texttt{.data} attribute while the metadata is stored 
 in the \texttt{.meta} attribute. It is 
 possible to instantiate the data types from various different 
@@ -37,7 +38,7 @@ include visualisation code that is tailored to that data type.
 These visualisation methods all currently utilise the matplotlib 
 package, and are designed in such a way that they integrate well with 
 the \texttt{pyplot} functional interface of \texttt{matplotlib}, as demonstrated in 
-Figure \ref{code:mpl_1}.
+Listing \ref{code:mpl_1}.
 
 %schriste - I vote for removing all of the following code as being too
 %down in the weeds

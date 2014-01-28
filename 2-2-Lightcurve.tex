@@ -17,6 +17,7 @@ list becomes a column in the \texttt{pandas} DataFrame class.
 Currently, the \texttt{LightCurve} class is compatible with the
 following data sources: the GOES X-ray Sensor (XRS), PROBA2/LYRA, and
 the SDO EUV Variability Experiment (EVE; only the level ``OCS'' and
+% Do we need to explain what OCS means?
 average CSV files -- see \url{http://lasp.colorado.edu/home/eve/data/}
 for more detail).  For each of these instruments, a subclass of the
 \texttt{LightCurve} object is initialised
@@ -49,6 +50,7 @@ creates the object.
 %>>> goes_zoom = goes.truncate(trange)
 % the above does not work!
 >>> resampled_goes = goes.data.resample("1H")
+% Does 1h resample makes sense?? I vote for an example with some utility
 \end{minted}
 \begin{center}
 \includegraphics[width=10cm]{goes_lightcurve.pdf}

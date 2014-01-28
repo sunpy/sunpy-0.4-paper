@@ -1,21 +1,22 @@
-\subsection{The File Database}
+\subsection{The File Database}\label{ssec:db}
+
 Easy access to large quantities of solar data frequently leads to datafiles accumulating
-in local storage such as laptops and desktop computers. Keeping data organized and available
+in local storage such as laptops and desktop computers. Keeping data organised and available
 is typically a cumbersome task for the average user. The file database is a sub-package of 
 SunPy which is meant to solve this problem by providing a unified database to store and manage information about 
-local data files. The database package was developed as part of the 2013 
-Google Summer of Code. 
+local data files. The database package was developed as part of GSOC 2013.
 
 The database sub-package makes use of a database supported by
-SQLAlchemy(\url{http://www.sqlalchemy.org}). This library was chosen
-since it supports many SQL dialects. If SQLite is choosen, the database is stored as a single file which is
+SQLAlchemy (\url{http://www.sqlalchemy.org}). This library was chosen
+since it supports many SQL dialects. 
+If SQLite is chosen, the database is stored as a single file which is
 created automatically. This solution makes it possible to easily backup, copy and distribute
 a database file. A server-based database, on the other hand, could be used by a collaboration 
 who work together from different machines on the
 same data: a central database server stores all data and the clients connect to
 it to read or write data.
 
-The database can store and manage all data that is retrieved via sunpy from the net
+The database can store and manage all data that is retrieved via SunPy from the net
 package though currently only the \textsc{VSO} package is supported. 
 It also possible to add entries manually by file or directory. The package also provides
 a \texttt{fetch} method which provides a unified data search which includes both local files
@@ -24,7 +25,7 @@ multiple times. When a file is added to the database the file is scanned and a f
 The current date is associated with the entry along with metadata summaries such 
 as instrument, date of observation, field of view, etc. 
 The database also provides the ability to associate custom meta-data to 
-each database entry such as keywords, comments, and favoriting.
+each database entry such as keywords, comments, and favouring.
 
 A very special feature of the database package is the support of \texttt{undo}
 and \texttt{redo} operations. This is particularly convenient in

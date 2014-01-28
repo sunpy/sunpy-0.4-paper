@@ -1,4 +1,4 @@
-\subsection{Map}
+\subsection{Map}\label{ssec:map}
 The Map data type represents 2D spatial data such as images of the Sun and 
 inner heliosphere. It provides a wrapper around a data array and its associated
 spatial coordinates and other metadata. The \texttt{Map} class provides 
@@ -109,6 +109,8 @@ through the \texttt{MapCube}.}
 >>> writer = Writer(fps=10, metadata=dict(artist='SunPy'), bitrate=1800)
 >>> anim.save('aia_cube.ogv')
 \end{minted}
+% In the above example, is Writer, writer clear? 
+% Could we add more metadata to the movie? obs_date, instrument, etc...?
 \caption{Example showing how to save a video animation from a \texttt{MapCube}, using 
 \texttt{matplotlib}'s animation framework.}
 \label{code:mapcube_2}

@@ -11,14 +11,15 @@ In addition to the VSO's primary, web-based interface
 service is also available.
 SunPy's \texttt{vso} module accesses the VSO via the SOAP service using the
 \texttt{suds} package.
-This module was developed under the ESA's Summer of Code programme of 2011.
+This module was developed under the European Space Agency's Summer of Code in 
+Space (ESA's SOCIS) of 2011.
 
 Listing~\ref{code:vso_query_simple} shows an example of how to query the VSO
 using the \texttt{vso} module.
 Each query is constructed by one or more attributes objects, where each
 attribute object is a constraint on a parameter of the data set, such as the
 time, instrument, wavelength, or  other properties.
-The also shows how to download the data using the result
+It also shows how to download the data using the result
 from the query. One can use the metadata associated with the data sets to specify how the
 files will be named locally, such as creating subdirectories based on the
 instrument names.

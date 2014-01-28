@@ -1,19 +1,20 @@
 \subsection{Helioviewer}\label{ssec:hv}
 
 SunPy provides the ability to download images hosted by the
-Helioviewer Project.  The aim of the Helioviewer Project is to enable
+Helioviewer Project (\url{http://helioviewer.org}).  
+The aim of the Helioviewer Project is to enable
 the exploration of solar and heliospheric data from multiple data
-sources (such as instrumentation and feature/event catalogs) via
+sources (such as instrumentation and feature/event catalogues) via
 easy-to-use visual interfaces.  The primary data provided by the
 Helioviewer Project are images in the JPEG2000 format (for further
 details on the Helioviewer Project see \cite{muller2009}). The
 JPEG2000 files are typically highly compressed compared to the source
 FITS files they are generated from, and so can be a used as a shortcut
-to visualize large amounts of data from multiple sources.  SunPy is
+to visualise large amounts of data from multiple sources.  SunPy is
 also used in Helioviewer production servers to manage the download and
 ingestion of JPEG2000 files from remote servers.
 
-The Helioviewer Project categorizes image data based on the physical
+The Helioviewer Project categorises image data based on the physical
 construction of the source instrument, using a simple hierarchy:
 observatory $\rightarrow$ instrument $\rightarrow$ detector
 $\rightarrow$ measurement, where '$\rightarrow$' means 'provides
@@ -21,13 +22,14 @@ $\rightarrow$ measurement, where '$\rightarrow$' means 'provides
 metadata which are based (in part) on the original FITS header
 information, and carry sufficient information to permit overlay with
 other Helioviewer JPEG2000 files. Images can be accessed either as
-PNGs (Section \ref{sssec:hv:png} or as JPEG2000 files (Section
+PNGs (Section \ref{sssec:hv:png}) or as JPEG2000 files (Section
 \ref{sssec:hv:jp}).
 
 \subsubsection{Download a PNG file}\label{sssec:hv:png}
 
+
 Listing \ref{code:hv:downloadlatestpng} demonstrates how to download a
-PNG image of the latest AIA 304\AA\ image available on
+PNG image of the latest AIA 304$\,$\AA\ image available on
 \url{Helioviewer.org}.
 
 \begin{listing}[H]
@@ -38,6 +40,7 @@ PNG image of the latest AIA 304\AA\ image available on
 ...                 x0=0, y0=0, width=512, height=512)
 \end{minted}
 \includegraphics[width=0.8\columnwidth]{helioviewer_latest_aia_304}
+%centered image?
 \caption{Acquisition of a PNG file showing the latest AIA 304\AA\ image 
 available at \url{www.helioviewer.org}.}
 \label{code:hv:downloadlatestpng}
@@ -54,7 +57,7 @@ detector $\rightarrow$ measurement combination.  The final two numbers
 in this string are the visibility and the opacity of the this image
 layer (1/0 is visible/invisible with opacity in the range
 $0\rightarrow100$, with $100$ meaning fully opaque).  The quantities
-$x0$ and $y0$ are the $x$ and $y$ center points about which to center
+$x0$ and $y0$ are the $x$ and $y$ centre points about which to centre
 the image (measured in helio-projective cartesian co-ordinates) and
 the \texttt{width} and \texttt{height} are the pixel values for the
 image dimensions.
@@ -92,7 +95,7 @@ separate images in to a single image.
 \label{code:hv:overlaid}
 \end{listing}
 
-The principle difference between this code snippet and Listing
+The principle difference between Listings~\ref{code:hv:overlaid} and 
 \ref{code:hv:downloadlatestpng} is in the layer string (the third
 argument).  The layer string has three separate comma separated
 entries detailing the data source, its visibility and its opacity.
@@ -101,10 +104,11 @@ images from multiple, correctly overlaid, image data sources.
 
 \subsubsection{Download a JPEG2000 file}\label{sssec:hv:jp}
 
+
 As noted above, Helioviewer JPEG2000 files contain metadata that allow
 positioning of the image data.  There is sufficient metadata in each
 file to permit the creation of a SunPy map object (see Section
-\ref{ssec:maps}) from a Helioviewer JPEG2000 file.  This allows image
+\ref{ssec:map}) from a Helioviewer JPEG2000 file.  This allows image
 data to be manipulated in the same way as any other map object.
 
 Reading JPEG2000 file into a SunPy session requires installing two
@@ -118,16 +122,16 @@ Section \ref{sssec:hv:png}).
 
 Listing \ref{code:downloadjp2} demonstrates the querying, downloading,
 reading and conversion of a Helioviewer JPEG2000 file into a SunPy Map
-object.  This functionality allows users to visualize and manipulate
+object.  This functionality allows users to visualise and manipulate
 Helioviewer-supplied image data in an identical fashion to a SunPy map
-object generated from FITS data (see Section \ref{sec:maps}).
+object generated from FITS data (see Section \ref{sec:map}).
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> filepath = hv.download_jp2('2012/07/05 00:30:00',
-...                     observatory='SDO',
-...                     instrument='HMI', detector='HMI', 
-...                     measurement='continuum')
+...                            observatory='SDO',
+...                            instrument='HMI', detector='HMI', 
+...                            measurement='continuum')
 >>> from sunpy.map import Map
 >>> Map(filepath).submap([200,550],[-400,-200]).peek()
 \end{minted}
