@@ -1,14 +1,13 @@
 \subsection{VSO}\label{ssec:vso}
 
-The Virtual Solar Observatory (VSO) provides a single, standard query
-interface to access solar data from different archives around the world
- \citep{hill2009}.
+The Virtual Solar Observatory (\href{http://virtualsolar.org}{VSO}) provides a 
+single, standard query interface to access solar data from different archives 
+around the world \citep{hill2009}.
 Data products can be requested for specific instruments or missions, but
 can also be requested based on physical parameters of the data product such
 as the wavelength range.
-In addition to the VSO's primary, web-based interface
-(\url{http://virtualsolar.org}), a SOAP (Simple Object Access Protocol)
-service is also available.
+In addition to the VSO's primary, web-based interface, a SOAP (Simple Object 
+Access Protocol) service is also available.
 SunPy's \texttt{vso} module accesses the VSO via the SOAP service using the
 \texttt{suds} package.
 This module was developed under the European Space Agency's Summer of Code in 
@@ -16,20 +15,20 @@ Space (ESA's SOCIS) of 2011.
 
 Listing~\ref{code:vso_query_simple} shows an example of how to query the VSO
 using the \texttt{vso} module.
-Each query is constructed by one or more attributes objects, where each
+Each query is constructed by one or more attribute objects, where each
 attribute object is a constraint on a parameter of the data set, such as the
 time, instrument, wavelength, or  other properties.
 It also shows how to download the data using the result
-from the query. One can use the metadata associated with the data sets to specify how the
-files will be named locally, such as creating subdirectories based on the
-instrument names.
+from the query. One can use the metadata associated with the data sets to 
+specify how the files will be named locally, such as creating subdirectories 
+based on the instrument names.
 
 Listing~\ref{code:vso_query_advanced} shows examples of how to make advanced
 queries by combining attribute objects.
 Two attribute objects can be combined with a logical \texttt{or} operation
 using the ``$|$'' operator.
-All attribute objects provided to the query as keyword arguments are combined
-with a logical \texttt{and} operation.
+All attribute objects provided to the query as arguments are combined with a 
+logical \texttt{and} operation.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -56,6 +55,7 @@ Start time           End time             Source  Instrument  Type
 %schriste - what about just listing the sources as an array to instead of doing a show
 %           to make the point that the | query worked appropriately? That would make this
 %            listing much shorter.
+%Stuart: I suggest removing the second query from here, it dosen't add much.
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 #Querying multiple instruments/missions over the same time range

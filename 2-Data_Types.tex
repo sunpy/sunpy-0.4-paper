@@ -1,27 +1,24 @@
 \section{Core Data Types}\label{sec:DataTypes}
 
-The primary focus of SunPy is to provide data structures 
-that are specifically designed for the primary varieties of solar physics data, namely
-images, time series, and spectra. SunPy provides three core data
-types using Python classes:
-\texttt{Map} (2D spatial data),
-\texttt{LightCurve} (1D temporal series)
+Currently SunPy provides data structures that are specifically designed for the
+three primary varieties of solar physics data, namely images, time series, and
+spectra. SunPy provides core data types for these using Python classes:
+\texttt{Map} (2D spatial data), \texttt{LightCurve} (1D temporal series)
 and \texttt{Spectrum}/\texttt{Spectrogram} (1 and 2D spectra). 
 
 The classes provide access to the original data
 along with associated metadata and provide appropriate convenience functions to
 enable data analysis and visualisation. For each of these classes, the data is
 stored in the \texttt{.data} attribute while the metadata is stored 
-in the \texttt{.meta} attribute. It is 
-possible to instantiate the data types from various different 
-sources: \textit{e.g.}, files, URLs, arrays or time ranges.  In order to provide
-instrument-specific specialisation, all the core SunPy data types support specialisation;
-\textit{e.g.}, \texttt{Map} has an \texttt{AIAMap} sub-type. 
-Data visualisation is provided by two functions: \texttt{peek()}, for quick plotting,
-and \texttt{plot()}, for more fine-grained control plotting that integrates with 
-\texttt{matplotlib}.
-% LightCurve does NOT have a meta attribute.  Needs to be fixed in the
-% re-write of LightCurve
+in the \texttt{.meta}\footnote{Except \texttt{LightCurve} which currently does 
+not.} attribute. It is possible to instantiate the data types from various 
+different sources: \textit{e.g.}, files, URLs, arrays or time ranges.  In order 
+to provide instrument-specific specialisation, all the core SunPy data types 
+support subclassing; \textit{e.g.}, \texttt{Map} has an \texttt{AIAMap} 
+sub-type. 
+Data visualisation is provided by two functions: \texttt{peek()}, for quick 
+plotting, and \texttt{plot()}, for plotting with more fine-grained control that 
+integrates with \texttt{matplotlib}.
 
 
 This section will give a brief overview of the \textit{current} functionality 
@@ -35,80 +32,12 @@ of each of these data types.
 \label{subsec:Viz}
 As has been demonstrated in this section, the core SunPy datatypes 
 include visualisation code that is tailored to that data type. 
-These visualisation methods all currently utilise the matplotlib 
+These visualisation methods all currently utilise the \texttt{matplotlib} 
 package, and are designed in such a way that they integrate well with 
-the \texttt{pyplot} functional interface of \texttt{matplotlib}, as demonstrated in 
-Listing \ref{code:mpl_1}.
-
-%schriste - I vote for removing all of the following code as being too
-%down in the weeds
-%ji -  I agree.  Do we even need to say much more than give a brief
-%outline of the .peek and .plot methods?
-\begin{listing}[H]
-\begin{minipage}{0.49\columnwidth}
-\begin{minted}[bgcolor=bg]{python}
-import sunpy.map
-import matplotlib.pyplot as plt
-
-#Read in a aia file using SunPy
-aiamap = SunPy.map.Map('aia.fits')
-
-#Create the figure and axis 
-#explicitly
-fig = plt.figure()
-ax = plt.subplot()
-
-#Create a image plot with raw data
-im = ax.imshow(aiamap.data,...)
-#add a colour bar
-plt.colorbar(im,ax=ax)
-
-#Add a title
-plt.title("My AIA plot")
-plt.show()
-\end{minted}
-\end{minipage}
-\begin{minipage}{0.49\columnwidth}
-\begin{minted}[bgcolor=bg]{python}
-import SunPy.map
-import matplotlib.pyplot as plt
-
-#Read in a aia file using SunPy
-aiamap = SunPy.map.Map('aia.fits')
-
-#Create the figure and axis 
-#explicitly
-fig = plt.figure()
-ax = plt.subplot()
-
-#Plot the AIA map
-im = aiamap.plot(axes=ax)
-#add a colour bar
-plt.colorbar(im,ax=ax)
-
-#Add a title
-plt.title("My AIA plot")
-plt.show()
-\end{minted}
-\end{minipage}
-\caption{A simple example of how SunPy's plotting functions provide similar 
-behaviour to the \texttt{matplotlib.pyplot} interface.}
-\label{code:mpl_1}
-\end{listing}
+the \texttt{pyplot} functional interface of \texttt{matplotlib}.
 
 This design philosophy makes the behaviour of SunPy's visualisation 
 routines intuitive to those who already understand the \texttt{matplotlib}
 interface, as well as allowing the use of the standard 
-\texttt{matplotlib} commands to manipulate the plot parameters, such as the title.
-
-%ayshih - I recommend removing the following sentences
-More technically what is done in the plotting routines is firstly, to 
-make sure that the current state of the figure and axes is maintained 
-in the same way as it is inside the \texttt{pyplot} functions. For 
-\texttt{Map} this means setting \texttt{pyplot.sci()} or set current 
-image, so that \texttt{plt.colorbar()} 
-automatically detects the plotted \texttt{AxesImage} object. 
-Secondly, it also means returning the same type of object as the 
-\texttt{pyplot} interfaces function, \textit{i.e.} for \texttt{Map} 
-it returns the \texttt{AxesImage} instance which is the same type of 
-return as \texttt{pyplot.imshow}.
+\texttt{matplotlib} commands to manipulate the plot parameters, such as the 
+title.
