@@ -2,6 +2,7 @@
 This section compares the SunPy library that is described in Sections 
 \ref{sec:DataTypes}--\ref{sec:util} with the current de-facto standard solar 
 physics data analysis library: SolarSoft (SSW) \citep{freeland1998}.
+%ARI - is is SolarSoft or SolarSoftWare?! The latter includes the W :-)
 SolarSoft is a set of integrated software libraries, databases, and system 
 utilities which provide a common programming and data-analysis environment for 
 solar physics. SSW is modular in nature, which allows users to add required 
@@ -38,9 +39,9 @@ SolarSoft (gen) library. This is made possible by the recent rise of the
 scientific Python community. Python, as described in Section \ref{sec:Intro}, 
 is a general purpose high-level programming language which is free to use and 
 cross-platform and powerful programming language.
-It therefore has a very large user community which extends far outside of the 
+It therefore has a very large user base which extends far outside of the 
 solar physics or astronomy communities. It is very extensible with C, C++, 
-FORTRAN or even IDL. Many books and on-line documentation is available. For 
+FORTRAN or even IDL. Many books and on-line documentation sources are available. For 
 example, at the time writing a search 
 %
 %dps - \footnote{We need to be careful with this! IDL means more things that 
@@ -57,7 +58,8 @@ example, at the time writing a search
 %comparison to the other metrics used it's a little weak.
 on Amazon for books on IDL programming generated $189$ results while a search 
 for Python yielded $1\,788$ results. Python has a strong emphasis on 
-readability a concept which is well-aligned with the scientific endeavour.
+readability, a concept which is well-aligned with the scientific endeavour.
+%In fairness, IDL is also quite readable! Could move this statement to the intro instead.
 Additionally, Python is increasingly being taught in universities, which means 
 that research projects can begin quickly without the need for students to learn 
 a new (and relatively niche) language. Finally, knowledge of Python is a skill 
@@ -68,13 +70,13 @@ community \citep{greenfield2011} which has similar goals and requirements as
 the solar physics community. Finally, Python integrates well with many 
 technologies such as web servers \citep{dolgert2008}, SQL databases, 
 interactive and shareable notebook-based computing \citep{perez2007}. For all 
-of these reasons, Python is an ideal platform for a modern data-
-analysis environment for solar physics.
+of these reasons, Python is an ideal platform for a modern data analysis environment 
+for solar physics.
 
 SunPy is built on top of the core scientific Python packages namely 
 \texttt{NumPy}, \texttt{SciPy}, \texttt{matplotlib}. These core packages 
 provide capabilities surpassing that provided by IDL for array manipulation and 
-2D plotting \citep{greenfield2011}. Providing similar capabilities as SSW/gen 
+2D plotting \citep{greenfield2011}. Providing similar capabilities to SSW/gen 
 in Python is made easier by leveraging the diverse Python community. For 
 example, SunPy makes use of the \texttt{pandas} package to provide 
 high-performance, easy-to-use data structures and data analysis tools for time 
