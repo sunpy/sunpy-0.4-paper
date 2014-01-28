@@ -125,9 +125,9 @@ object generated from FITS data (see Section \ref{sec:maps}).
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> filepath = hv.download_jp2('2012/07/05 00:30:00',
-...                                                  observatory='SDO',
-...                                                  instrument='HMI', detector='HMI', 
-...                                                  measurement='continuum')
+...                     observatory='SDO',
+...                     instrument='HMI', detector='HMI', 
+...                     measurement='continuum')
 >>> from sunpy.map import Map
 >>> Map(filepath).submap([200,550],[-400,-200]).peek()
 \end{minted}
