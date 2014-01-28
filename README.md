@@ -50,7 +50,14 @@ use this you need to append `-shell-escape` to whereever you call pdflatex.
 To build the paper use
 
     pdflatex -shell-escape Sunpy_paper_0.4.tex
+    pdflatex -shell-escape Sunpy_paper_0.4.tex
+    bibtex Sunpy_paper_04
+    pdflatex -shell-escape Sunpy_paper_0.4.tex
 
 ## Football schedule
 
 https://docs.google.com/document/d/1rHJXfQXeqntTMoPBau95L0diYN499vQAFZcjiXFbqZ4/edit?usp=sharing
+
+## Latest Build
+
+https://www.dropbox.com/s/vru86p4s31cfobb/Sunpy_paper_0.4.pdf
