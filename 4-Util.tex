@@ -10,8 +10,8 @@ briefly describes some of these functions.
 \subsection{World Coordinate System (WCS) Coordinates}\label{ssec:util:wcs}
 Coordinate transformations are frequently a necessary task within the solar 
 data analysis workflow. Likely the most often used transformation is from 
-observer coordinates (e.g. sky coordinates) to a coordinate system which is 
-mapped onto the solar surface (e.g. latitude and longitude). This 
+observer coordinates (e.g., sky coordinates) to a coordinate system which is 
+mapped onto the solar surface (e.g., latitude and longitude). This 
 transformation is necessary to compare the true physical distance between 
 different solar features. This type of transformation is not unique
 to solar observations, but is not often considered by astronomical packages
@@ -20,7 +20,7 @@ coordinates package. The \verb|wcs| package in SunPy implements the World Coordi
 System (WCS) for solar coordinates as described by \cite{Thompson2000}. The 
 transformations currently implemented are those most useful 
 for most solar data analysis, namely converting from Helioprojective-Cartesian 
-(HPC) to Heliographic coordinates (HG). HPC describes the positions on 
+(HPC) to Heliographic (HG) coordinates. HPC describes the positions on 
 the Sun as angles measured from the center of the solar disk (usually in 
 arcseconds) using cartesian coordinates (X, Y). This is the coordinate system 
 most often defined in solar imaging data (see for example, images from 
@@ -61,14 +61,14 @@ Convert sky coordinate to a position in HCC
 \end{listing}
 
 \subsubsection{Sun}\label{ssec:util:sun}
-The purpose of this module is to provide solar-specific data for example ephemeris and
+The purpose of this module is to provide solar-specific data, for example ephemerides and
 solar constants. The main namespace contains a number of functions which provide solar
-ephemeris such as the Sun to Earth distance, solar cycle number, the mean 
+ephemerides such as the Sun to Earth distance, solar cycle number, the mean 
 anomaly, etc.
 All of these functions take a time as their input which can be provided in any 
 \texttt{parse\_time}
 compatible format. 
-A future version of SunPy will integrate with the AstroPy coordinates package and will 
+A future version of SunPy will integrate with the Astropy coordinates package and will 
 likely make use of an ephemeris package.
 
 \subsubsection{constants}\label{ssec:util:const}
@@ -77,11 +77,11 @@ constants in order to provide consistency in the calculations of derived solar
 values both within the SunPy code base but also to the user. Every solar 
 constant is provided as a Constant object as defined by Astropy. Each 
 Constant object defines a Quantity, a number associated with a unit, along with 
-the constant's provenance (i.e. reference) as well as its uncertainty. Using 
+the constant's provenance (i.e., reference) as well as its uncertainty. Using 
 Astropy's Quantities, any solar constant can easily be converted between 
 different units as can be seen in Listing~\ref{code:constants_code} as well
 as between the SI or cgs unit systems with a single command.  As these objects inherit from 
-Numpy's ndarray, they work well with standard representations of numbers.
+Numpy's \texttt{ndarray}, they work well with standard representations of numbers.
 For convenience a number of shortcuts to frequently used constants are provided 
 directly when importing the sub-package. A larger list of constants can be 
 accessed through an interface modelled on that provided by the SciPy constants 
@@ -117,8 +117,8 @@ some instrument-specific functions may be found within the \texttt{instr} packag
 These functions are generally those that are unique to one particular solar instrument, 
 rather than of general use, for example a function to construct a GOES flare event list 
 or a function to query the LYRA timeline annotation file. Currently, some support is included
- in this way for the GOES, LYRA, RHESSI and IRIS instruments, while future developments 
- will include support for additional missions. It is anticipated that, ultimately, solar
+ for the GOES, LYRA, RHESSI and IRIS instruments, while future developments 
+ will include support for additional missions. Ultimately, it is anticipated that solar
   missions requiring a large suite of software tools will be supported via a separately 
   maintained package affiliated with SunPy.
 

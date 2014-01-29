@@ -1,12 +1,12 @@
 \subsection{VSO}\label{ssec:vso}
 
 The Virtual Solar Observatory (\href{http://virtualsolar.org}{VSO}) provides a 
-single, standard query interface to access solar data from different archives 
+single, standard query interface to solar data from different archives 
 around the world \citep{hill2009}.
-Data products can be requested for specific instruments or missions, but
+Data products can be requested for specific instruments or missions and
 can also be requested based on physical parameters of the data product such
 as the wavelength range.
-In addition to the VSO's primary, web-based interface, a SOAP (Simple Object 
+In addition to the VSO's primary web-based interface, a SOAP (Simple Object 
 Access Protocol) service is also available.
 SunPy's \texttt{vso} module accesses the VSO via the SOAP service using the
 \texttt{suds} package.
@@ -15,18 +15,18 @@ Space (ESA's SOCIS) of 2011.
 
 Listing~\ref{code:vso_query_simple} shows an example of how to query the VSO
 using the \texttt{vso} module.
-Each query is constructed by one or more attribute objects, where each
+Queries are constructed using one or more attribute objects. Each
 attribute object is a constraint on a parameter of the data set, such as the
-time, instrument, wavelength, or  other properties.
-It also shows how to download the data using the result
-from the query. One can use the metadata associated with the data sets to 
+time, instrument, or wavelength.
+Listing~\ref{code:vso_query_simple} also shows how to download the data using
+the constructed query. One can use the metadata associated with the data sets to 
 specify how the files will be named locally, such as creating subdirectories 
 based on the instrument names.
 
 Listing~\ref{code:vso_query_advanced} shows examples of how to make advanced
 queries by combining attribute objects.
 Two attribute objects can be combined with a logical \texttt{or} operation
-using the ``$|$'' operator.
+using the \texttt{|} (pipe) operator.
 All attribute objects provided to the query as arguments are combined with a 
 logical \texttt{and} operation.
 
@@ -90,6 +90,6 @@ Start time           End time             Source    Instrument  Type
 2011-06-07 10:30:00  2011-06-07 10:30:01  SDO       AIA         FULLDISK
 \end{minted}
 \caption{Examples of advanced VSO queries using attribute objects,
-continuing from listing~\ref{code:vso_query_simple}.}
+continuing from Listing~\ref{code:vso_query_simple}.}
 \label{code:vso_query_advanced}
 \end{listing}

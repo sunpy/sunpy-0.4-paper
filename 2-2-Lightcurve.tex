@@ -1,12 +1,12 @@
 \subsection{Lightcurve}\label{ssec:lightcurve}
 
-Time series data and their analysis are a fundamental aspect of solar
+Time series data and their analyses are a fundamental aspect of solar
 physics for which many data sources are available.
 SunPy provides a \texttt{LightCurve} class
 with a convenient and consistent interface for handling solar time-series
 data.  The main engine behind the \texttt{LightCurve} class is
 the \href{http://pandas.pydata.org}{\texttt{pandas}} data-analysis library, and 
-\texttt{LightCurve}'s \texttt{.data} attribute is a \texttt{pandas.DataFrame} 
+\texttt{LightCurve}'s \texttt{data} attribute is a \texttt{pandas.DataFrame} 
 class.
 The \texttt{pandas} library contains a large amount
 of functionality for manipulating and analysing time-series data,
@@ -18,10 +18,12 @@ Currently, the \texttt{LightCurve} class is compatible with the
 following data sources: the GOES X-ray Sensor (XRS), PROBA2/LYRA, and
 the SDO EUV Variability Experiment (EVE; only the level ``OCS'' and
 % Do we need to explain what OCS means?
+% RJH: I'd argue that everything other than (EVE) can be cut, but I'm not 
+% confident enough to make that cut.
 average CSV files -- see \url{http://lasp.colorado.edu/home/eve/data/}
 for more detail).  For each of these instruments, a subclass of the
 \texttt{LightCurve} object is initialised
-(\textit{e.g.}, \texttt{GOESLightCurve}) which inherits from
+(e.g., \texttt{GOESLightCurve}) which inherits from
 \texttt{LightCurve} but allows instrument-specific functionality to be
 included.  Future developments will introduce support for additional
 instruments and data products, as well as implementing a factory interface 
@@ -31,7 +33,7 @@ as to how time-series data should be stored and distributed, each SunPy
 specific data format in its constructor and parse that file type.
 
 A \texttt{LightCurve} object may be created using a number of different methods. 
-Firstly, a \texttt{LightCurve} may be created for a specific instrument given
+For example, a \texttt{LightCurve} may be created for a specific instrument given
 an input time range. In Listing~\ref{code:goes_lc}, 
 the \texttt{LightCurve} constructor searches a remote source for the GOES X-ray 
 data specified by the time interval, downloads the required files and 
