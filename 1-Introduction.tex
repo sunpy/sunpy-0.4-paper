@@ -1,50 +1,53 @@
-\section{Introduction}
+\section{Introduction}\label{sec:Intro}
 
 Science is driven by the analysis of data. Modern advances in sensor
-technology combined with the availability of cheap storage has led to
+technology, combined with the availability of inexpensive storage has led to
 rapid increases in amount of data available to scientists in almost
-every discipline.  Solar physics is no exception to this trend. NASA's
-Solar Dynamics Observatory (SDO) satellite, launched in February 2010,
-produces over 1 TB of catalogued and stored data per day. Managing and
-analysing this mountain of data to enable scientific discovery
+every discipline.  Solar physics is no exception to this trend. For example, NASA's
+AIA instrument on the Solar Dynamics Observatory (SDO) satellite, launched in February 2010,
+produces over 1 TB of catalogued and stored data per day \citep{aia}. Managing and
+analysing this mountain of data
 requires increasingly sophisticated software tools.  Key qualities
 that these tools should have include robustness, ease of use, a
 transparent development history, ease of modification, and conformance
-to standards.  Software with these qualities provides a strong
-foundation which is responsive to the needs of the community as data
+to standards.  Software with these qualities provide a strong
+foundation and can support the needs of the community as data
 volumes grow and science questions evolve.
 %schriste - the opening paragraph still needs work
 %ji - I had a go.
+%schriste - looks good, made a small fix
 
 SunPy aims to provide a free, open-source and openly developed software package 
 for the analysis and visualisation of solar data. SunPy makes use of the Python 
-programming language and the breadth of high-quality science-focused packages 
-written in that language. Python is a general-purpose, 
+programming language and the scientific Python packages. Python is a general-purpose, 
 powerful and easy-to-learn high-level programming language.
-According to the 
-2014 TIOBE Index\footnote{\url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}},
- Python is one of the top ten most popular programming languages in the world 
-and is widely used outside of scientific fields in web development, education 
+% RJH: Can we cut the next sentence?  It seems superfluous and top 10 is rather
+% meaningless.
+% schriste - i think it's important. it contrasts nicely with IDL and its tiny 
+%community.
+%SJM: I think it should stay, it makes a point.
+According to the \href{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}{2014 TIOBE Index},
+ it is one of the top ten most popular programming languages in the world 
+and is widely used outside of scientific fields in areas like web development, education 
 and `big data' analytics.
 
-The development of a package such as SunPy in Python is made possible by the 
-rich ecosystem of scientific packages available in Python. Core packages in this 
-ecosystem such as \texttt{NumPy}, \texttt{SciPy} and \texttt{matplotlib} 
-provide the basic functionality expected of a scientific programming language: 
-\textit{e.g.}, array manipulation, core numerical algorithms and visualisation. 
-Built upon these foundations, packages such as \texttt{Astropy}, \texttt{pandas} and 
+
+The development of a package such as SunPy is made possible by the 
+rich ecosystem of scientific packages available in Python. Core packages such 
+as \texttt{NumPy}, \texttt{SciPy} and \texttt{matplotlib} 
+provide the basic functionality expected of a scientific programming language,
+e.g., array manipulation, core numerical algorithms and visualisation. 
+Building upon these foundations, packages such as \texttt{astropy}, \texttt{pandas} and 
 \texttt{scikit-image} provide more domain-specific functionality.
 
-The design philosophy of SunPy is to provide a clean, simple-to-use, and well 
-structured package that provides the \textit{core} tools for solar-physics data analysis. The 
-primary focus of SunPy's early development is to provide specialised, linked, 
-data types that allow the acquisition, processing and visualisation of all types 
-of solar data.
+SunPy is designed to be a clean, simple-to-use, and well-structured 
+package that provides the \textit{core} tools for solar data analysis. 
+The primary focus of SunPy's early development are 
+specialised data types that allow the acquisition, processing and 
+visualisation of all types of solar data.
 
 The purpose of this paper is to provide an overview of SunPy's current 
-capabilities, an overview of the development model and community aspects of the 
-SunPy project, as well as future plans. The latest release of SunPy (0.4)
-can be downloaded from
-the official website (\url{http://sunpy.org}) or can be installed using 
-the Python package index (\mbox{\url{http://pypi.python.org/pypi}}).
-%schriste - the mbox prevents latex from breaking the url across different lines.
+capabilities, an overview of the project's development model, community aspects of the 
+SunPy project, as well as future plans. The latest release of SunPy, version 0.4,
+can be downloaded from \href{http://sunpy.org}{www.sunpy.org} or can be
+installed using the \href{http://pypi.python.org/pypi}{Python package index}.

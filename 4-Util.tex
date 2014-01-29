@@ -1,29 +1,30 @@
-\section{Additional functionality}
+\section{Additional functionality}\label{sec:util}
 SunPy is meant to provide a consistent environment for solar data analysis. In 
-order to achieve this goal SunPy provides a number of utility functions and packages which 
+order to achieve this goal SunPy provides a number of additional functions and packages which 
 are used by the other SunPy modules and are made available to the user. This section 
 briefly describes some of these functions.
 
 %Two modules are described in this Section, namely, solar coordinates (WCS), and 
 %the Sun module. 
 	
-\subsection{World Coordinate System (WCS) Coordinates}
+\subsection{World Coordinate System (WCS) Coordinates}\label{ssec:util:wcs}
 Coordinate transformations are frequently a necessary task within the solar 
 data analysis workflow. Likely the most often used transformation is from 
-observer coordinates (e.g. sky coordinates) to a coordinate system which is 
-mapped onto the solar surface (e.g. latitude and longitude). This 
+observer coordinates (e.g., sky coordinates) to a coordinate system which is 
+mapped onto the solar surface (e.g., latitude and longitude). This 
 transformation is necessary to compare the true physical distance between 
 different solar features. This type of transformation is not unique
 to solar observations, but is not often considered by astronomical packages
 such as the Astropy 
-coordinates package. The \verb|wcs| package in SunPy implements the World Coordinate 
-System (WCS) for solar coordinates as described by \cite{Thompson2000}. The 
+coordinates package. The \texttt{wcs} package in SunPy implements the World Coordinate 
+System (WCS) for solar coordinates as described by \citep{thompson2006}. The 
 transformations currently implemented are those most useful 
 for most solar data analysis, namely converting from Helioprojective-Cartesian 
-(HPC) to Heliographic coordinates (HG). HPC describes the positions on 
+(HPC) to Heliographic (HG) coordinates. HPC describes the positions on 
 the Sun as angles measured from the center of the solar disk (usually in 
 arcseconds) using cartesian coordinates (X, Y). This is the coordinate system 
-most often defined in solar imaging data (see for example, images from SDO/AIA, SOHO/EIT, and TRACE). 
+most often defined in solar imaging data (see for example, images from 
+\textit{SDO/AIA}, \textit{SOHO/EIT}, and \textit{TRACE}). 
 HG coordinates express positions on the Sun using longitude and latitude on 
 the solar sphere. There are two standards for this coordinate system, 
 Stonyhurst-Heliographic where the origin is at the intersection of the solar 
@@ -34,7 +35,9 @@ called Heliocentric-Cartesian (HCC) where positions are expressed in true
 (deprojected) physical distances instead of angles on the celestial sphere.
 These transformations require some knowledge of the location of the observer 
 which is usually provided by the image header. In the case where it is 
-not, the observer is assumed to be at Earth.Listing \ref{code:wcs_code} shows some examples of coordinate transforms carried out in SunPy using the \verb|wcs| utilities. 
+not, the observer is assumed to be at Earth. Listing \ref{code:wcs_code} shows 
+some examples of coordinate transforms carried out in SunPy using the 
+\texttt{wcs} utilities. 
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -53,31 +56,32 @@ Convert sky coordinate to a position in HCC
 >>> wcs.convert_hpc_hcc(-300,400, z = True)
 (-216716967.63331246, 288956420.9477042, 594364636.2208252)
 \end{minted}
-\caption{Using the sunpy.wcs sub-package.}
+\caption{Using the sunpy.wcs subpackage.}
 \label{code:wcs_code}
 \end{listing}
 
-\subsubsection{Sun}
-The purpose of this module is to provide solar-specific data for example ephemeris and
+\subsubsection{Sun}\label{ssec:util:sun}
+The purpose of this module is to provide solar-specific data, for example ephemerides and
 solar constants. The main namespace contains a number of functions which provide solar
-ephemeris such as the sun to earth distance, solar cycle number, the mean anomaly, etc.
+ephemerides such as the Sun to Earth distance, solar cycle number, the mean 
+anomaly, etc.
 All of these functions take a time as their input which can be provided in any 
 \texttt{parse\_time}
 compatible format. 
-A future version of SunPy will integrate with the AstroPy coordinates package and will 
+A future version of SunPy will integrate with the Astropy coordinates package and will 
 likely make use of an ephemeris package.
 
-\subsubsection{constants}
+\subsubsection{constants}\label{ssec:util:const}
 The purpose of the constants package is to provide a number of solar-related 
 constants in order to provide consistency in the calculations of derived solar 
 values both within the SunPy code base but also to the user. Every solar 
 constant is provided as a Constant object as defined by Astropy. Each 
 Constant object defines a Quantity, a number associated with a unit, along with 
-the constant's provenance (i.e. reference) as well as its uncertainty. Using 
+the constant's provenance (i.e., reference) as well as its uncertainty. Using 
 Astropy's Quantities, any solar constant can easily be converted between 
-different units as can be seen in Figure~\ref{fig:constants_code} as well
+different units as can be seen in Listing~\ref{code:constants_code} as well
 as between the SI or cgs unit systems with a single command.  As these objects inherit from 
-Numpy's ndarray, they work well with standard representations of numbers.
+Numpy's \texttt{ndarray}, they work well with standard representations of numbers.
 For convenience a number of shortcuts to frequently used constants are provided 
 directly when importing the sub-package. A larger list of constants can be 
 accessed through an interface modelled on that provided by the SciPy constants 
@@ -106,15 +110,15 @@ To view them all quickly a \texttt{print\_all()} function is available.
 \label{code:constants_code}
 \end{listing}
 	
-\subsubsection{Instruments}
+\subsubsection{Instruments}\label{ssec:util:inst}
 In addition to providing support for instrument-specific solar data via the main data 
 classes \texttt{Map}, \texttt{LightCurve} and \texttt{Spectrum}, 
 some instrument-specific functions may be found within the \texttt{instr} package. 
 These functions are generally those that are unique to one particular solar instrument, 
 rather than of general use, for example a function to construct a GOES flare event list 
 or a function to query the LYRA timeline annotation file. Currently, some support is included
- in this way for the GOES, LYRA, RHESSI and IRIS instruments, while future developments 
- will include support for additional missions. It is anticipated that, ultimately, solar
+ for the GOES, LYRA, RHESSI and IRIS instruments, while future developments 
+ will include support for additional missions. Ultimately, it is anticipated that solar
   missions requiring a large suite of software tools will be supported via a separately 
   maintained package affiliated with SunPy.
 

@@ -1,4 +1,4 @@
-\section{Future of SunPy}
+\section{Future of SunPy}\label{sec:future}
 SunPy as a project has existed for roughly three years. In this time 
 the code 
 base has grown to over 110,000 lines. SunPy in its current form is a 
@@ -6,20 +6,22 @@ useful
 package for the analysis of calibrated solar data, however, the code 
 base is 
 still very changeable from release to release.
+% RJH:  Again, lines of code is a weird measure.  Also, no way there is 110,000 lines that we
+% actually wrote.  does this include docs, comments, and sphinx crap?
+%SJM: I think this number is just wrong and never got changed.
 
 As discussed in Section \ref{sec:Intro}, the primary focus of the 
-\texttt{sunpy} library is the analysis and visualisation of `high-level' solar 
+SunPy library is the analysis and visualisation of `high-level' solar 
 data. This means data that has been put through instrument processing 
 and 
 calibration routines, and contains full (WCS) coordinate information. 
-The 
-development plan for SunPy is to continue development within this 
+The plan for SunPy is to continue development within this 
 scope. The 
 primary components of this plan are to provide a set of data types 
 that are 
-interchangeable with one another: \textit{e.g.}, if you slice a 
+interchangeable with one another: e.g., if you slice a 
 \texttt{MapCube} 
-along one coordinate, a \texttt{LightCurve} of intensity along the 
+along one spatial coordinate, a \texttt{LightCurve} of intensity along the 
 time range of 
 the \texttt{MapCube} should be returned. To achieve this goal, all the 
 data 
@@ -43,6 +45,6 @@ incorporate this widely in the SunPy code base. In the past 12 months,
 the 
 collaboration with the Astropy project 
 \citep{theastropycollaboration2013} and 
-its community has grown, abd this direct collaboration between Astropy 
+its community has grown, and this direct collaboration between Astropy 
 and 
 SunPy will be one of the key strengths of SunPy going forward.

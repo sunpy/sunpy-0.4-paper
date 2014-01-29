@@ -1,43 +1,47 @@
-\subsection{The File Database}
-Easy access to large quantities of solar data frequently leads to datafiles accumulating
-in local storage such as laptops and desktop computers. Keeping data organized and available
+\subsection{The File Database}\label{ssec:db}
+
+Easy access to large quantities of solar data frequently leads to data files accumulating
+in local storage such as laptops and desktop computers. Keeping data organised and available
 is typically a cumbersome task for the average user. The file database is a sub-package of 
-SunPy which is meant to solve this problem by providing a unified database to store and manage information about 
-local data files. The database package was developed as part of the 2013 
-Google Summer of Code. 
+SunPy which is meant to solve this problem by providing a unified database to store and 
+manage information about local data files. The database package was developed with support from 
+the Google Summer of Code (GSoC) program 2013.
 
 The database sub-package makes use of a database supported by
-SQLAlchemy(\url{http://www.sqlalchemy.org}). This library was chosen
-since it supports many SQL dialects. If SQLite is choosen, the database is stored as a single file which is
-created automatically. This solution makes it possible to easily backup, copy and distribute
-a database file. A server-based database, on the other hand, could be used by a collaboration 
-who work together from different machines on the
-same data: a central database server stores all data and the clients connect to
+\href{http://www.sqlalchemy.org}{SQLAlchemy}. This library was chosen
+since it supports many SQL dialects. 
+If SQLite is selected, the database is stored as a single file which is
+created automatically. A server-based database, on the other hand, could be used
+by a collaborators who work together on the
+same data from different computers: a central database server stores all data and the clients connect to
 it to read or write data.
 
-The database can store and manage all data that is retrieved via sunpy from the net
-package though currently only the \textsc{VSO} package is supported. 
-It also possible to add entries manually by file or directory. The package also provides
-a \texttt{fetch} method which provides a unified data search which includes both local files
-and files on the \textsc{VSO} are searched. This reduces the likelihood of downloading the same file 
-multiple times. When a file is added to the database the file is scanned and a file hash is produced. 
+The database can store and manage all data that can be read via SunPy's 
+\texttt{io} subpackage, and direct integration with the \textsc{VSO} 
+subpackage is supported.
+It is also possible to manually add file or directory entries. The package also provides
+a unified data search via the \texttt{fetch()} method, which includes both local files
+and files on the \textsc{VSO}. This reduces the likelihood of downloading the same file 
+multiple times. When a file is added to the database, the file is scanned and a file hash is produced. 
 The current date is associated with the entry along with metadata summaries such 
 as instrument, date of observation, field of view, etc. 
 The database also provides the ability to associate custom meta-data to 
-each database entry such as keywords, comments, and favoriting.
+each database entry such as keywords, comments, and favouring, as well as 
+%dps: favouring is not what we want to say here...
+querying the full metadata (i.e., FITS header) of each entry.
+
+The \texttt{Database} class connects to a database and allows the user to 
+perform operations on it. Listing~\ref{code:database} shows how to connect
+to an in-memory database and download data from the \textsc{VSO}. These entries are
+automatically added to the database. The function \texttt{len()} is used to get the number of
+records. The function \texttt{display\_entries()} displays an iterable of 
+database entries in a nicely-formatted \textsc{ASCII} table. The headlines 
+correspond to the attributes of the respective database entries.
 
 A very special feature of the database package is the support of \texttt{undo}
 and \texttt{redo} operations. This is particularly convenient in
 interactive sessions to easily revert accidental operations. 
 This feature will also be desirable when creating a GUI frontend for this package.
-
-Using the database package, one uses the \texttt{Database} class to connect
-with a database and perform operations on it. Listing~\ref{code:database} shows how to connect
-to an in-memory database and download data from the \textsc{VSO}. These entries are
-automatically added to the database. The function \texttt{len} is used to get the number of
-records. The function \texttt{display\_entries} displays an iterable of database entries
-in a nicely-formatted \textsc{ASCII} table. The headlines correspond to the
-attributes of the respective database entries.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -45,18 +49,18 @@ attributes of the respective database entries.
 >>> from sunpy.database import Database
 >>> database = Database('sqlite:///')
 >>> database.download(
-...     vso.attrs.Time((2011, 9, 20, 1), (2011, 9, 20, 2)),
-...     vso.attrs.Instrument('RHESSI'))
+...     vso.attrs.Time('2012-08-05', '2012-08-05 00:00:05'),
+...     vso.attrs.Instrument('AIA'))
 >>> len(database)
-6
+2
 >>> from sunpy.database.tables import display_entries
 >>> print display_entries(
 ...     database,
-...     ['id', 'observation_time_start', 'wavemin', 'wavemax', 'download_time'])
-id observation_time_start wavemin        wavemax           download_time      
--- ---------------------- -------        -------           -------------      
-1  2011-09-20 01:09:20    0.413280643067 7.29318781883e-05 2014-01-18 19:21:35
-
+...     ['id', 'observation_time_start', 'wavemin', 'wavemax'])
+id observation_time_start wavemin wavemax
+-- ---------------------- ------- -------
+1  2012-08-05 00:00:01    9.4     9.4    
+2  2012-08-05 00:00:02    33.5    33.5   
 \end{minted}
 \caption{Example usage of the database sub-package.}
 \label{code:database}
