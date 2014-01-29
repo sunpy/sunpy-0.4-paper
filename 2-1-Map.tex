@@ -1,8 +1,8 @@
 \subsection{Map}\label{ssec:map}
 The Map data type stores 2D spatial data, such as images of the Sun and 
-inner heliosphere. It provides a wrapper around a \texttt{numpy} data array and 
-its associated spatial coordinates and other metadata. The \texttt{Map} class 
-provides methods for typical operations on 2D data, such as rotation and 
+inner heliosphere. It provides: a wrapper around a \texttt{numpy} data array; 
+the images associated spatial coordinates; and other metadata. The \texttt{Map} 
+class provides methods for typical operations on 2D data, such as rotation and 
 re-sampling, as well as visualisation functionality.
 The \texttt{Map} class also provides a convenient interface for loading data 
 from a variety of sources, including a FITS file as shown in 
@@ -37,6 +37,7 @@ Listing \ref{code:aia_1} demonstrates the quick-look functionality of
 \texttt{Map}; see Section \ref{subsec:Viz} for more discussion of plotting.
 %dps: See section viz does not apply any more, right? The examples have been 
 %removed now.
+%SJM: the example is gone, but the section remains
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
