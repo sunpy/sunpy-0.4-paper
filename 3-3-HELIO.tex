@@ -7,7 +7,7 @@ inter-planetary data \citep{dps2012}.
 HELIO is built with a Service-Oriented Architecture, 
 i.e., its capabilities are divided into a number of tasks that are 
 implemented as separate services. 
-\href{http://helio-vo.eu}{HELIO} comprises nine different public services, 
+\href{http://helio-vo.eu}{HELIO} is made up of nine different public services, 
 which allows scientists to search different catalogues of registered events, 
 solar features, data from instruments in the heliosphere and other information 
 such as planetary or spacecraft position in time. 
@@ -16,7 +16,7 @@ propagation model to link the data in different points of the solar system by
 its original nature (e.g., Earth auroras are a signature of magnetic 
 field disturbances produced few days before on the Sun).
 In addition to the primary, web-based interface to 
-\href{http://helio-vo.eu}{HELIO}, the services can be separately accessed.
+\href{http://helio-vo.eu}{HELIO}, the services are available by API.
 
 SunPy's \texttt{hec} module provides an interface to the
 \textit{HELIO Event Catalogue} (HEC) service. This module was developed as
@@ -24,7 +24,9 @@ part of a Google Summer of Code (GSOC) project in 2013.
 The HEC service currently provides access to 84 catalogues from different
 sources.
 As with all of the HELIO services, the HEC service provides results in VOTable 
-data format (defined by IVOA \cite{ochsenbein_ivoa_2011}). The \texttt{hec}
+data format (defined by IVOA \citep{ochsenbein_ivoa_2011}). 
+%schriste - a short descriptions of what the hec (get it?) a vot table is needed here
+The \texttt{hec}
 module parses this output using the \texttt{astropy.io.votable} package.
 This format has the advantage of containing metadata with information like
 data provenance and the performed query.
@@ -62,3 +64,4 @@ catalogues, in this case the ones detected by \href{http://sidc.oma.be/cactus/}{
 
 In the future, additional HELIO services will be supported in the future by SunPy.
 % RJH: This sentence is an orphan and should have a home constructed for it.
+% schriste - it also contains too much future sauce
