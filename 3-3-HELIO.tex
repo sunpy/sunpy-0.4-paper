@@ -11,12 +11,12 @@ implemented as separate services.
 which allows scientists to search different catalogues of registered events, 
 solar features, data from instruments in the heliosphere and other information 
 such as planetary or spacecraft position in time. 
-Additionally, \href{http://helio-vo.eu}{HELIO} provides a service that uses a 
+Additionally, HELIO provides a service that uses a 
 propagation model to link the data in different points of the solar system by 
 its original nature (e.g., Earth auroras are a signature of magnetic 
 field disturbances produced few days before on the Sun).
-In addition to the primary, web-based interface to 
-\href{http://helio-vo.eu}{HELIO}, the services are available by API.
+In addition to the primary, \href{http://hfe.helio-vo.eu}{web-based interface to 
+HELIO}, the services are available by API.
 
 SunPy's \texttt{hec} module provides an interface to the
 \textit{HELIO Event Catalogue} (HEC) service. This module was developed as
@@ -24,8 +24,9 @@ part of a Google Summer of Code (GSOC) project in 2013.
 The HEC service currently provides access to 84 catalogues from different
 sources.
 As with all of the HELIO services, the HEC service provides results in VOTable 
-data format (defined by IVOA \citep{ochsenbein_ivoa_2011}). 
+data format (defined by IVOA \citep{ochsenbein_ivoa_2011}).
 %schriste - a short descriptions of what the hec (get it?) a vot table is needed here
+%dps - a votable format description? or what HEC gets from it?
 The \texttt{hec}
 module parses this output using the \texttt{astropy.io.votable} package.
 This format has the advantage of containing metadata with information like
@@ -57,11 +58,16 @@ __helio_hec-cactus_stereob_cme has 3 results
 __helio_hec-cactus_soho_cme has 7 results
 \end{minted}
 \caption{Example of querying the HEC service to multiple cme
-catalogues, in this case the ones detected by \href{http://sidc.oma.be/cactus/}{CACTus}.}
+catalogues, in this case the ones detected automatically 
+by \href{http://sidc.oma.be/cactus/}{CACTus} \citep{robbrecht_automated_2009}.}
 \label{code:helio}
 \end{listing}
-% RJH: CACTus should be defined and a reference provided in the reference section.
 
-In the future, additional HELIO services will be supported in the future by SunPy.
+In the future, additional HELIO services will be supported by SunPy, aiming to a 
+seamlessly interaction between the other services and tools available (e.g., 
+\texttt{hek}, \texttt{Map}).  
+For example, solar features available in the HELIO Feature Catalogue could be
+overplot on maps.
 % RJH: This sentence is an orphan and should have a home constructed for it.
 % schriste - it also contains too much future sauce
+% better? or this should be in the future section?
