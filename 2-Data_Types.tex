@@ -1,26 +1,28 @@
 \section{Core Data Types}\label{sec:DataTypes}
 
-Currently, SunPy provides data structures that are specifically designed for the
+SunPy provides data strucutures that are specifically designed for the
 three primary varieties of solar physics data: images, time series, and
-spectra. SunPy provides core data types for these using Python classes:
+spectra. These core data types are Python classes:
 \texttt{Map} (2D spatial data), \texttt{LightCurve} (1D temporal series)
 and \texttt{Spectrum} and \texttt{Spectrogram} (1D and 2D spectra). 
 
-These classes allow access to the original data
+These classes allow access to the data
 along with associated metadata and provide appropriate convenience functions to
-enable data analysis and visualisation. For each of these classes, the data is
+enable analysis and visualisation. For each of these classes, the data is
 stored in the \texttt{data} attribute while the metadata is stored 
 in the \texttt{meta} attribute. (Curently, \texttt{LightCurve} does 
-not support the \texttt{meta} attribute.) It is possible to instantiate the
+not support the \texttt{meta} attribute.) 
+% schriste - can't we just quickly fix this? should be easy enough.
+It is possible to instantiate the
 data types from various
-different sources: e.g., files, URLs, arrays or time ranges.  In order 
-to provide instrument-specific specialisation, all the core SunPy data types 
+different sources: e.g., files, URLs, arrays.  
+%schriste - i removed time ranges as that just looks up a url.
+In order to provide instrument-specific specialisation, all the core SunPy classes 
 support subclassing; e.g., \texttt{Map} has an \texttt{AIAMap} 
 sub-type for data from the SDO/AIA instrument. 
 Data visualisation is provided by two functions: \texttt{peek()}, for quick 
 plotting, and \texttt{plot()}, for plotting with more fine-grained control that 
 integrates with \texttt{matplotlib}.
-
 
 This section will give a brief overview of the \textit{current} functionality 
 of each of these data types.
@@ -40,5 +42,4 @@ the \texttt{pyplot} functional interface of \texttt{matplotlib}.
 This design philosophy makes the behaviour of SunPy's visualisation 
 routines intuitive to those who already understand the \texttt{matplotlib}
 interface, as well as allowing the use of the standard 
-\texttt{matplotlib} commands to manipulate the plot parameters, such as the 
-title.
+\texttt{matplotlib} commands to manipulate the plot parameters (e.g. title, axes).

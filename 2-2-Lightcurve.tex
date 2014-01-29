@@ -5,7 +5,7 @@ physics for which many data sources are available.
 SunPy provides a \texttt{LightCurve} class
 with a convenient and consistent interface for handling solar time-series
 data.  The main engine behind the \texttt{LightCurve} class is
-the \href{http://pandas.pydata.org}{\texttt{pandas}} data-analysis library, and 
+the {\texttt{pandas}} data-analysis library (\url{http://pandas.pydata.org}), and 
 \texttt{LightCurve}'s \texttt{data} attribute is a \texttt{pandas.DataFrame} 
 class.
 The \texttt{pandas} library contains a large amount
@@ -47,6 +47,8 @@ subsequently creates and plots the object.
 ...                                         '2011-06-07 08:00')
 >>> goes.peek()
 %removed the resample part of the example - really we need to fix truncate!
+% schriste - i think it would be better to show off some of the powerful pandas methods in this section
+% as we are not likely to fix truncate and i think it should be refactored anyway
 \end{minted}
 \begin{center}
 \includegraphics[width=10cm]{goes_lightcurve.pdf}

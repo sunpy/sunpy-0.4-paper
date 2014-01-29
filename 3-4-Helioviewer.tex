@@ -5,8 +5,10 @@ SunPy provides the ability to download images hosted by the
 The aim of the Helioviewer Project is to enable
 the exploration of solar and heliospheric data from multiple data
 sources (such as instrumentation and feature/event catalogues) via
-easy-to-use visual interfaces.  The primary data provided by the
-Helioviewer Project are images in the JPEG2000 format (for further
+easy-to-use visual interfaces.  The primary interface to Helioviewer is a
+google-map-like website which allows users to browse images of the Sun
+taken by a variety of instruments. In order to manage all of this data, the Helioviewer
+project maintains archives of all of its data as JPEG2000 format (for further
 details on the Helioviewer Project see \citep{muller2009}). The
 JPEG2000 files are typically highly compressed compared to the source
 FITS files they are generated from, and so can be a used as a shortcut
@@ -33,6 +35,7 @@ PNG image of the latest AIA 304$\,$\AA\ image available on
 \url{Helioviewer.org}.
 
 %Stuart: Do we need this listing?? The same points can be made with 14
+% schriste - i agree with stuart here, or maybe just don't show the png file
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net.helioviewer import HelioviewerClient
@@ -71,6 +74,7 @@ unclear which time is the most appropriate to associate with the resultant
 image.  The Helioviewer API therefore does not select between any of the image 
 observation times, but instead returns an image filename based on the request 
 time, resulting in predictable filenames.
+%this seems like a lot of text for a simple issue, i would recommend removing it
 
 The Helioviewer API allows composition and overlay of images from
 multiple sources, based on the positioning metadata in the source FITS

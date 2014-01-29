@@ -2,6 +2,7 @@
 %schriste - this section needs major work
 %ji - there is no example of a spectrum
 %dps - I need to think in one...
+%schriste - can't we just take a slice off of the spectram to make a spectrum?
 
 SunPy aims to provide broad support for solar spectroscopy
 instruments.  The variety and complexity of these instruments and
@@ -13,17 +14,14 @@ as its \texttt{data} attribute.  These two classes were implemented
 by funding provided by the Astrophysics Research Group at Trinity
 College Dublin, Ireland.
 
-The \texttt{Spectrogram} class supports radio spectrograms from the 
-\href{http://www.e-callisto.org/}{e-Callisto}
-solar radio spectrometer network and STEREO/SWAVES spectrograms.
 As with other SunPy data types, the \texttt{Spectrogram} class has been
 built so that each instrument initialises using a subclass containing the instrument-specific 
-functionalities.
-%The common functionality provided by the base \texttt{Spectrogram} class includes
-%reading data,
-%joining different time ranges and frequencies,
-%performing frequency-dependent background subtraction,
-%and convenient visualization and sampling of the data.
+functionalities. The common functionality provided by the base \texttt{Spectrogram} class includes
+joining different time ranges and frequencies, performing frequency-dependent background subtraction,
+and convenient visualization and sampling of the data.
+Currently, the \texttt{Spectrogram} class supports radio spectrograms from the 
+\href{http://www.e-callisto.org/}{e-Callisto}
+solar radio spectrometer network and STEREO/SWAVES spectrograms.
 
 Listing \ref{code:spectra} shows how the \texttt{CallistoSpectrogram}
 object retrieves spectrogram data in the time range specified taken at
