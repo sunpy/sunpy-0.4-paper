@@ -1,38 +1,37 @@
 \subsection{Map}\label{ssec:map}
-The Map data type represents 2D spatial data, such as images of the Sun and 
+The Map data type stores 2D spatial data, such as images of the Sun and 
 inner heliosphere. It provides a wrapper around a \texttt{numpy} data array and 
 its associated spatial coordinates and other metadata. The \texttt{Map} class 
-provides methods for typical operations on 2D data, such as rotation, 
-re-sampling, and visualisation functionality.
+provides methods for typical operations on 2D data, such as rotation and 
+re-sampling, as well as visualisation functionality.
 The \texttt{Map} class also provides a convenient interface for loading data 
-from a variety of sources, typically a FITS file as shown in 
+from a variety of sources, including a FITS file as shown in 
 Listing~\ref{code:aia_1}.
 
 The architecture of the \texttt{Map} class consists of a template map called
 \texttt{GenericMap}, which is a subclass of \texttt{astropy.nddata.NDData}. 
 \texttt{NDData} is a generic wrapper around an \texttt{ndarray} with a 
-\texttt{.meta} attribute to store metadata.
+\texttt{meta} attribute to store metadata.
 As \texttt{NDData} is currently still in development, \texttt{GenericMap} does 
 not yet make full use of its capabilities, but this inheritance structure 
 provides for future integration of \texttt{Astropy}. In order to provide 
-instrument- or detector-specific integration, \texttt{GenericMap} is designed 
-in such a way that it can be subclassed to implement instrument specific 
-functionality. Each of these subclasses of \texttt{GenericMap} can register 
-with the \texttt{Map} creation factory by implementing a method that returns 
-\texttt{True} if the metadata in the file header matches that instrument or 
-detector.  This \texttt{Map} factory will then automatically return an instance 
+instrument- or detector-specific integration, \texttt{GenericMap} is designed
+to be subclassed. Each subclass of \texttt{GenericMap} can register 
+with the \texttt{Map} creation factory, which will then automatically return an instance
 of the specific \texttt{GenericMap} subclass dependant upon the data provided. 
-SunPy 0.4 has \texttt{Map} specialisations for the following instruments: 
+SunPy v0.4 has \texttt{Map} specialisations for the following instruments: 
 \textit{YOHKOH/SXT}, \textit{SOHO/EIT} and \textit{LASCO}, \textit{RHESSI}, 
 \textit{STEREO/EUVI} and \textit{COR}, \textit{HINODE/XRT},
 \textit{PROBA2/SWAP}, \textit{SDO/AIA} and \textit{HMI}, 
 and \textit{IRIS} SJI frames. 
+% RJH: Instruments should be consistent throughout (italics, caps, etc).  Also,
+% usually citations are provided for instruments.
 
 The \texttt{Map} class stores standard metadata retrieved from the header of 
-the image file in the \texttt{.meta} attribute and provides convenience 
-properties for commonly accessed metadata: \textit{e.g.}, \texttt{.instrument}, 
-\texttt{.wavelength} or \texttt{.coordinate\_system}. 
-Listing \ref{code:aia_1} demonstrates the quick-plot functionality of 
+the image file in the \texttt{meta} attribute and provides convenience 
+properties for commonly accessed metadata: \textit{e.g.}, \texttt{instrument}, 
+\texttt{wavelength} or \texttt{coordinate\_system}. 
+Listing \ref{code:aia_1} demonstrates the quick-look functionality of 
 \texttt{Map}; see Section \ref{subsec:Viz} for more discussion of plotting.
 
 \begin{listing}[H]
@@ -45,7 +44,7 @@ Listing \ref{code:aia_1} demonstrates the quick-plot functionality of
 \includegraphics[width=0.8\columnwidth]{aia_map_example}
 \end{center}
 \caption{Example of the \texttt{AIAMap} specialisation of 
-\texttt{GenericMap}. The Map is created from an \textit{AIA} FITS file,
+\texttt{GenericMap}. The map is created from an \textit{AIA} FITS file,
 and a quick-view plot is created.}
 \label{code:aia_1}
 \end{listing}
@@ -81,7 +80,7 @@ video.
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{comp_map_example}
 \end{center}
-\caption{Example showing a \texttt{CompositeMap} plot and the integration with the \texttt{matplotlib.pyplot} interface.}
+\caption{Example showing a \texttt{CompositeMap} plot, with RHESSI data composed with SDO/AIA data, and the integration with the \texttt{matplotlib.pyplot} interface.}
 \label{code:compmap_1}
 \end{listing}
 
@@ -117,3 +116,5 @@ through the \texttt{MapCube}.}
 \texttt{matplotlib}'s animation framework.}
 \label{code:mapcube_2}
 \end{listing}
+% RJH: If this is kept, the 'artist' bit should be explained.
+

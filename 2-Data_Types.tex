@@ -1,21 +1,22 @@
 \section{Core Data Types}\label{sec:DataTypes}
 
-Currently SunPy provides data structures that are specifically designed for the
-three primary varieties of solar physics data, namely images, time series, and
+Currently, SunPy provides data structures that are specifically designed for the
+three primary varieties of solar physics data: images, time series, and
 spectra. SunPy provides core data types for these using Python classes:
 \texttt{Map} (2D spatial data), \texttt{LightCurve} (1D temporal series)
-and \texttt{Spectrum}/\texttt{Spectrogram} (1 and 2D spectra). 
+and \texttt{Spectrum} and \texttt{Spectrogram} (1D and 2D spectra). 
 
-The classes provide access to the original data
+These classes allow access to the original data
 along with associated metadata and provide appropriate convenience functions to
 enable data analysis and visualisation. For each of these classes, the data is
-stored in the \texttt{.data} attribute while the metadata is stored 
-in the \texttt{.meta}\footnote{Except \texttt{LightCurve} which currently does 
-not.} attribute. It is possible to instantiate the data types from various 
+stored in the \texttt{data} attribute while the metadata is stored 
+in the \texttt{meta} attribute. (Curently, \texttt{LightCurve} does 
+not support the \texttt{meta} attribute.) It is possible to instantiate the
+data types from various
 different sources: \textit{e.g.}, files, URLs, arrays or time ranges.  In order 
 to provide instrument-specific specialisation, all the core SunPy data types 
 support subclassing; \textit{e.g.}, \texttt{Map} has an \texttt{AIAMap} 
-sub-type. 
+sub-type for data from the SDO/AIA instrument. 
 Data visualisation is provided by two functions: \texttt{peek()}, for quick 
 plotting, and \texttt{plot()}, for plotting with more fine-grained control that 
 integrates with \texttt{matplotlib}.
@@ -30,8 +31,8 @@ of each of these data types.
 
 \subsection{Visualisation}
 \label{subsec:Viz}
-As has been demonstrated in this section, the core SunPy datatypes 
-include visualisation code that is tailored to that data type. 
+As demonstrated in this section, the core SunPy datatypes 
+include visualisation methods that are tailored to that data type. 
 These visualisation methods all currently utilise the \texttt{matplotlib} 
 package, and are designed in such a way that they integrate well with 
 the \texttt{pyplot} functional interface of \texttt{matplotlib}.

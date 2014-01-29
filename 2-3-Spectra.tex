@@ -6,10 +6,10 @@
 SunPy aims to provide broad support for solar spectroscopy
 instruments.  The variety and complexity of these instruments and
 their resultant datasets makes this a challenging goal.  The \texttt{spectra} module implements a
-\texttt{Spectrum} class for 1D data (intensity versus frequency) and a
-\texttt{Spectrogram} class for 2D data (intensity versus time and
+\texttt{Spectrum} class for 1D data (intensity as a function of frequency) and a
+\texttt{Spectrogram} class for 2D data (intensity as a function of time and
 frequency).  Each of these classes use a \texttt{numpy.ndarray} class
-as its \texttt{.data} attribute.  These two classes were implemented
+as its \texttt{data} attribute.  These two classes were implemented
 by funding provided by the Astrophysics Research Group at Trinity
 College Dublin, Ireland.
 
@@ -28,13 +28,14 @@ functionalities.
 Listing \ref{code:spectra} shows how the \texttt{CallistoSpectrogram}
 object retrieves spectrogram data in the time range specified taken at
 the observatory of interest.  When the data is requested using the
-\texttt{.from\_range} function, the object merges all the downloaded
+\texttt{from\_range} function, the object merges all the downloaded
 files into a single spectrogram, across time and frequency.
 In the example shown, data is provided in two frequency ranges, 
 20--90\,MHz and 55--355\,MHz.  Since the data is not evenly spaced in
 the frequency range, the \texttt{Spectrogram} object linearises the
 frequency axis for a better analysis.  The example also demonstrates
 the implemented background subtraction method.
+% RJH: Which subtraction method?  If the specifics are irrelevant, cut it.
 %ji to DPS - what is the linearisation that is happening here?
 
 \begin{listing}[H]
