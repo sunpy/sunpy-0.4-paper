@@ -1,16 +1,16 @@
 \subsection{HELIO}\label{ssec:helio}
 
 The HELiophysics Integrated Observatory (\href{http://helio-vo.eu}{HELIO}) has 
-put together a list of web services which allows scientists to query and 
-discover data throughout the heliosphere, from solar, and magnetospheric to planetary and 
+compiled a list of web services which allows scientists to query and 
+discover data throughout the heliosphere, from solar and magnetospheric data to planetary and 
 inter-planetary data \citep{dps2012}.
-HELIO has been built with a Service-Oriented Architecture, 
-\textit{i.e.} its capabilities are split into a number of tasks that are 
+HELIO is built with a Service-Oriented Architecture, 
+i.e., its capabilities are divided into a number of tasks that are 
 implemented as separate services. 
 \href{http://helio-vo.eu}{HELIO} comprises nine different public services, 
 which allows scientists to search different catalogues of registered events, 
 solar features, data from instruments in the heliosphere and other information 
-like planets or spacecraft position in time. 
+such as planetary or spacecraft position in time. 
 Additionally, \href{http://helio-vo.eu}{HELIO} provides a service that uses a 
 propagation model to link the data in different points of the solar system by 
 its original nature (\textit{e.g.}, Earth auroras are a signature of magnetic 
@@ -19,17 +19,17 @@ In addition to the primary, web-based interface to
 \href{http://helio-vo.eu}{HELIO}, the services can be separately accessed.
 
 SunPy's \texttt{hec} module provides an interface to the
-\textit{HELIO Event Catalogue} (HEC) service (not to be confused with the HEK, discussed in Section \ref{ssec:hek}), and this module was developed as
+\textit{HELIO Event Catalogue} (HEC) service. This module was developed as
 part of a Google Summer of Code (GSOC) project in 2013.
 The HEC service currently provides access to 84 catalogues from different
 sources.
 As with all of the HELIO services, the HEC service provides results in VOTable 
-data format (defined by IVOA \cite{ochsenbein_ivoa_2011}), and the \texttt{hec}
+data format (defined by IVOA \cite{ochsenbein_ivoa_2011}). The \texttt{hec}
 module parses this output using the \texttt{astropy.io.votable} package.
 This format has the advantage of containing metadata with information like
 data provenance and the performed query.
 
-Listing~\ref{code:helio} shows an example of how to obtain information
+For example, Listing~\ref{code:helio} shows how to obtain information
 from different catalogues of coronal mass ejections (CMEs).
 
 \begin{listing}[h]
@@ -58,5 +58,7 @@ __helio_hec-cactus_soho_cme has 7 results
 catalogues, in this case the ones detected by \href{http://sidc.oma.be/cactus/}{CACTus}.}
 \label{code:helio}
 \end{listing}
+% RJH: CACTus should be defined and a reference provided in the reference section.
 
-Additional HELIO services will be supported in the future by SunPy.
+In the future, additional HELIO services will be supported in the future by SunPy.
+% RJH: This sentence is an orphan and should have a home constructed for it.
