@@ -51,3 +51,6 @@ To build the paper use
 
     pdflatex -shell-escape Sunpy_paper_0.4.tex
 
+## Football schedule
+
+https://docs.google.com/document/d/1rHJXfQXeqntTMoPBau95L0diYN499vQAFZcjiXFbqZ4/edit?usp=sharing

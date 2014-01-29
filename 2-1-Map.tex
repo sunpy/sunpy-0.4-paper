@@ -1,75 +1,55 @@
 \subsection{Map}
-Map is a 2D spatial data type, primarily used for images of the Sun and 
-inner heliosphere. It provides a wrapper around a data array (\texttt{numpy} 
-\texttt{ndarray}) and gives easy access to standard meta data in the header of 
-the image, via the \texttt{.meta} attribute as well as some convenience 
-properties for more standard meta data, \textit{i.e.} \texttt{.instrument}, 
-\texttt{.wavelength} or \texttt{.coordinate\_system}. Demonstrated in Listing 
-\ref{code:aia_1} is this meta data parsing and `pretty printing' of the Map.
-The \texttt{Map} object provides convenience methods for many functions 
-such as, rotation and re-sampling as well as convenience visualisation 
-functions, providing an easy to use as well as powerful interface.
-Listing \ref{code:aia_1} also demonstrates the quick plot functionality of 
-\texttt{Map}, see Section \ref{subsec:Viz} for more discussion of plotting.
+The Map data type represents 2D spatial data such as images of the Sun and 
+inner heliosphere. It provides a wrapper around a data array and its associated
+spatial coordinates and other metadata. The \texttt{Map} class provides 
+methods for typical operations on 2D data, 
+such as rotation and re-sampling, and visualisation functionality.
+The \texttt{Map} class
+also provides a convenient interface for loading data from a variety of sources, typically
+a FITS file as shown in Listing~\ref{code:aia_1}.
 
-The design of the map submodule is such that each instrument or 
-detector can subclass the parent \texttt{GenericMap} class to implement 
-special meta data handling or other data specific functions. Each subclass 
-of \texttt{GenericMap} can register with the \texttt{Map} factory class and 
-by implementing a method that returns \texttt{True} if the meta data 
-matches meta data for that instrument or detector, the \texttt{Map} factory 
-will automatically return an instance of the specific \texttt{GenericMap} 
-subclass. As of version 0.4 SunPy has \texttt{Map} specialisations for the 
+The architecture of the \texttt{Map} class consists of a template map called
+\texttt{GenericMap}, which is a subclass of \texttt{astropy.nddata.NDData}. \texttt{NDData} is a 
+generic wrapper around an \texttt{ndarray} with a \texttt{.meta} attribute to store metadata.
+As \texttt{NDData} is currently still in development, \texttt{GenericMap} does not yet make full
+use of its capabilities, but this inheritance structure provides 
+for future integration of \texttt{Astropy}. In order to provide instrument- or
+detector-specific integration, \texttt{GenericMap} is subclassed on creation. 
+Each subclass of \texttt{GenericMap} can register with the \texttt{Map} creation function (\textit{i.e.}, factory)
+by implementing a method that returns \texttt{True} if the metadata
+in the file header matches
+that instrument or detector.  This \texttt{Map} factory 
+will then automatically return an instance of the specific \texttt{GenericMap} 
+subclass. SunPy 0.4 has \texttt{Map} specialisations for the 
 following instruments: 
-\textit{YOHKOH/SXT},\textit{SOHO/EIT} and \textit{LASCO}, \textit{RHESSI}, 
+\textit{YOHKOH/SXT}, \textit{SOHO/EIT} and \textit{LASCO}, \textit{RHESSI}, 
 \textit{STEREO/EUVI} and \textit{COR}, \textit{HINODE/XRT},
 \textit{PROBA2/SWAP}, \textit{SDO/AIA} and \textit{HMI}, 
-and \textit{IRIS} SJI frames.
+and \textit{IRIS} SJI frames. 
 
-\texttt{GenericMap} is a subclass of \texttt{astropy.nddata.NDData} which is a 
-generic wrapper around a \texttt{ndarray} with a \texttt{.meta} attribute, like 
-\texttt{Map}. Having this inheritance structure with \texttt{astropy} provides 
-potential for simple integration with other parts of \texttt{astropy} and other 
-packages based on \texttt{astropy}, as \texttt{GenericMap} should form a 
-drop-in replacement for \texttt{NDData}.
+The \texttt{Map} class stores standard metadata retrieved from the header of 
+the image file in the \texttt{.meta} attribute and provides convenience 
+properties for commonly accessed metadata: \textit{e.g.}, \texttt{.instrument}, 
+\texttt{.wavelength} or \texttt{.coordinate\_system}. 
+Listing \ref{code:aia_1} demonstrates the quick-plot functionality of 
+\texttt{Map}; see Section \ref{subsec:Viz} for more discussion of plotting.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
-
 >>> import sunpy.map
-
 >>> aiamap = sunpy.map.Map('aia_file.fits')
->>> aiamap
-SunPy AIAMap
----------
-Observatory: SDO
-Instrument:  AIA
-Detector:    AIA
-Measurement: 171
-Obs Date:    2011-03-19T10:54:00.34
-dt:          1.999601
-Dimension:   [1024, 1024]
-[dx, dy] =   [2.400000, 2.400000]
-
-array([[ 0.3125, -0.0625, -0.125 , ...,  0.625 , -0.625 ,  0.    ],
-       [ 1.    ,  0.1875, -0.8125, ...,  0.625 , -0.625 ,  0.    ],
-       [-1.1875,  0.375 , -0.5   , ..., -0.125 , -0.625 , -1.1875],
-       ..., 
-       [-0.625 ,  0.0625, -0.3125, ...,  0.125 ,  0.125 ,  0.125 ],
-       [ 0.5625,  0.0625,  0.5625, ..., -0.0625, -0.0625,  0.    ],
-       [ 0.5   , -0.125 ,  0.4375, ...,  0.6875,  0.6875,  0.6875]])
-
 >>> aiamap.peek()
 \end{minted}
+\begin{center}
 \includegraphics[width=0.8\columnwidth]{aia_map_example}
-\caption{Demonstration of the \texttt{AIAMap} specialisation of 
-\texttt{GenericMap}. The Map is created from an \textit{AIA} FITS file and the 
-key meta data and array overview is printed. Then a quick view plot is created 
-by using the \texttt{.peek()} method.}
+\end{center}
+\caption{Example of the \texttt{AIAMap} specialisation of 
+\texttt{GenericMap}. The Map is created from an \textit{AIA} FITS file,
+and a quick-view plot is created.}
 \label{code:aia_1}
 \end{listing}
 
-As well as providing the base classes the map submodule provides two 
+In addition to the data-type classes, the \texttt{map} sub-package provides two 
 collection classes, \texttt{CompositeMap} and \texttt{MapCube}, for 
 temporally and spatially aligned data respectively.
 \texttt{CompositeMap} provides methods for overlaying spatially aligned 
@@ -77,61 +57,59 @@ data, with support for visualisation of images and contour lines overlaid
 upon each other.
 \texttt{MapCube} 
 provides methods for animation of its series of \texttt{Map} objects. 
-Listings~\ref{code:compmap_1} and \ref{code:mapcube_1} shows how to interact 
+Listings~\ref{code:compmap_1} and \ref{code:mapcube_1} show how to interact 
 with these classes.
-In addition, Listing~\ref{code:mapcube_2} demonstrates how the \texttt{MapCube} 
+In addition, Listing~\ref{code:mapcube_2} shows how the \texttt{MapCube} 
 classes interacts with the \texttt{animation} module to save a video.
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{python}
-import matplotlib.pyplot as plt
-import sunpy.map
-
-#Create a composite map from two files
-compmap = sunpy.map.Map('aia_1600_image.fits', 'RHESSI_image.fits', 
-composite=True)
-
-#Set the RHESSI image (index 1) to have contour levels and a red colour map.
-compmap.set_levels(1,range(0,50,5),percent=True)
-compmap.set_colors(1,'Reds_r')
-
+\begin{minted}[bgcolor=bg]{pycon}
+>>> import matplotlib.pyplot as plt
+>>> import sunpy.map
+>>> compmap = sunpy.map.Map('aia_1600_image.fits', 'RHESSI_image.fits', 
+...                         composite=True)
+>>> compmap.set_levels(1, range(0,50,5), percent=True)
+>>> compmap.set_colors(1, 'Reds_r')
 #Plot the result and crop
-ax = plt.subplot()
-compmap.plot()
-ax.axis([200,600,-600,-200])
+>>> ax = plt.subplot()
+>>> compmap.plot()
+>>> ax.axis([200, 600, -600, -200])
+>>> plt.show()
 \end{minted}
+\begin{center}
 \includegraphics[width=0.8\columnwidth]{comp_map_example}
-\caption{Example demonstrating a CompositeMap plot, using contours and how 
-SunPy integrates with matplotlib's pyplot functional interface.}
+\end{center}
+\caption{Example showing a \texttt{CompositeMap} plot and the integration with the \texttt{matplotlib.pyplot} interface.}
 \label{code:compmap_1}
 \end{listing}
 
+%schriste - stuart, i agree if you want to remove the following two listings.
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{python}
-import sunpy.map
-
-compmap = sunpy.map.Map('aia_lev1_171a_2014_01*fits', cube=True)
-compmap.peek()
+\begin{minted}[bgcolor=bg]{pycon}
+>>> import sunpy.map
+>>> compmap = sunpy.map.Map('aia_lev1_171a_2014_01*fits', cube=True)
+>>> compmap.peek()
 \end{minted}
+\begin{center}
 \includegraphics[width=0.8\columnwidth]{aia_cube_controls}
-\caption{An example showing creation of a MapCube from a glob file search. The 
-resultant plot makes use of matplotlib's interactive widgets to allow scrolling 
-through the MapCube.}
+\end{center}
+\caption{Example showing creation of a \texttt{MapCube} from a glob file search. The 
+resultant plot makes use of \texttt{matplotlib}'s interactive widgets to allow scrolling 
+through the \texttt{MapCube}.}
 \label{code:mapcube_1}
 \end{listing}
 
-\begin{listing}[h]
-\begin{minted}[bgcolor=bg]{python}
-import sunpy.map
-from matplotlib import animation
-
-mapc = sunpy.map.Map('aia_lev1_171a_2014_01*fits', cube=True)
-anim = mapc.plot()
-Writer = animation.writers['ffmpeg']
-writer = Writer(fps=10, metadata=dict(artist='SunPy'), bitrate=1800)
-anim.save('aia_cube.ogv')
+\begin{listing}[H]
+\begin{minted}[bgcolor=bg]{pycon}
+>>> import sunpy.map
+>>> from matplotlib import animation
+>>> mapc = sunpy.map.Map('aia_lev1_171a_2014_01*fits', cube=True)
+>>> anim = mapc.plot()
+>>> Writer = animation.writers['ffmpeg']
+>>> writer = Writer(fps=10, metadata=dict(artist='SunPy'), bitrate=1800)
+>>> anim.save('aia_cube.ogv')
 \end{minted}
-\caption{Example showing how to save a video animation from a MapCube, using 
-matplotlib's animation framework.}
+\caption{Example showing how to save a video animation from a \texttt{MapCube}, using 
+\texttt{matplotlib}'s animation framework.}
 \label{code:mapcube_2}
 \end{listing}
