@@ -1,7 +1,7 @@
 \section{Comparison to SolarSoft}\label{sec:ssw}
 This section compares the SunPy library that is described in Sections 
 \ref{sec:DataTypes}--\ref{sec:util} with the current de-facto standard solar 
-physics data analysis library: SolarSoft (SSW) \citep{freeland1998}.
+physics data analysis library: SolarSoft (SSW) \citep{ssw}.
 %ARI - is is SolarSoft or SolarSoftWare?! The latter includes the W :-)
 SolarSoft is a set of integrated software libraries, databases, and system 
 utilities which provide a common programming and data-analysis environment for 
@@ -21,14 +21,14 @@ I/O. It is composed of 89\% IDL code while the remainder is mostly Perl (5.4\%)
 and csh scripts (3.8\%). 
 According to data generated using David A. Wheeler's `SLOCCount'\footnote{\url{http://www.dwheeler.com/sloccount/}}, SSW/gen is composed of 
 289,724 lines of code with a total approximate value of \$10.4M (based on the 
-Basic COCOMO model \citep{_cocomo_2014}). 
+Basic COCOMO model \citep{cocomo}). 
 %dps - This data was calculated using...} If we can add them to the repository 
 %will improve the quality of the paper and we can always repeat the calculation in the future.
 %schriste - i don't know what you mean by this 
 %Stuart: comment was Davids
 Individual missions and instruments provide additional optional packages to 
-support and process their data. For example, the SDO package \citep{sdo} is 
-100\% IDL code and is 11k lines of code (\$360k) and the SOHO package 
+support and process their data. For example, the \texttt{sdo} package \citep{sdo} is 
+100\% IDL code and is 11k lines of code (\$360k) and the \texttt{soho} package 
 \citep{soho} is 100k lines of code (\$3M) and is 99.9\% IDL code. SSW is hosted 
 and distributed by the Lockheed Martin Solar and Astrophysics Laboratory.
 %The RHESSI package is 99.97\% IDL code and is 145k total lines of code (\$5M)
