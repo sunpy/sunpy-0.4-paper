@@ -28,6 +28,7 @@ as instrument, date of observation, field of view, etc.
 The database also provides the ability to associate custom meta-data to 
 each database entry such as keywords, comments, and favouring, as well as 
 %dps: favouring is not what we want to say here...
+%JI: ``assigning favourites'' - is this what is meant?
 querying the full metadata (i.e., FITS header) of each entry.
 
 The \texttt{Database} class connects to a database and allows the user to 
@@ -38,10 +39,11 @@ records. The function \texttt{display\_entries()} displays an iterable of
 database entries in a nicely-formatted \textsc{ASCII} table. The headlines 
 correspond to the attributes of the respective database entries.
 
-A very special feature of the database package is the support of \texttt{undo}
+A useful feature of the database package is the support of \texttt{undo}
 and \texttt{redo} operations. This is particularly convenient in
 interactive sessions to easily revert accidental operations. 
 This feature will also be desirable when creating a GUI frontend for this package.
+%JI - revert accidental operations of any kind?
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
