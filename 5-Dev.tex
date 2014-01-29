@@ -11,17 +11,36 @@ The continued success of an open-source project depends on many factors;
 three of the most important are (1) utility and quality of the code, (2) documentation, and (3) an
 active community \citep{bangerth2013}. Several tools (some specific to Python) are used by
 SunPy to make achieving these goals more accessible. To maintain high-quality code, a 
-transparent and collaborative development workflow made possible by GitHub is used (described
-further below).
+transparent and collaborative development workflow made possible by GitHub is used.
+% JI - I don't think we need a description of what is essentially how a project works
+% when you use git and github.  There is nothing SunPy specific about this.
+The following conditions typically must be met before code is accepted.
+\begin{enumerate}
+	\item  The code must follow 	
+	\href{http://www.python.org/dev/peps/pep-0008/}{PEP8} the Python style 
+	guidelines, keeping SunPy code in a consistent.
+	
+	\item All new features require documentation in the form of doc strings as well as user
+	guides. 
+	
+	\item The code must contain significant unit test coverage.
+
+        \item Community consensus is reached that the new code is valuable.
+\end{enumerate}
+This kind of development model is widely used within the scientific Python 
+community as well as by a wide variety of other projects both open and closed 
+source.
+
 Additionally, SunPy makes use of `continuous integration' provided by
 \href{http://travis-ci.org}{Travis CI}, a process by which the addition of any new code 
 automatically triggers a comprehensive review of written unit tests. If any single test
 fails then the community is alerted before the code is accepted. The unit test coverage is
 also monitored by the \href{http://coveralls.io}{Coveralls} service.
+% JI - what is the coveralls service?
 
 Quality documentation is
 one of the most important factors determining the success of any software project. 
-Thankfully powerful tools already exist in Python to support this thanks to native
+Powerful tools already exist in Python to support this, thanks to native
 Python's focus on its own documentation. SunPy makes use of the \href{http://sphinx-doc.org}{Sphinx}
 documentation generator. Sphinx uses reStructuredText as its markup language: 
 an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax. It supports
@@ -30,12 +49,14 @@ hierarchically structured view of in-code documentation strings. The SunPy docum
 is built automatically and is hosted by \href{http://readthedocs.org}{Read the 
 Docs} at \url{http://docs.sunpy.org}. 
 
-In order to maintain an active community, communication is key.  The SunPy community makes
-use of a number of channels to communicate. For immediate communications, an active IRC chat
+Communication is the key to maintaining an active community, and so the SunPy community 
+uses a number of different tools to facilitate communication. For immediate communications, an active IRC chat
 room (\#SunPy) is hosted on freenode.net. For more involved or less immediate needs, such as
 developer comments or discussions, a open mailing list is hosted on Google Groups. 
 Discussion of bugs and bug tracking are provided directly on GitHub as well as new
-code-review discussions.
+code-review discussions.  The SunPy community also reaches out to the wider solar physics
+community through presentations, functionality demonstrations and informal meetups at scientific
+meetings. 
 % RJH: do we want to list both the community and dev lists?
 
 % RJH: This section is redundant with some parts in the text.  I favor cutting the stuff in text.
@@ -51,32 +72,6 @@ through the \href{http://www.python.org/psf/}{Python Software Foundation} (PSF).
 \texttt{HELIO} and 
 \texttt{database} subpackages.
 
-\subsection{Development Workflow}
-The development workflow that GitHub enables is simple and transparent. The 
-primary source code repository \url{http://github.com/sunpy/sunpy} can be 
-`forked' by anyone with a GitHub account who can then modify their fork as they 
-wish. Upon completion of any modifications it is possible for a user to create 
-a `Pull Request' (\url{http://github.com/sunpy/sunpy/pulls}) to the main SunPy 
-repository in order to incorporate their modification into the SunPy code base. 
-Pull requests are reviewed by the SunPy community before being accepted. Community consensus
-is required to add new features.
-
-Pull requests are a very powerful tool to maintain code quality, as each line 
-of code that has been modified is highlighted for review and can be commented on. 
-In order to maintain high quality code the following conditions must typically be met 
-before code is accepted.
-
-\begin{enumerate}
-	\item  The code must follow 	
-	\href{http://www.python.org/dev/peps/pep-0008/}{PEP8} the Python style 
-	guidelines, this keeps all the code in SunPy styled in a consistent manner and easy to read.
-	
-	\item All new features require documentation in the form of doc strings as well as user
-	guides. 
-	
-	\item The code must contain significant unit test coverage.
-\end{enumerate}
-
-This kind of development model is widely used within the scientific Python 
-community as well as by a wide variety of other projects both open and closed 
-source.
+%JI The section ``Development workflow'' is unnecessary IMHO.  This is
+% largely a description of how git and github works.  It is not about sunpy. So I have
+% deleted it.
