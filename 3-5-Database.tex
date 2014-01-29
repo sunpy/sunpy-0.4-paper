@@ -5,29 +5,29 @@ in local storage such as laptops and desktop computers. Keeping data organised a
 is typically a cumbersome task for the average user. The file database is a sub-package of 
 SunPy which is meant to solve this problem by providing a unified database to store and manage information about 
 local data files. The database package was developed as part of the Google 
-Summer Of Code (GSoC) program 2013.
+Summer of Code (GSoC) program 2013.
 
 The database sub-package makes use of a database supported by
 \href{http://www.sqlalchemy.org}{SQLAlchemy}. This library was chosen
 since it supports many SQL dialects. 
 If SQLite is selected, the database is stored as a single file which is
 created automatically. A server-based database, on the other hand, could be used
-by a collaboration who work together from different machines on the
-same data: a central database server stores all data and the clients connect to
+by a collaborators who work together on the
+same data from different computers: a central database server stores all data and the clients connect to
 it to read or write data.
 
 The database can store and manage all data that can be read via SunPy's 
-\texttt{io} subpackage, while direct integration with the \textsc{VSO} 
+\texttt{io} subpackage, and direct integration with the \textsc{VSO} 
 subpackage is supported.
-It is also possible to add entries manually by file or directory. The package also provides
-a \texttt{fetch} method which provides a unified data search which includes both local files
+It is also possible to manually add file or directory entries. The package also provides
+a unified data search via the \texttt{fetch()} method, which includes both local files
 and files on the \textsc{VSO}. This reduces the likelihood of downloading the same file 
-multiple times. When a file is added to the database the file is scanned and a file hash is produced. 
+multiple times. When a file is added to the database, the file is scanned and a file hash is produced. 
 The current date is associated with the entry along with metadata summaries such 
 as instrument, date of observation, field of view, etc. 
 The database also provides the ability to associate custom meta-data to 
 each database entry such as keywords, comments, and favouring, as well as 
-querying the full metadata (\textit{i.e.} FITS header) of each entry.
+querying the full metadata (i.e., FITS header) of each entry.
 
 A very special feature of the database package is the support of \texttt{undo}
 and \texttt{redo} operations. This is particularly convenient in
@@ -37,8 +37,8 @@ This feature will also be desirable when creating a GUI frontend for this packag
 The \texttt{Database} class connects to a database and allows the user to 
 perform operations on it. Listing~\ref{code:database} shows how to connect
 to an in-memory database and download data from the \textsc{VSO}. These entries are
-automatically added to the database. The function \texttt{len} is used to get the number of
-records. The function \texttt{display\_entries} displays an iterable of 
+automatically added to the database. The function \texttt{len()} is used to get the number of
+records. The function \texttt{display\_entries()} displays an iterable of 
 database entries in a nicely-formatted \textsc{ASCII} table. The headlines 
 correspond to the attributes of the respective database entries.
 
