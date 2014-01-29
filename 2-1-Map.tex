@@ -14,7 +14,7 @@ The architecture of the \texttt{Map} class consists of a template map called
 \texttt{meta} attribute to store metadata.
 As \texttt{NDData} is currently still in development, \texttt{GenericMap} does 
 not yet make full use of its capabilities, but this inheritance structure 
-provides for future integration of \texttt{Astropy}. In order to provide 
+provides for future integration of \texttt{astropy}. In order to provide 
 instrument- or detector-specific integration, \texttt{GenericMap} is designed
 to be subclassed. Each subclass of \texttt{GenericMap} can register 
 with the \texttt{Map} creation factory, which will then automatically return an instance
