@@ -10,8 +10,8 @@ briefly describes some of these functions.
 \subsection{World Coordinate System (WCS) Coordinates}\label{ssec:util:wcs}
 Coordinate transformations are frequently a necessary task within the solar 
 data analysis workflow. Likely the most often used transformation is from 
-observer coordinates (e.g. sky coordinates) to a coordinate system which is 
-mapped onto the solar surface (e.g. latitude and longitude). This 
+observer coordinates (e.g., sky coordinates) to a coordinate system which is 
+mapped onto the solar surface (e.g., latitude and longitude). This 
 transformation is necessary to compare the true physical distance between 
 different solar features. This type of transformation is not unique
 to solar observations, but is not often considered by astronomical packages
@@ -77,7 +77,7 @@ constants in order to provide consistency in the calculations of derived solar
 values both within the SunPy code base but also to the user. Every solar 
 constant is provided as a Constant object as defined by Astropy. Each 
 Constant object defines a Quantity, a number associated with a unit, along with 
-the constant's provenance (i.e. reference) as well as its uncertainty. Using 
+the constant's provenance (i.e., reference) as well as its uncertainty. Using 
 Astropy's Quantities, any solar constant can easily be converted between 
 different units as can be seen in Listing~\ref{code:constants_code} as well
 as between the SI or cgs unit systems with a single command.  As these objects inherit from 
