@@ -53,6 +53,8 @@ subsequently creates and plots the object.
 >>> goes.peek()
 >>> print goes.data['B_FLUX'].max()
 2.55542e-05
+>>> print goes.data['B_FLUX'].idxmax()
+2011-06-07 06:41:26
 
 
 \end{minted}
@@ -61,7 +63,7 @@ subsequently creates and plots the object.
 \end{center}
 \caption{Example retrieval of a GOES lightcurve
 using a time range, and the output of the 
-\texttt{peek()} method. Finally, the maximum flux value in the GOES 1.0 - 8.0 $\AA$\ channel is retrieved.}
+\texttt{peek()} method. Finally, the maximum flux value in the GOES 1.0 - 8.0$\AA$\ channel is retrieved along with the location in time of the maximum.}
 \label{code:goes_lc}
 \end{listing}
 
