@@ -13,7 +13,8 @@ SunPy's \texttt{vso} module provides access to the VSO via the SOAP service usin
 This module was developed under the European Space Agency's Summer of Code in 
 Space (ESA's SOCIS) of 2011.
 
-The \texttt{vso} module has two query interfaces implemented.
+%ays: commented this out because it's not developed at all
+%The \texttt{vso} module has two query interfaces implemented.
 Listing~\ref{code:vso_query_simple} shows an example of how to query the VSO
 using the \texttt{vso} module.
 Queries are constructed using one or more attribute objects. Each
@@ -24,8 +25,8 @@ the constructed query. One can use the metadata associated with the data sets to
 specify how the files will be named locally, such as creating subdirectories 
 based on the instrument names.
 
-Listing~\ref{code:vso_query_advanced} shows examples of how to make advanced
-queries by combining attribute objects.
+Listing~\ref{code:vso_query_advanced} shows an example of how to make an advanced
+query by combining attribute objects.
 Two attribute objects can be combined with a logical \texttt{or} operation
 using the \texttt{|} (pipe) operator.
 All attribute objects provided to the query as arguments are combined with a 
@@ -33,7 +34,7 @@ logical \texttt{and} operation.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
->>> from SunPy.net import vso
+>>> from sunpy.net import vso
 >>> client = vso.VSOClient()
 >>> tstart, tend = '2011/6/7 05:30', '2011/6/7 10:30'
 >>> lasco_query = client.query(vso.attrs.Time(tstart, tend),
@@ -59,40 +60,30 @@ Start time           End time             Source  Instrument  Type
 %Stuart: I suggest removing the second query from here, it dosen't add much.
 %dps: Stuart, do you mean the second listing, or the wavelength bit of this one?
 %SJM: The wavelength bit of this one.
+%ays: I removed the first one instead!  Ha ha!
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
-#Querying multiple instruments/missions over the same time range
->>> instrument_condition = ( vso.attrs.Instrument('lasco') |
-...                          vso.attrs.Detector('cor1') )
->>> coronagraphs = client.query(vso.attrs.Time(tstart, tend),
-...                             instrument_condition)
->>> coronagraphs.num_records()
-485
->>> coronagraphs.show()
-Start time           End time             Source    Instrument  Type
-----------           --------             ------    ----------  ----
-2011-06-07 05:35:23  2011-06-07 05:35:48  SOHO      LASCO       CORONA
-...
-2011-06-07 10:25:43  2011-06-07 10:25:45  STEREO_B  SECCHI      CORONA
-2011-06-07 10:30:00  2011-06-07 10:30:01  STEREO_A  SECCHI      CORONA
-
 #Querying two wavelength ranges over the same time range
->>> wavelength_condition = ( vso.attrs.Wave(125, 135) |
-...                          vso.attrs.Wave(165, 175) ) # in angstroms
->>> euv = client.query(vso.attrs.Time(tstart, tend),
-...                    wavelength_condition)
->>> euv.num_records()
-3989
->>> euv.show()
+>>> condition = (vso.attrs.Detector('cor1') |
+...              vso.attrs.Wave(125, 135) |
+...              vso.attrs.Wave(165, 175) ) # in angstroms
+>>> advanced = client.query(vso.attrs.Time(tstart, tend), condition)
+>>> advanced.num_records()
+4434
+>>> advanced.show()
 Start time           End time             Source    Instrument  Type
 ----------           --------             ------    ----------  ----
 2011-06-07 00:00:00  2011-06-08 00:00:00  SDO       EVE         FULLDISK
 ...
 2011-06-07 05:31:09  2011-06-07 05:31:19  PROBA2    SWAP        FULLSUN
 ...
+2011-06-07 10:25:43  2011-06-07 10:25:45  STEREO_B  SECCHI      CORONA
+2011-06-07 10:30:00  2011-06-07 10:30:01  STEREO_A  SECCHI      CORONA
+...
 2011-06-07 10:30:00  2011-06-07 10:30:01  SDO       AIA         FULLDISK
 \end{minted}
-\caption{Examples of advanced VSO queries using attribute objects,
+\caption{Example of an advanced VSO query using attribute objects,
+combining both data from a detector and any data that falls within two wavelength ranges,
 continuing from Listing~\ref{code:vso_query_simple}.}
 \label{code:vso_query_advanced}
 \end{listing}
