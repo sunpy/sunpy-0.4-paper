@@ -25,11 +25,7 @@ instruments:
 \textit{STEREO}/EUVI and COR, \textit{Hinode}/XRT,
 \textit{PROBA2}/SWAP, \textit{SDO}/AIA and HMI, 
 and \textit{IRIS} SJI frames. 
-% RJH: Instruments should be consistent throughout (italics, caps, etc).  Also,
-% usually citations are provided for instruments.
-% dps: I would agree to add the citations if we were using the instrument in 
-% the paper, but I don't think this is the case here.
-
+                        
 The \texttt{Map} class stores standard metadata retrieved from the header of 
 the image file in the \texttt{meta} attribute and provides convenience 
 properties for commonly accessed metadata: e.g., \texttt{instrument}, 
@@ -41,14 +37,15 @@ Listing \ref{code:aia_1} demonstrates the quick-look functionality of
 \begin{minted}[bgcolor=bg]{pycon}
 >>> import sunpy.map
 >>> aiamap = sunpy.map.Map('aia_file.fits')
->>> aiamap.peek()
+>>> smap = aiamap.submap([-1200, -200], [-1000, -0])
+>>> smap.peek(draw_grid=True)
 \end{minted}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{aia_map_example}
 \end{center}
 \caption{Example of the \texttt{AIAMap} specialisation of 
-\texttt{GenericMap}. The map is created from an \textit{SDO}/AIA FITS file,
-and a quick-view plot is created.}
+\texttt{GenericMap}. The map is created from an \textit{SDO}/AIA FITS file, a cutout
+of the map is created and then a quick-view plot is created with lines of heliographic longitude and latitude over-plotted.}
 \label{code:aia_1}
 \end{listing}
 

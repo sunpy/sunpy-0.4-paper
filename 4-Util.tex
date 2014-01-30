@@ -3,9 +3,6 @@ SunPy is meant to provide a consistent environment for solar data analysis. In
 order to achieve this goal SunPy provides a number of additional functions and packages which 
 are used by the other SunPy modules and are made available to the user. This section 
 briefly describes some of these functions.
-
-%Two modules are described in this Section, namely, solar coordinates (WCS), and 
-%the Sun module. 
 	
 \subsection{World Coordinate System (WCS) Coordinates}\label{ssec:util:wcs}
 Coordinate transformations are frequently a necessary task within the solar 
@@ -70,8 +67,6 @@ compatible with \texttt{sunpy.time.parse\_time()}.
 A future version of SunPy will integrate with the Astropy coordinates package and will 
 likely make use of an ephemeris package.
 
-%ays: I removed this as a separate subsection because constants is part of sun...
-%\subsubsection{constants}\label{ssec:util:const}
 The \texttt{sun.constants} module provides a number of solar-related 
 constants in order to provide consistency in the calculations of derived solar 
 values both within the SunPy code base but also to the user. Every solar 
@@ -91,7 +86,7 @@ To view them all quickly, a \texttt{print\_all()} function is available.
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.sun import constants
->>> print(sun.mass)
+>>> print(constants.mass)
   Name   = Solar mass
   Value  = 1.9891e+30
   Error  = 5e+25
