@@ -51,13 +51,17 @@ subsequently creates and plots the object.
 >>> goes = lightcurve.GOESLightCurve.create('2011-06-07 06:00',
 ...                                         '2011-06-07 08:00')
 >>> goes.peek()
+>>> print goes.data['B_FLUX'].max()
+2.55542e-05
+
+
 \end{minted}
 \begin{center}
 \includegraphics[width=10cm]{goes_lightcurve.pdf}
 \end{center}
 \caption{Example retrieval of a GOES lightcurve
 using a time range, and the output of the 
-\texttt{peek()} method.}
+\texttt{peek()} method. Finally, the maximum flux value in the GOES 1.0 - 8.0 $\AA$\ channel is retrieved.}
 \label{code:goes_lc}
 \end{listing}
 
