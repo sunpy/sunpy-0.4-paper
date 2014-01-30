@@ -15,15 +15,14 @@ SunPy accesses this information through the \texttt{hek} module, which was
 developed with support from ESA's SOCIS 2011.  The \texttt{hek} module makes 
 use of the 
 HEK API\footnote{For more information see 
-\href{\href{http://vso.stanford.edu/hekwiki/ApplicationProgrammingInterface?action=print}{http://vso.stanford.edu/hekwiki/ApplicationProgrammingInterface?action=print}}.
-The current list of events maintained by the HEK and their properties can be 
-found at \url{http://www.lmsal.com/hek/VOEvent_Spec.html}.
+\href{http://vso.stanford.edu/hekwiki/ApplicationProgrammingInterface}{http://vso.stanford.edu/hekwiki/ApplicationProgrammingInterface}}.
 
 Simple HEK queries consist of start time, an end time, and an event type 
-(Listing \ref{code:hek:simple}). Event types are specified as upper case, 
+(Listing~\ref{code:hek:simple}). Event types are specified as upper case, 
 two letter strings, and are 
-identical to the two letter abbreviations found at the HEK website, 
-\href{http://www.lmsal.com/hek/VOEvent_Spec.html}{http://www.lmsal.com/hek/VOEvent_Spec.html}
+identical to the two letter abbreviations found at the HEK website,
+%\href{http://www.lmsal.com/hek/VOEvent_Spec.html}{http://www.lmsal.com/hek/VOEvent_Spec.html}
+% schriste - above line causes an error, can't figure out why
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -53,6 +52,7 @@ in different ways, known generally as feature recognition methods (FRMs).
 Example in Listing~\ref{code:hek:frm} filters the results of the previous 
 result to return only those events that have the FRM 'SSW Latest Events'.  Multiple comparisons can be made by including more comma-separated
 conditions on the attributes in the call to the HEK query method.
+
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> result = client.query(hek.attrs.Time(tstart, tend), 
@@ -81,8 +81,7 @@ website).
 \caption{HEK query using the logical \texttt{or} operator.}
 \label{code:hek:or}
 \end{listing}
-All FRMs report the required feature attributes (as described at 
-\url{http://www.lmsal.com/hek/VOEvent_Spec.html}), but the optional attributes 
+All FRMs report the required feature attributes, but the optional attributes 
 are FRM dependent.  If a FRM does not have one of the optional attributes, 
 \texttt{None} is returned by the \texttt{hek} module. 
 
