@@ -34,11 +34,7 @@ the image file in the \texttt{meta} attribute and provides convenience
 properties for commonly accessed metadata: e.g., \texttt{instrument}, 
 \texttt{wavelength} or \texttt{coordinate\_system}. 
 Listing \ref{code:aia_1} demonstrates the quick-look functionality of 
-\texttt{Map}; see Section \ref{subsec:Viz} for additional discussion of plotting.
-%dps: See section viz does not apply any more, right? The examples have been 
-%removed now.
-%SJM: the example is gone, but the section remains
-%ays: it does remain, but it's so short it's not worth referring to
+\texttt{Map}.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -119,6 +115,7 @@ through the \texttt{MapCube}.}
 \end{minted}
 % In the above example, is Writer, writer clear? 
 % Could we add more metadata to the movie? obs_date, instrument, etc...?
+% schriste - doesn't this example require the user to have the ffmpeg binary? 
 \caption{Example showing how to save a video animation from a \texttt{MapCube} using 
 \texttt{matplotlib}'s animation framework.}
 \label{code:mapcube_2}
