@@ -85,7 +85,18 @@ are FRM dependent.  If a FRM does not have one of the optional attributes,
 \texttt{None} is returned by the \texttt{hek} module. 
 
 The ability to use comparison and logical operators on HEK attributes allows 
-the construction of queries of almost arbitrary complexity.
-%The results of a HEK query can be used to download the 
-%corresponding data from the VSO using SunPy's \texttt{H2VClient}.
-% removed sentence until it is fixed.
+the construction of queries of almost arbitrary complexity. 
+The results of a HEK query can be used to download the 
+corresponding data from the VSO using SunPy's \texttt{H2VClient}, as 
+demonstrated in Listing~\ref{code:hek2vso}
+\begin{listing}[H]
+\begin{minted}[bgcolor=bg]{python}
+>>> from sunpy.net import hek2vso
+>>> h2v = hek2vso.H2VClient()
+>>> vso_results = h2v.translate_and_query(result[0])
+>>> h2v.vso_client.get(vso_results[0]).wait()
+\end{minted}
+\caption{Code snippet continuing from Listing~\ref{code:hek:or} showing the 
+query and download of data from the first HEK result from the VSO.}
+\label{code:hek2vso}
+\end{listing}
