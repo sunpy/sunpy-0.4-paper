@@ -20,9 +20,8 @@ HEK API\footnote{For more information see
 Simple HEK queries consist of start time, an end time, and an event type 
 (Listing~\ref{code:hek:simple}). Event types are specified as upper case, 
 two letter strings, and are 
-identical to the two letter abbreviations found at the HEK website,
-%\href{http://www.lmsal.com/hek/VOEvent_Spec.html}{http://www.lmsal.com/hek/VOEvent_Spec.html}
-% schriste - above line causes an error, can't figure out why
+identical to the two letter abbreviations found at the HEK website
+(\url{http://www.lmsal.com/hek/VOEvent_Spec.html}).
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -86,12 +85,7 @@ are FRM dependent.  If a FRM does not have one of the optional attributes,
 \texttt{None} is returned by the \texttt{hek} module. 
 
 The ability to use comparison and logical operators on HEK attributes allows 
-the construction of queries of almost arbitrary complexity. 
-The results of a HEK query can be used to download the 
-corresponding data from the VSO using SunPy's \texttt{H2VClient}.
-%schriste - this is a weird way to end this section, either show how it is done or 
-% do not mention it, i think.
-%dps - I agree.
-%JI - I agree
-%Stuart: Will do on my next pass
-%ays: hmm, still nothing?
+the construction of queries of almost arbitrary complexity.
+%The results of a HEK query can be used to download the 
+%corresponding data from the VSO using SunPy's \texttt{H2VClient}.
+% removed sentence until it is fixed.

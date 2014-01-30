@@ -5,24 +5,17 @@ physics for which many data sources are available.
 SunPy provides a \texttt{LightCurve} class
 with a convenient and consistent interface for handling solar time-series
 data.  The main engine behind the \texttt{LightCurve} class is
-the {\texttt{pandas}} data-analysis library (\href{http://pandas.pydata.org}{http://pandas.pydata.org}), and 
+the {\texttt{pandas}} data-analysis library, and 
 \texttt{LightCurve}'s \texttt{data} attribute is a \texttt{pandas.DataFrame} 
-object.
-The \texttt{pandas} library contains a large amount
+object. The \texttt{pandas} library contains a large amount
 of functionality for manipulating and analysing time-series data,
-making it an ideal basis for \texttt{LightCurve}.  \texttt{LightCurve}
+making it an ideal basis for \texttt{LightCurve} \citep{mckinney2012}.  \texttt{LightCurve}
 assumes that the input data are time-ordered list(s) of numbers, and each
 list becomes a column in the \texttt{pandas} DataFrame object.
 
 Currently, the \texttt{LightCurve} class is compatible with the
-following data sources: the \textit{GOES} X-ray Sensor (XRS), \textit{PROBA2}/LYRA, and
-the \textit{SDO} EUV Variability Experiment (EVE; only the level ``OCS'' and
-% Do we need to explain what OCS means?
-% RJH: I'd argue that everything other than (EVE) can be cut, but I'm not 
-% confident enough to make that cut.
-% dps: I agree, JI, what do you think?
-average CSV files -- see \url{http://lasp.colorado.edu/home/eve/data/}
-for more detail).  For each of these instruments, a subclass of the
+following data sources: the \textit{GOES} X-ray Sensor (XRS), \textit{PROBA2}/LYRA, and \textit{SDO}/EVE\footnote{Note that only the level ``OCS'' and
+average CSV files is currently implemented -- see \url{http://lasp.colorado.edu/home/eve/data/}}.  For each of these instruments, a subclass of the
 \texttt{LightCurve} object is initialised
 (e.g., \texttt{GOESLightCurve}) which inherits from
 \texttt{LightCurve} but allows instrument-specific functionality to be
@@ -40,10 +33,6 @@ the \texttt{LightCurve} constructor searches a remote source for the GOES X-ray
 data specified by the time interval, downloads the required files and 
 subsequently creates and plots the object.
 
-%removed the resample part of the example - really we need to fix truncate!
-% schriste - i think it would be better to show off some of the powerful pandas methods in this section
-% as we are not likely to fix truncate and i think it should be refactored anyway
-%ays: moved these comments outside of the listing in case we forget to delete these
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy import lightcurve
@@ -51,17 +40,13 @@ subsequently creates and plots the object.
 >>> goes = lightcurve.GOESLightCurve.create('2011-06-07 06:00',
 ...                                         '2011-06-07 08:00')
 >>> goes.peek()
->>> print goes.data['B_FLUX'].max()
-2.55542e-05
->>> print goes.data['B_FLUX'].idxmax()
-2011-06-07 06:41:26
 \end{minted}
 \begin{center}
 \includegraphics[width=10cm]{goes_lightcurve.pdf}
 \end{center}
 \caption{Example retrieval of a GOES lightcurve
 using a time range, and the output of the 
-\texttt{peek()} method. Finally, the maximum flux value in the GOES 1.0 - 8.0$\AA$\ channel is retrieved along with the location in time of the maximum.}
+\texttt{peek()} method.}
 \label{code:goes_lc}
 \end{listing}
 
