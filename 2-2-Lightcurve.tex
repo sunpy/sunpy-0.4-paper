@@ -5,12 +5,11 @@ physics for which many data sources are available.
 SunPy provides a \texttt{LightCurve} class
 with a convenient and consistent interface for handling solar time-series
 data.  The main engine behind the \texttt{LightCurve} class is
-the {\texttt{pandas}} data-analysis library (\href{http://pandas.pydata.org}{http://pandas.pydata.org}), and 
+the {\texttt{pandas}} data-analysis library, and 
 \texttt{LightCurve}'s \texttt{data} attribute is a \texttt{pandas.DataFrame} 
-object.
-The \texttt{pandas} library contains a large amount
+object. The \texttt{pandas} library contains a large amount
 of functionality for manipulating and analysing time-series data,
-making it an ideal basis for \texttt{LightCurve}.  \texttt{LightCurve}
+making it an ideal basis for \texttt{LightCurve} \citep{mckinney2012}.  \texttt{LightCurve}
 assumes that the input data are time-ordered list(s) of numbers, and each
 list becomes a column in the \texttt{pandas} DataFrame object.
 
