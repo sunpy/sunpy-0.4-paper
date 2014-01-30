@@ -1,7 +1,7 @@
 \section{Future of SunPy}\label{sec:future}
 SunPy as a project has existed for roughly three years. In this time 
 the code 
-base has grown to over 110,000 lines. SunPy in its current form is a 
+base has grown to over 17,000 lines. SunPy is already a 
 useful 
 package for the analysis of calibrated solar data, however, the code 
 base is 
@@ -10,7 +10,9 @@ still evolving from release to release.
 % actually wrote.  does this include docs, comments, and sphinx crap?
 %SJM: I think this number is just wrong and never got changed.
 %JI: needs new number.  Should be the number of lines in the 0.4 sunpy release???
-As discussed in Section \ref{sec:Intro}, the primary focus of the 
+%ays: I changed the number to ohloh's count unless there's a reason to think it's >110k
+The primary focus of the 
+%ays: Not actually discussed in Section \ref{sec:Intro}, so I removed the reference
 SunPy library is the analysis and visualisation of `high-level' solar 
 data. This means data that has been put through instrument processing 
 and 
@@ -30,9 +32,9 @@ each data
 type is aware of what the physical type of its data is and how 
 operations on 
 that data should be performed. This will enable useful operations
-such as the co-ordinate and solar-rotation aware 
+such as the coordinate and solar-rotation-aware 
 overplotting of HELIO (Section \ref{ssec:helio}) and HEK
-results (Section \ref{ssec:hek}) on to maps (Section \ref{ssec:map}).
+results (Section \ref{ssec:hek}) onto maps (Section \ref{ssec:map}).
 
 In concert with the work on the data types, further integration with 
 the 
@@ -40,7 +42,7 @@ the
 amount of work 
 done in that project to support a platform for astronomical data 
 analysis. For 
-example, the \texttt{astropy.units} submodule provides a simple and 
+example, the \texttt{astropy.units} subpackage provides a simple and 
 efficient 
 way of representing physical units in Python data types; there are 
 plans to 

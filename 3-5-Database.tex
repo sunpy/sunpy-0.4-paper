@@ -7,8 +7,8 @@ SunPy which is meant to solve this problem by providing a unified database to st
 manage information about local data files. The database package was developed with support from 
 the Google Summer of Code (GSoC) program 2013.
 
-The database sub-package makes use of a database supported by
-\href{http://www.sqlalchemy.org}{SQLAlchemy}. This library was chosen
+The \texttt{database} subpackage makes use of a database supported by
+\href{http://www.sqlalchemy.org}{\texttt{SQLAlchemy}}. This library was chosen
 since it supports many SQL dialects. 
 If SQLite is selected, the database is stored as a single file which is
 created automatically. A server-based database, on the other hand, could be used
@@ -17,19 +17,21 @@ same data from different computers: a central database server stores all data an
 it to read or write data.
 
 The database can store and manage all data that can be read via SunPy's 
-\texttt{io} subpackage, and direct integration with the \textsc{VSO} 
-subpackage is supported.
+\texttt{io} subpackage, and direct integration with the \texttt{vso} 
+module is supported.
 It is also possible to manually add file or directory entries. The package also provides
 a unified data search via the \texttt{fetch()} method, which includes both local files
 and files on the \textsc{VSO}. This reduces the likelihood of downloading the same file 
-multiple times. When a file is added to the database, the file is scanned and a file hash is produced. 
+multiple times. When a file is added to the database, the file is scanned for metadata,
+and a file hash is produced. 
 The current date is associated with the entry along with metadata summaries such 
 as instrument, date of observation, field of view, etc. 
-The database also provides the ability to associate custom meta-data to 
+The database also provides the ability to associate custom metadata to 
 each database entry such as keywords, comments, and favouring, as well as 
 %dps: favouring is not what we want to say here...
 %JI: ``assigning favourites'' - is this what is meant?
-querying the full metadata (i.e., FITS header) of each entry.
+%ays: i'll let someone else fix this
+querying the full metadata (e.g., FITS header) of each entry.
 
 The \texttt{Database} class connects to a database and allows the user to 
 perform operations on it. Listing~\ref{code:database} shows how to connect
@@ -64,6 +66,6 @@ id observation_time_start wavemin wavemax
 1  2012-08-05 00:00:01    9.4     9.4    
 2  2012-08-05 00:00:02    33.5    33.5   
 \end{minted}
-\caption{Example usage of the database sub-package.}
+\caption{Example usage of the \texttt{database} subpackage.}
 \label{code:database}
 \end{listing}

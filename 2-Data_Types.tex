@@ -7,7 +7,7 @@ spectra. These core data types are Python classes:
 and \texttt{Spectrum} and \texttt{Spectrogram} (1D and 2D spectra). 
 
 These classes allow access to the data
-along with associated metadata and provide appropriate convenience functions to
+and associated metadata and provide appropriate convenience functions to
 enable analysis and visualisation. For each of these classes, the data is
 stored in the \texttt{data} attribute while the metadata is stored 
 in the \texttt{meta} attribute. (Curently, \texttt{LightCurve} does 
@@ -21,9 +21,9 @@ It is possible to instantiate the
 data types from various
 different sources: e.g., files, URLs, arrays.  
 %schriste - i removed time ranges as that just looks up a url.
-In order to provide instrument-specific specialisation, all the core SunPy classes 
-support subclassing; e.g., \texttt{Map} has an \texttt{AIAMap} 
-sub-type for data from the SDO/AIA instrument. 
+In order to provide instrument-specific specialisation, the core SunPy classes 
+make use of subclassing; e.g., \texttt{Map} has an \texttt{AIAMap} 
+sub-type for data from the \textit{SDO}/AIA instrument. 
 Data visualisation is provided by two functions: \texttt{peek()}, for quick 
 plotting, and \texttt{plot()}, for plotting with more fine-grained control that 
 integrates with \texttt{matplotlib}.
@@ -37,8 +37,8 @@ of each of these data types.
 
 \subsection{Visualisation}
 \label{subsec:Viz}
-As demonstrated in this section, the core SunPy datatypes 
-include visualisation methods that are tailored to that data type. 
+As demonstrated in this section, the core SunPy data types 
+include visualisation methods that are tailored to each data type. 
 These visualisation methods all currently utilise the \texttt{matplotlib} 
 package, and are designed in such a way that they integrate well with 
 the \texttt{pyplot} functional interface of \texttt{matplotlib}.

@@ -6,13 +6,13 @@ The aim of the Helioviewer Project is to enable
 the exploration of solar and heliospheric data from multiple data
 sources (such as instrumentation and feature/event catalogues) via
 easy-to-use visual interfaces.  The primary interface to Helioviewer is a
-google-map-like website which allows users to browse images of the Sun
+Google-Maps-like website which allows users to browse images of the Sun
 taken by a variety of instruments. In order to manage all of this data, the Helioviewer
-project maintains archives of all of its data as JPEG2000 format (for further
-details on the Helioviewer Project see \citep{muller2009}). The
+project maintains archives of all of its data in JPEG2000 format (for further
+details on the Helioviewer Project see \cite{muller2009}). The
 JPEG2000 files are typically highly compressed compared to the source
-FITS files they are generated from, and so can be a used as a shortcut
-to visualise large amounts of data from multiple sources.  SunPy is
+FITS files they are generated from, and thus can be used to quickly
+visualise large amounts of data from multiple sources.  SunPy is
 also used in Helioviewer production servers to manage the download and
 ingestion of JPEG2000 files from remote servers.
 
@@ -38,8 +38,10 @@ separate image layers in to a single image.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
+>>> from sunpy.net.helioviewer import HelioviewerClient
+>>> hv = HelioviewerClient()
 >>> hv.download_png('2099/01/01', 6,
-...                 "[SDO,AIA,AIA,304,1,100],[SDO,AIA,AIA,193,1,50]"+
+...                 "[SDO,AIA,AIA,304,1,100],[SDO,AIA,AIA,193,1,50],"+
 ...                 "[SOHO,LASCO,C2,white-light,1,100]",
 ...                 x0=0, y0=0, width=768, height=768)
 \end{minted}
@@ -66,7 +68,7 @@ respectively (1/0 is visible/invisible with opacity in the range
 $0\rightarrow100$, with $100$ meaning fully opaque).  The quantities
 \texttt{x0} and \texttt{y0} are the $x$ and $y$ centre points about
 which to centre the image (measured in helio-projective cartesian
-co-ordinates) and the \texttt{width} and \texttt{height} are the pixel
+coordinates), and the \texttt{width} and \texttt{height} are the pixel
 values for the image dimensions.
 
 This functionality makes it simple for SunPy users to generate complex
@@ -77,7 +79,7 @@ images from multiple, correctly overlaid, image data sources.
 
 As noted above, Helioviewer JPEG2000 files contain metadata that allow
 positioning of the image data.  There is sufficient metadata in each
-file to permit the creation of a SunPy map object (see Section
+file to permit the creation of a SunPy \texttt{Map} object (see Section
 \ref{ssec:map}) from a Helioviewer JPEG2000 file.  This allows image
 data to be manipulated in the same way as any other map object.
 
@@ -94,7 +96,7 @@ Section \ref{sssec:hv:png}).
 Listing \ref{code:downloadjp2} demonstrates the querying, downloading,
 reading and conversion of a Helioviewer JPEG2000 file into a SunPy map
 object.  This functionality allows users to visualise and manipulate
-Helioviewer-supplied image data in an identical fashion to a SunPy map
+Helioviewer-supplied image data in an identical fashion to a SunPy \texttt{Map}
 object generated from FITS data (see Section \ref{ssec:map}).
 
 \begin{listing}[H]
@@ -103,13 +105,13 @@ object generated from FITS data (see Section \ref{ssec:map}).
 ...                            observatory='SDO',
 ...                            instrument='HMI', detector='HMI', 
 ...                            measurement='continuum')
->>> from sunpy.map import Map
->>> Map(filepath).submap([200,550],[-400,-200]).peek()
+>>> from sunpy import map
+>>> map.Map(filepath).submap([200,550],[-400,-200]).peek()
 \end{minted}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{helioviewer_hmi_continuum_jp2_to_map}
 \end{center}
 \caption{Acquisition and display of a Helioviewer JPEG2000 file as a
-  SunPy map object.}
+  SunPy \texttt{Map} object.}
 \label{code:downloadjp2}
 \end{listing}

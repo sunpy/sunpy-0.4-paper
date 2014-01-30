@@ -10,7 +10,7 @@ instruments.  The variety and complexity of these instruments and
 their resultant datasets makes this a challenging goal.  The \texttt{spectra} module implements a
 \texttt{Spectrum} class for 1D data (intensity as a function of frequency) and a
 \texttt{Spectrogram} class for 2D data (intensity as a function of time and
-frequency).  Each of these classes use a \texttt{numpy.ndarray} class
+frequency).  Each of these classes use a \texttt{numpy.ndarray} object
 as its \texttt{data} attribute.  These two classes were implemented
 by funding provided by the Astrophysics Research Group at Trinity
 College Dublin, Ireland.
@@ -22,25 +22,25 @@ joining different time ranges and frequencies, performing frequency-dependent ba
 and convenient visualization and sampling of the data.
 Currently, the \texttt{Spectrogram} class supports radio spectrograms from the 
 \href{http://www.e-callisto.org/}{e-Callisto}
-solar radio spectrometer network and STEREO/SWAVES spectrograms.
+solar radio spectrometer network and \textit{STEREO}/SWAVES spectrograms.
 
 Listing \ref{code:spectra} shows how the \texttt{CallistoSpectrogram}
 object retrieves spectrogram data in the time range specified taken at
 the observatory of interest.  When the data is requested using the
 \texttt{from\_range()} function, the object merges all the downloaded
 files into a single spectrogram, across time and frequency.
-In the example shown, data is provided in two frequency ranges, 
+In the example shown, data is provided in two frequency ranges:
 20--90\,MHz and 55--355\,MHz.  Since the data is not evenly spaced in
 the frequency range, the \texttt{Spectrogram} object linearises the
-frequency axis for a better analysis.  The example also demonstrates
-the implemented background subtraction method which it calculates
-a constant background over time for each frequency channel based on 
-the values closer to the average.
+frequency axis to assist analysis.  The example also demonstrates
+the implemented background subtraction method, which calculates
+a constant background over time for each frequency channel.
 % RJH: Which subtraction method?  If the specifics are irrelevant, cut it.
 % RJH: is this better?
 %ji to DPS - what is the linearisation that is happening here?
 %ji- the linearisation consist in the frequency axis being linear and the 
 % data being streched with it.  The frequency normally are not evenly spaced
+%ays: I deleted the phrase "based on the values closer to the average" because I don't understand what that means
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}

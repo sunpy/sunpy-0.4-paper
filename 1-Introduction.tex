@@ -1,15 +1,16 @@
 \section{Introduction}\label{sec:Intro}
 
-Science is driven by the analysis of data. Modern advances in sensor
-technology, combined with the availability of inexpensive storage has led to
-rapid increases in amount of data available to scientists in almost
-every discipline.  Solar physics is no exception to this trend. For example, NASA's
-AIA instrument on the Solar Dynamics Observatory (SDO) satellite, launched in February 2010,
+Science is driven by the analysis of data of growing variety and complexity.
+Modern advances in sensor
+technology, combined with the availability of inexpensive storage, has led to
+rapid increases in the sheer amount of data available to scientists in almost
+every discipline.  Solar physics is no exception to this trend. For example,
+NASA's \textit{Solar Dynamics Observatory} (\textit{SDO}) spacecraft, launched in February 2010,
 produces over 1 TB of catalogued and stored data per day \citep{aia}. Managing and
 analysing this mountain of data
-requires increasingly sophisticated software tools.  Key qualities
-that these tools should have include robustness, ease of use, a
-transparent development history, ease of modification, and conformance
+requires increasingly sophisticated software tools.
+These tools should be robust, be easy of use and modify, have a
+transparent development history, and conform
 to standards.  Software with these qualities provide a strong
 foundation and can support the needs of the community as data
 volumes grow and science questions evolve.
@@ -17,16 +18,16 @@ volumes grow and science questions evolve.
 %ji - I had a go.
 %schriste - looks good, made a small fix
 
-SunPy aims to provide a free, open-source and openly developed software package 
+The SunPy project aims to provide a free, open-source and openly developed software package 
 for the analysis and visualisation of solar data. SunPy makes use of the Python 
-programming language and the scientific Python packages. Python is a general-purpose, 
+programming language and scientific Python packages. Python is a general-purpose,
 powerful and easy-to-learn high-level programming language.
 % RJH: Can we cut the next sentence?  It seems superfluous and top 10 is rather
 % meaningless.
 % schriste - i think it's important. it contrasts nicely with IDL and its tiny 
 %community.
 %SJM: I think it should stay, it makes a point.
-According to the \href{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}{2014 TIOBE Index},
+According to the 2014 TIOBE Index\footnote{\url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}},
  it is one of the top ten most popular programming languages in the world 
 and is widely used outside of scientific fields in areas like web development, education 
 and `big data' analytics.
@@ -35,7 +36,7 @@ and `big data' analytics.
 The development of a package such as SunPy is made possible by the 
 rich ecosystem of scientific packages available in Python. Core packages such 
 as \texttt{NumPy}, \texttt{SciPy} and \texttt{matplotlib} 
-provide the basic functionality expected of a scientific programming language,
+provide the basic functionality expected of a scientific programming language:
 e.g., array manipulation, core numerical algorithms and visualisation. 
 Building upon these foundations, packages such as \texttt{astropy}, \texttt{pandas} and 
 \texttt{scikit-image} provide more domain-specific functionality.
@@ -43,11 +44,11 @@ Building upon these foundations, packages such as \texttt{astropy}, \texttt{pand
 SunPy is designed to be a clean, simple-to-use, and well-structured 
 package that provides the \textit{core} tools for solar data analysis. 
 The primary focus of SunPy's early development are 
-specialised data types that allow the acquisition, processing and 
+specialised data types that enable the acquisition, processing and 
 visualisation of all types of solar data.
 
 The purpose of this paper is to provide an overview of SunPy's current 
 capabilities, an overview of the project's development model, community aspects of the 
-SunPy project, as well as future plans. The latest release of SunPy, version 0.4,
+SunPy project, and future plans for the project. The latest release of SunPy, version 0.4,
 can be downloaded from \href{http://sunpy.org}{www.sunpy.org} or can be
 installed using the \href{http://pypi.python.org/pypi}{Python package index}.
