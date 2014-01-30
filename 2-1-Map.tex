@@ -41,14 +41,15 @@ Listing \ref{code:aia_1} demonstrates the quick-look functionality of
 \begin{minted}[bgcolor=bg]{pycon}
 >>> import sunpy.map
 >>> aiamap = sunpy.map.Map('aia_file.fits')
->>> aiamap.peek()
+>>> smap = aiamap.submap( [-1200, -200], [-1000, -0] )
+>>> aiamap.peek(draw_limb = True)
 \end{minted}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{aia_map_example}
 \end{center}
 \caption{Example of the \texttt{AIAMap} specialisation of 
-\texttt{GenericMap}. The map is created from an \textit{SDO}/AIA FITS file,
-and a quick-view plot is created.}
+\texttt{GenericMap}. The map is created from an \textit{SDO}/AIA FITS file, a sub range
+of the map is created and then a quick-view plot is created with heliographic coordinates over-plotted.}
 \label{code:aia_1}
 \end{listing}
 
