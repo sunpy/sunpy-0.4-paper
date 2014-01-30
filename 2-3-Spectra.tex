@@ -1,10 +1,4 @@
 \subsection{Spectra}\label{sec:spectra}
-%schriste - this section needs major work
-%ji - there is no example of a spectrum
-%dps - I need to think in one...
-%schriste - can't we just take a slice off of the spectram to make a spectrum?
-%dps - Spectrum does not really do much, just peek and plot. I don't think
-% it brings anything to the content.
 SunPy aims to provide broad support for solar spectroscopy
 instruments.  The variety and complexity of these instruments and
 their resultant datasets makes this a challenging goal.  The \texttt{spectra} module implements a
@@ -12,8 +6,9 @@ their resultant datasets makes this a challenging goal.  The \texttt{spectra} mo
 \texttt{Spectrogram} class for 2D data (intensity as a function of time and
 frequency).  Each of these classes use a \texttt{numpy.ndarray} object
 as its \texttt{data} attribute.  These two classes were implemented
-by funding provided by the Astrophysics Research Group at Trinity
+with support from by the Astrophysics Research Group at Trinity
 College Dublin, Ireland.
+% schriste - is this necessary? surely we don't need to thank all of our employers
 
 As with other SunPy data types, the \texttt{Spectrogram} class has been
 built so that each instrument initialises using a subclass containing the instrument-specific 

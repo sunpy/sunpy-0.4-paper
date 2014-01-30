@@ -1,7 +1,7 @@
 \subsection{Helioviewer}\label{ssec:hv}
 
 SunPy provides the ability to download images hosted by the
-\href{http://helioviewer.org}{Helioviewer Project}.  
+Helioviewer Project (\href{http://helioviewer.org}{http://helioviewer.org}).  
 The aim of the Helioviewer Project is to enable
 the exploration of solar and heliospheric data from multiple data
 sources (such as instrumentation and feature/event catalogues) via
@@ -11,7 +11,7 @@ taken by a variety of instruments. In order to manage all of this data, the Heli
 project maintains archives of all of its data in JPEG2000 format (for further
 details on the Helioviewer Project see \cite{muller2009}). The
 JPEG2000 files are typically highly compressed compared to the source
-FITS files they are generated from, and thus can be used to quickly
+FITS files they are generated from but high-fidelity, and thus can be used to quickly
 visualise large amounts of data from multiple sources.  SunPy is
 also used in Helioviewer production servers to manage the download and
 ingestion of JPEG2000 files from remote servers.
@@ -20,7 +20,9 @@ The Helioviewer Project categorises image data based on the physical
 construction of the source instrument, using a simple hierarchy:
 observatory $\rightarrow$ instrument $\rightarrow$ detector
 $\rightarrow$ measurement, where '$\rightarrow$' means 'provides
-(possibly multiple)'.  Each Helioviewer Project JPEG2000 file contains
+(possibly multiple)'.  
+%schriste - say what?!
+Each Helioviewer Project JPEG2000 file contains
 metadata which are based (in part) on the original FITS header
 information, and carry sufficient information to permit overlay with
 other Helioviewer JPEG2000 files. Images can be accessed either as
@@ -75,7 +77,6 @@ This functionality makes it simple for SunPy users to generate complex
 images from multiple, correctly overlaid, image data sources.
 
 \subsubsection{Download a JPEG2000 file}\label{sssec:hv:jp}
-
 
 As noted above, Helioviewer JPEG2000 files contain metadata that allow
 positioning of the image data.  There is sufficient metadata in each
