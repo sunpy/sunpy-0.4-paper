@@ -1,6 +1,6 @@
 \subsection{Lightcurve}\label{ssec:lightcurve}
 
-Time series data and their analyses are a fundamental aspect of solar
+Time series data and their analyses are a fundamental part of solar
 physics for which many data sources are available.
 SunPy provides a \texttt{LightCurve} class
 with a convenient and consistent interface for handling solar time-series
@@ -18,19 +18,19 @@ following data sources: the \textit{GOES} X-ray Sensor (XRS), \textit{PROBA2}/LY
 average CSV files is currently implemented -- see \url{http://lasp.colorado.edu/home/eve/data/}}.  For each of these instruments, a subclass of the
 \texttt{LightCurve} object is initialised
 (e.g., \texttt{GOESLightCurve}) which inherits from
-\texttt{LightCurve} but allows instrument-specific functionality to be
+\texttt{LightCurve}, but allows instrument-specific functionality to be
 included.  Future developments will introduce support for additional
 instruments and data products, as well as implementing a factory interface 
 similar to that of \texttt{Map}.  Since there is no established standard
 as to how time-series data should be stored and distributed, each SunPy 
-\texttt{LightCurve} object sub-class provides the ability to download its corresponding 
+\texttt{LightCurve} object subclass provides the ability to download its corresponding 
 specific data format in its constructor and parse that file type.
 
 A \texttt{LightCurve} object may be created using a number of different methods. 
 For example, a \texttt{LightCurve} may be created for a specific instrument given
 an input time range. In Listing~\ref{code:goes_lc}, 
 the \texttt{LightCurve} constructor searches a remote source for the GOES X-ray 
-data specified by the time interval, downloads the required files and 
+data specified by the time interval, downloads the required files, and 
 subsequently creates and plots the object.
 
 \begin{listing}[H]
@@ -45,13 +45,13 @@ subsequently creates and plots the object.
 \includegraphics[width=10cm]{goes_lightcurve.pdf}
 \end{center}
 \caption{Example retrieval of a GOES lightcurve
-using a time range, and the output of the 
+using a time range and the output of the 
 \texttt{peek()} method.}
 \label{code:goes_lc}
 \end{listing}
 
 Alternatively, if the data file already exists on the local system, the 
-\texttt{Lightcurve} object may instead be initialised using that file as input.
-Once the \texttt{Lightcurve} has been created, it may be manipulated in 
+\texttt{LightCurve} object may instead be initialised using that file as input.
+Once the \texttt{LightCurve} object has been created, it may be manipulated in 
 a variety of ways in order to perform time-series analysis.
 

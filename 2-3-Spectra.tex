@@ -4,7 +4,7 @@ instruments.  The variety and complexity of these instruments and
 their resultant datasets makes this a challenging goal.  The \texttt{spectra} module implements a
 \texttt{Spectrum} class for 1D data (intensity as a function of frequency) and a
 \texttt{Spectrogram} class for 2D data (intensity as a function of time and
-frequency).  Each of these classes use a \texttt{numpy.ndarray} object
+frequency).  Each of these classes uses a \texttt{numpy.ndarray} object
 as its \texttt{data} attribute.  
 
 As with other SunPy data types, the \texttt{Spectrogram} class has been
@@ -46,7 +46,7 @@ a constant background over time for each frequency channel.
 \includegraphics[width=0.8\columnwidth]{callisto_nobg}
 \end{center}
 \caption{Example of how \texttt{CallistoSpectrogram} retrieves the
-  data for the requested time range and observatory, merges it and
+  data for the requested time range and observatory, merges it, and
   removes the background signal.  The data requested -- `BIR' -- is
   the code name of the \href{http://www.rosseobservatory.ie}{Rosse Observatory}
   at Birr Castle in Ireland.}

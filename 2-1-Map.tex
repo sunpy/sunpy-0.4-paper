@@ -1,7 +1,7 @@
 \subsection{Map}\label{ssec:map}
 The map data type stores 2D spatial data, such as images of the Sun and 
-inner heliosphere. It provides: a wrapper around a \texttt{numpy} data array; 
-the images associated spatial coordinates; and other metadata. The \texttt{Map} 
+inner heliosphere. It provides: a wrapper around a \texttt{numpy} data array, 
+the images associated spatial coordinates, and other metadata. The \texttt{Map} 
 class provides methods for typical operations on 2D data, such as rotation and 
 re-sampling, as well as visualisation functionality.
 The \texttt{Map} class also provides a convenient interface for loading data 
@@ -18,7 +18,7 @@ provides for future integration with \texttt{astropy}. In order to provide
 instrument- or detector-specific integration, \texttt{GenericMap} is designed
 to be subclassed. Each subclass of \texttt{GenericMap} can register 
 with the \texttt{Map} creation factory, which will then automatically return an instance
-of the specific \texttt{GenericMap} subclass dependant upon the data provided. 
+of the specific \texttt{GenericMap} subclass dependent upon the data provided. 
 SunPy v0.4 has \texttt{GenericMap} specialisations for the following 
 instruments: 
 \textit{Yohkoh}/SXT, \textit{SOHO}/EIT and LASCO, \textit{RHESSI}, 
@@ -45,11 +45,11 @@ Listing \ref{code:aia_1} demonstrates the quick-look functionality of
 \end{center}
 \caption{Example of the \texttt{AIAMap} specialisation of 
 \texttt{GenericMap}. The map is created from an \textit{SDO}/AIA FITS file, a cutout
-of the map is created and then a quick-view plot is created with lines of heliographic longitude and latitude over-plotted.}
+of the map is created, and then a quick-view plot is created with lines of heliographic longitude and latitude over-plotted.}
 \label{code:aia_1}
 \end{listing}
 
-In addition to the data-type classes, the \texttt{map} sub-package provides two 
+In addition to the data-type classes, the \texttt{map} subpackage provides two 
 collection classes, \texttt{CompositeMap} and \texttt{MapCube}, for 
 temporally and spatially aligned data respectively.
 \texttt{CompositeMap} provides methods for overlaying spatially aligned 
