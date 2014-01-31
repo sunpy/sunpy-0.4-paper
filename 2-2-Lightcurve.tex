@@ -5,7 +5,7 @@ physics for which many data sources are available.
 SunPy provides a \texttt{LightCurve} class
 with a convenient and consistent interface for handling solar time-series
 data.  The main engine behind the \texttt{LightCurve} class is
-the {\texttt{pandas}} data-analysis library, and 
+the {\texttt{pandas}} data-analysis library.  
 \texttt{LightCurve}'s \texttt{data} attribute is a \texttt{pandas.DataFrame} 
 object. The \texttt{pandas} library contains a large amount
 of functionality for manipulating and analysing time-series data,
@@ -40,18 +40,23 @@ subsequently creates and plots the object.
 >>> goes = lightcurve.GOESLightCurve.create('2011-06-07 06:00',
 ...                                         '2011-06-07 08:00')
 >>> goes.peek()
+>>> print goes.data['B_FLUX'].max()
+2.55542e-05
+>>> print goes.data['B_FLUX'].idxmax()
+2011-06-07 06:41:26
 \end{minted}
 \begin{center}
 \includegraphics[width=10cm]{goes_lightcurve.pdf}
 \end{center}
 \caption{Example retrieval of a GOES lightcurve
 using a time range and the output of the 
-\texttt{peek()} method.}
+\texttt{peek()} method. The maximum flux value in the GOES 1.0 - 8.0$\AA$\ channel 
+is then retrieved along with the location in time of the maximum.}
 \label{code:goes_lc}
 \end{listing}
 
 Alternatively, if the data file already exists on the local system, the 
-\texttt{LightCurve} object may instead be initialised using that file as input.
-Once the \texttt{LightCurve} object has been created, it may be manipulated in 
-a variety of ways in order to perform time-series analysis.
+\texttt{LightCurve} object may be initialised using that file as input.
+%Once the \texttt{LightCurve} object has been created, it may be manipulated in 
+%a variety of ways in order to perform time-series analysis.
 
