@@ -25,7 +25,7 @@ $\rightarrow$ measurement, where '$\rightarrow$' means 'provides
 (possibly multiple)'.  
 %schriste - say what?!
 Each Helioviewer Project JPEG2000 file contains
-metadata which are based (in part) on the original FITS header
+metadata which are based on the original FITS header
 information, and carry sufficient information to permit overlay with
 other Helioviewer JPEG2000 files. Images can be accessed either as
 PNGs (Section \ref{sssec:hv:png}) or as JPEG2000 files (Section
@@ -115,6 +115,6 @@ object generated from FITS data (see Section~\ref{ssec:map}).
 \includegraphics[width=0.8\columnwidth]{helioviewer_hmi_continuum_jp2_to_map}
 \end{center}
 \caption{Acquisition and display of a Helioviewer JPEG2000 file as a
-  SunPy \texttt{Map} object.}
+  SunPy \texttt{Map} object. Images values are byte-scaled in the range 0-255.}
 \label{code:downloadjp2}
 \end{listing}

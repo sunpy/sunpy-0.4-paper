@@ -6,7 +6,7 @@ briefly describes some of these functions.
 	
 \subsection{World Coordinate System (WCS) Coordinates}\label{ssec:util:wcs}
 Coordinate transformations are frequently a necessary task within the solar 
-data analysis workflow. Likely the most often used transformation is from 
+data analysis workflow. An often used transformation is from 
 observer coordinates (e.g., sky coordinates) to a coordinate system that is 
 mapped onto the solar surface (e.g., latitude and longitude). This 
 transformation is necessary to compare the true physical distance between 
@@ -15,8 +15,7 @@ to solar observations, but is not often considered by astronomical packages
 such as the Astropy 
 \texttt{coordinates} package. The \texttt{wcs} package in SunPy implements the World Coordinate 
 System (WCS) for solar coordinates as described by \cite{thompson2006}. The 
-transformations currently implemented are those most useful 
-for most solar data analysis, namely converting from Helioprojective-Cartesian 
+transformations currently implemented are some of the most commonly used in solar data analysis, namely converting from Helioprojective-Cartesian 
 (HPC) to Heliographic (HG) coordinates. HPC describes the positions on 
 the Sun as angles measured from the center of the solar disk (usually in 
 arcseconds) using Cartesian coordinates (X, Y). This is the coordinate system 
@@ -49,7 +48,7 @@ some examples of coordinate transforms carried out in SunPy using the
 sunpy/wcs/wcs.py:180: RuntimeWarning: invalid value encountered in sqrt
   distance = q - np.sqrt(distance)
 (nan, nan)
-Convert sky coordinate to a position in HCC
+# Convert sky coordinate to a position in HCC
 >>> wcs.convert_hpc_hcc(-300, 400, z=True)
 (-216716967.63331246, 288956420.9477042, 594364636.2208252)
 \end{minted}
@@ -57,7 +56,7 @@ Convert sky coordinate to a position in HCC
 \label{code:wcs_code}
 \end{listing}
 
-\subsubsection{Sun}\label{ssec:util:sun}
+\subsection{Sun}\label{ssec:util:sun}
 The purpose of the \texttt{sun} subpackage is to provide solar-specific data such as ephemerides and
 solar constants. The main namespace contains a number of functions that provide solar
 ephemerides such as the Sun-to-Earth distance, solar-cycle number, the mean 
@@ -103,7 +102,7 @@ To view them all quickly, a \texttt{print\_all()} function is available.
 \label{code:constants_code}
 \end{listing}
 	
-\subsubsection{Instruments}\label{ssec:util:inst}
+\subsection{Instruments}\label{ssec:util:inst}
 In addition to providing support for instrument-specific solar data via the main data 
 classes \texttt{Map}, \texttt{LightCurve}, and \texttt{Spectrum}, 
 some instrument-specific functions may be found within the \texttt{instr} subpackage. 

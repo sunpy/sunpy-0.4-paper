@@ -22,7 +22,7 @@ the observatory of interest.  When the data is requested using the
 \texttt{from\_range()} function, the object merges all the downloaded
 files into a single spectrogram, across time and frequency.
 In the example shown, data is provided in two frequency ranges:
-20--90\,MHz and 55--355\,MHz.  Since the data is not evenly spaced in
+20--90\,MHz and 55--355\,MHz.  Since the data are not evenly spaced in
 the frequency range, the \texttt{Spectrogram} object linearises the
 frequency axis to assist analysis.  The example also demonstrates
 the implemented background subtraction method, which calculates
@@ -40,7 +40,7 @@ a constant background over time for each frequency channel.
 >>> tstart, tend = "2011-06-07T06:00:00", "2011-06-07T07:45:00"
 >>> callisto = CallistoSpectrogram.from_range("BIR", tstart, tend)
 >>> callisto_nobg = callisto.subtract_bg()
->>> callisto_nobg.peek(vmin = 0)
+>>> callisto_nobg.peek(vmin=0)
 \end{minted}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{callisto_nobg}
