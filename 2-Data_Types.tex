@@ -1,6 +1,6 @@
 \section{Core Data Types}\label{sec:DataTypes}
 
-SunPy currently provides data strucutures that are specifically designed for the
+The core of SunPy are a set of data strucutures that are specifically designed for the
 three primary varieties of solar physics data: images, time series, and
 spectra. These core data types are supported by SunPy's classes:
 \texttt{Map} (2D spatial data), \texttt{LightCurve} (1D temporal series),
@@ -20,11 +20,6 @@ In order to provide instrument-specific specialisation, the core SunPy classes
 make use of subclassing; e.g., \texttt{Map} has an \texttt{AIAMap} 
 sub-type for data from the \textit{SDO}/AIA instrument. 
 
-This section will give a brief overview of the \textit{current} functionality 
-of each of these data types.
-
-\subsection{Visualisation}
-\label{subsec:Viz}
 All of the core SunPy data types 
 include visualisation methods that are tailored to each data type. 
 These visualisation methods all currently utilise the \texttt{matplotlib} 
@@ -37,6 +32,9 @@ interface, as well as allowing the use of the standard
 \texttt{matplotlib} commands to manipulate the plot parameters (e.g., title, axes).
 Data visualisation is provided by two functions: \texttt{peek()}, for quick 
 plotting, and \texttt{plot()}, for plotting with more fine-grained control.
+
+This section will give a brief overview of the \textit{current} functionality 
+of each of the core SunPy data types.
 
 \input{2-1-Map}
 \input{2-2-Lightcurve}
