@@ -1,7 +1,7 @@
 \subsection{HEK}\label{ssec:hek}
 
 The Sun is an active star and exhibits a wide range of transient phenomena 
-(e.g., flares, radio bursts) on many different time-scales, length-scales and 
+(e.g., flares, radio bursts) on many different time-scales, length-scales, and 
 wavelengths. Observations and metadata concerning these phenomena are collected 
 in the Heliophysics Event Knowledgebase (HEK) \citep{hek2012}.  Entries are generated both by 
 automated algorithms and human observers.  Some of the information in the HEK 
@@ -19,7 +19,7 @@ HEK API\footnote{For more information see
 
 Simple HEK queries consist of start time, an end time, and an event type 
 (Listing~\ref{code:hek:simple}). Event types are specified as upper case, 
-two letter strings, and are 
+two letter strings, and these strings are 
 identical to the two letter abbreviations found at the HEK website
 (\url{http://www.lmsal.com/hek/VOEvent_Spec.html}).
 
@@ -39,9 +39,10 @@ on 2011 August 9.}
 \end{listing}
 
 The module \texttt{hek.attrs} contains attributes of the HEK that can be used to
-construct HEK queries.  For example, a flare is an attribute of the HEK, and so 
-instead of specifying \texttt{hek.attrs.EventType('FL')} as in Listing 
-\ref{code:hek:simple}, this can also be expressed as \texttt{hek.attrs.FL}. 
+construct HEK queries.  For example, a flare is an attribute of the HEK,
+ and so 
+\texttt{hek.attrs.EventType('FL')} in Listing~\ref{code:hek:simple}
+can be alternatively replaced with \texttt{hek.attrs.FL}. 
 
 HEK attributes differ from VSO attributes (Section \ref{ssec:vso}) in that many 
 of them are wrappers that conveniently expose comparisons by overloading Python 
@@ -49,7 +50,7 @@ operators. This allows filtering of the HEK entries by the properties of the
 event. As was mentioned above, the HEK stores feature/event metadata obtained 
 in different ways, known generally as feature recognition methods (FRMs). 
 Example in Listing~\ref{code:hek:frm} filters the results of the previous 
-result to return only those events that have the FRM 'SSW Latest Events'.  Multiple comparisons can be made by including more comma-separated
+result to return only those events that have the FRM `SSW Latest Events'.  Multiple comparisons can be made by including more comma-separated
 conditions on the attributes in the call to the HEK query method.
 
 \begin{listing}[H]
@@ -61,7 +62,7 @@ conditions on the attributes in the call to the HEK query method.
 9
 \end{minted}
 \caption{An HEK query that returns only those flares that were
-  detected by the 'SSW Latest Events' feature recognition method.}
+  detected by the `SSW Latest Events' feature recognition method.}
 \label{code:hek:frm}
 \end{listing}
 
@@ -88,7 +89,7 @@ The ability to use comparison and logical operators on HEK attributes allows
 the construction of queries of almost arbitrary complexity. 
 The results of a HEK query can be used to download the 
 corresponding data from the VSO using SunPy's \texttt{H2VClient}, as 
-demonstrated in Listing~\ref{code:hek2vso}
+demonstrated in Listing~\ref{code:hek2vso}.
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{python}
 >>> from sunpy.net import hek2vso

@@ -13,7 +13,7 @@ a movie streaming desktop application. In order to manage all of this data, the 
 project maintains archives of all of its data in JPEG2000 format (for further
 details on the Helioviewer Project see \cite{muller2009}). The
 JPEG2000 files are typically highly compressed compared to the source
-FITS files they are generated from but high-fidelity, and thus can be used to quickly
+FITS files from which they are generated, but are still high-fidelity, and thus can be used to quickly
 visualise large amounts of data from multiple sources.  SunPy is
 also used in Helioviewer production servers to manage the download and
 ingestion of JPEG2000 files from remote servers.
@@ -36,9 +36,9 @@ PNGs (Section \ref{sssec:hv:png}) or as JPEG2000 files (Section
 The Helioviewer API allows composition and overlay of images from
 multiple sources, based on the positioning metadata in the source FITS
 file.  SunPy accesses this overlay/composition capability through the
-\texttt{download\_png} method of the Helioviewer client.  Listing
-\ref{code:hv:overlaid} gives an example of the composition of three
-separate image layers in to a single image.
+\texttt{download\_png()} method of the Helioviewer client.  Listing~\ref{code:hv:overlaid}
+gives an example of the composition of three
+separate image layers into a single image.
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -57,7 +57,7 @@ separate image layers in to a single image.
 \label{code:hv:overlaid}
 \end{listing}
 
-The first argument is the requested time of the image.  Helioviewer
+The first argument is the requested time of the image, and Helioviewer
 selects images closest to the requested time.  In this case, the
 requested time is in the future and so Helioviewer will find the most
 recent available images from each source.  The second argument refers
@@ -66,9 +66,9 @@ lower resolution).  The third argument is a comma-delimited string of
 the three requested image layers, the details of which are enclosed
 in parentheses. The image layers are described using the observatory
 $\rightarrow$ instrument $\rightarrow$ detector $\rightarrow$
-measurement combination described above, along with the final two
-numbers that denote the visibility and the opacity of the image layer
-respectively (1/0 is visible/invisible with opacity in the range
+measurement combination described above, along with two following
+numbers that denote the visibility and the opacity of the image layer,
+respectively (1/0 is visible/invisible, and opacity is in the range
 $0\rightarrow100$, with $100$ meaning fully opaque).  The quantities
 \texttt{x0} and \texttt{y0} are the $x$ and $y$ centre points about
 which to centre the image (measured in helio-projective cartesian
@@ -88,19 +88,19 @@ data to be manipulated in the same way as any other map object.
 
 Reading JPEG2000 file into a SunPy session requires installing two
 other pieces of software. The first, 
-\href{http://www.openjpeg.org}{\texttt{OpenJPEG}}, is an open
-source library for reading and writing JPEG2000 files.  The other package 
+\href{http://www.openjpeg.org}{\texttt{OpenJPEG}}, is an open-source
+library for reading and writing JPEG2000 files.  The other package 
 required is 
 \href{https://github.com/quintusdias/glymur}{\texttt{glymur}}, an
 interface between Python and the OpenJPEG libraries (note that these
 packages are {\it not} required to use the functionality described in
 Section \ref{sssec:hv:png}).
 
-Listing \ref{code:downloadjp2} demonstrates the querying, downloading,
+Listing~\ref{code:downloadjp2} demonstrates the querying, downloading,
 reading and conversion of a Helioviewer JPEG2000 file into a SunPy map
 object.  This functionality allows users to visualise and manipulate
 Helioviewer-supplied image data in an identical fashion to a SunPy \texttt{Map}
-object generated from FITS data (see Section \ref{ssec:map}).
+object generated from FITS data (see Section~\ref{ssec:map}).
 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
@@ -109,7 +109,7 @@ object generated from FITS data (see Section \ref{ssec:map}).
 ...                            observatory='SDO',
 ...                            instrument='HMI', detector='HMI', 
 ...                            measurement='continuum')
->>> sunpy.map.Map(filepath).submap([200,550],[-400,-200]).peek()
+>>> sunpy.map.Map(filepath).submap([200, 550], [-400, -200]).peek()
 \end{minted}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{helioviewer_hmi_continuum_jp2_to_map}

@@ -3,19 +3,19 @@
 SunPy currently provides data strucutures that are specifically designed for the
 three primary varieties of solar physics data: images, time series, and
 spectra. These core data types are supported by SunPy's classes:
-\texttt{Map} (2D spatial data), \texttt{LightCurve} (1D temporal series)
+\texttt{Map} (2D spatial data), \texttt{LightCurve} (1D temporal series),
 and \texttt{Spectrum} and \texttt{Spectrogram} (1D and 2D spectra). 
 
 These classes allow access to the data
 and associated metadata and provide appropriate convenience functions to
 enable analysis and visualisation. For each of these classes, the data is
-stored in the \texttt{data} attribute while the metadata should be stored 
+stored in the \texttt{data} attribute, while the metadata should be stored 
 in the \texttt{meta} attribute (currently, only \texttt{Map} has this feature 
 fully implemented). 
 % schriste - change this until all fixed
 It is possible to instantiate the
 data types from various
-different sources: e.g., files, URLs and arrays.  
+different sources: e.g., files, URLs, and arrays.  
 In order to provide instrument-specific specialisation, the core SunPy classes 
 make use of subclassing; e.g., \texttt{Map} has an \texttt{AIAMap} 
 sub-type for data from the \textit{SDO}/AIA instrument. 
@@ -28,13 +28,13 @@ of each of these data types.
 All of the core SunPy data types 
 include visualisation methods that are tailored to each data type. 
 These visualisation methods all currently utilise the \texttt{matplotlib} 
-package, and are designed in such a way that they integrate well with 
+package and are designed in such a way that they integrate well with 
 the \texttt{pyplot} functional interface of \texttt{matplotlib}.
 
 This design philosophy makes the behaviour of SunPy's visualisation 
 routines intuitive to those who already understand the \texttt{matplotlib}
 interface, as well as allowing the use of the standard 
-\texttt{matplotlib} commands to manipulate the plot parameters (e.g. title, axes).
+\texttt{matplotlib} commands to manipulate the plot parameters (e.g., title, axes).
 Data visualisation is provided by two functions: \texttt{peek()}, for quick 
 plotting, and \texttt{plot()}, for plotting with more fine-grained control.
 

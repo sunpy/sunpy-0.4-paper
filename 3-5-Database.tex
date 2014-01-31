@@ -2,15 +2,14 @@
 
 Easy access to large quantities of solar data frequently leads to data files accumulating
 in local storage such as laptops and desktop computers. Keeping data organised and available
-is typically a cumbersome task for the average user. The file database is a sub-package of 
-SunPy which is meant to solve this problem by providing a unified database to store and 
-manage information about local data files. The database package was developed with support from 
-the Google Summer of Code (GSoC) program 2013.
+is typically a cumbersome task for the average user. The file database is a subpackage of 
+SunPy that addresses this problem by providing a unified database to store and 
+manage information about local data files.
 
 The \texttt{database} subpackage makes use of a database supported by
 {\texttt{SQLAlchemy} (\href{http://www.sqlalchemy.org}{http://www.sqlalchemy.org}). This library was chosen
 since it supports many SQL dialects. 
-If SQLite is selected, the database is stored as a single file which is
+If SQLite is selected, the database is stored as a single file, which is
 created automatically. A server-based database, on the other hand, could be used
 by a collaborators who work together on the
 same data from different computers: a central database server stores all data and the clients connect to
