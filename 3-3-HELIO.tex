@@ -15,16 +15,18 @@ such as planetary or spacecraft position in time.
 Additionally, HELIO provides a service that uses a 
 propagation model to link the data in different points of the solar system by 
 its original nature (e.g., Earth auroras are a signature of magnetic 
-field disturbances produced few days before on the Sun).
+field disturbances produced a few days before on the Sun).
 In addition to the primary, web-based interface to 
-HELIO, the services are available by API.
+HELIO, its services are available via an API.
 
 SunPy's \texttt{hec} module provides an interface to the
 HELIO Event Catalogue (HEC) service. 
+This module was developed as
+part of a Google Summer of Code (GSOC) project in 2013.
 The HEC service currently provides access to 84 catalogues from different
 sources.
 As with all of the HELIO services, the HEC service provides results in VOTable 
-data format (defined by IVOA \citep{ochsenbein_ivoa_2011}).
+data format (defined by IVOA \cite{ochsenbein_ivoa_2011}).
 The \texttt{hec} module parses this output using the \texttt{astropy.io.votable} package.
 This format has the advantage of containing metadata with information like
 data provenance and the performed query.
