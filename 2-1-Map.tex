@@ -36,7 +36,7 @@ Listing \ref{code:aia_1} demonstrates the quick-look functionality of
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> import sunpy.map
->>> aiamap = sunpy.map.Map('aia_file.fits')
+>>> aiamap = sunpy.map.Map("aia_file.fits")
 >>> smap = aiamap.submap([-1200, -200], [-1000, -0])
 >>> smap.peek(draw_grid=True)
 \end{minted}
@@ -63,10 +63,10 @@ interact with these classes.
 \begin{minted}[bgcolor=bg]{pycon}
 >>> import sunpy.map
 >>> import matplotlib.pyplot as plt
->>> compmap = sunpy.map.Map('aia_1600_image.fits', 'RHESSI_image.fits', 
+>>> compmap = sunpy.map.Map("aia_1600_image.fits", "RHESSI_image.fits", 
 ...                         composite=True)
 >>> compmap.set_levels(1, range(0, 50, 5), percent=True)
->>> compmap.set_colors(1, 'Reds_r')
+>>> compmap.set_colors(1, "Reds_r")
 #Plot the result and crop
 >>> ax = plt.subplot()
 >>> compmap.plot()
@@ -84,7 +84,7 @@ on top of \textit{SDO}/AIA data. The \texttt{CompositeMap} is plotted using the 
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> import sunpy.map
->>> cubemap = sunpy.map.Map('aia_lev1_171a_2014_01*fits', cube=True)
+>>> cubemap = sunpy.map.Map("aia_lev1_171a_2014_01*fits", cube=True)
 >>> cubemap.peek()
 \end{minted}
 \begin{center}

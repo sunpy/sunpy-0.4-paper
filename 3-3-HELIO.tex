@@ -38,8 +38,8 @@ from different catalogues of coronal mass ejections (CMEs).
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net.helio import hec
 >>> hc = hec.Client()
->>> tstart, tend = '2011-06-07T06:00:00', '2011-06-07T12:00:00'
->>> event_type = 'cme'
+>>> tstart, tend = "2011-06-07T06:00:00", "2011-06-07T12:00:00"
+>>> event_type = "cme"
 
 # From all the catalogues these which name contain our event of interest
 >>> catalogues = hc.get_table_names()

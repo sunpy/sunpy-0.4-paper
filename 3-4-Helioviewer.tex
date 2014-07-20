@@ -44,7 +44,7 @@ separate image layers into a single image.
 \begin{minted}[bgcolor=bg]{pycon}
 >>> from sunpy.net.helioviewer import HelioviewerClient
 >>> hv = HelioviewerClient()
->>> hv.download_png('2099/01/01', 6,
+>>> hv.download_png("2099/01/01", 6,
 ...                 "[SDO,AIA,AIA,304,1,100],[SDO,AIA,AIA,193,1,50],"+
 ...                 "[SOHO,LASCO,C2,white-light,1,100]",
 ...                 x0=0, y0=0, width=768, height=768)
@@ -105,10 +105,10 @@ object generated from FITS data (see Section~\ref{ssec:map}).
 \begin{listing}[H]
 \begin{minted}[bgcolor=bg]{pycon}
 >>> import sunpy.map
->>> filepath = hv.download_jp2('2012/07/05 00:30:00',
+>>> filepath = hv.download_jp2("2012/07/05 00:30:00",
 ...                            observatory='SDO',
-...                            instrument='HMI', detector='HMI', 
-...                            measurement='continuum')
+...                            instrument="HMI", detector="HMI", 
+...                            measurement="continuum")
 >>> sunpy.map.Map(filepath).submap([200, 550], [-400, -200]).peek()
 \end{minted}
 \begin{center}
