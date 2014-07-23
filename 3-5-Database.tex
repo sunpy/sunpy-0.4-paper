@@ -46,24 +46,7 @@ interactive sessions to easily revert accidental operations.
 This feature will also be desirable for a planned GUI frontend for this package.
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{pycon}
->>> from sunpy.net import vso
->>> from sunpy.database import Database
->>> database = Database("sqlite:///")
->>> database.download(
-...     vso.attrs.Time("2012-08-05", "2012-08-05 00:00:05"),
-...     vso.attrs.Instrument('AIA'))
->>> len(database)
-2
->>> from sunpy.database.tables import display_entries
->>> print display_entries(
-...     database,
-...     ["id", "observation_time_start", "wavemin", "wavemax"])
-id observation_time_start wavemin wavemax
--- ---------------------- ------- -------
-1  2012-08-05 00:00:01    9.4     9.4    
-2  2012-08-05 00:00:02    33.5    33.5
-\end{minted}
+\pythoncode{database.py}
 \caption{Example usage of the \texttt{database} subpackage.}
 \label{code:database}
 \end{listing}

@@ -35,13 +35,7 @@ a constant background over time for each frequency channel.
 %ays: I deleted the phrase "based on the values closer to the average" because I don't understand what that means
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{pycon}
->>> from sunpy.spectra.sources.callisto import CallistoSpectrogram
->>> tstart, tend = "2011-06-07T06:00:00", "2011-06-07T07:45:00"
->>> callisto = CallistoSpectrogram.from_range("BIR", tstart, tend)
->>> callisto_nobg = callisto.subtract_bg()
->>> callisto_nobg.peek(vmin=0)
-\end{minted}
+\pythoncode{spectra.py}
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{callisto_nobg}
 \end{center}

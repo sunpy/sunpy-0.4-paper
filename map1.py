@@ -1,0 +1,4 @@
+>>> import sunpy.map
+>>> aiamap = sunpy.map.Map("aia_file.fits")
+>>> smap = aiamap.submap([-1200, -200], [-1000, -0])
+>>> smap.peek(draw_grid=True)
