@@ -11,15 +11,15 @@ Access Protocol) service is also available.
 SunPy's \texttt{vso} module provides access to the VSO via this SOAP service using the
 \texttt{suds} package.
 
-Listing~\ref{code:vso_query_simple} shows an example of how to query the VSO
-using the \texttt{vso} module.
+Listing~\ref{code:vso_query_simple} shows an example of how to query and download data using
+from the VSO using the \texttt{vso} module.
 Queries are constructed using one or more attribute objects. Each
 attribute object is a constraint on a parameter of the data set, such as the
 time, instrument, or wavelength.
 Listing~\ref{code:vso_query_simple} also shows how to download the data using
-the constructed query. One can use the metadata associated with the data sets to 
-specify how the files will be named locally, such as creating subdirectories 
-based on the instrument names.
+the constructed query. The path to which the data files will be downloaded us defined using custom tokens
+which reference the file metadata (e.g. instrument, detector, filename). This provides
+users the ability to organize their data into subdirectories on download.
 
 Listing~\ref{code:vso_query_advanced} shows an example of how to make an advanced
 query by combining attribute objects.
