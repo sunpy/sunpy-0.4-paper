@@ -7,7 +7,7 @@ inexpensive
 storage, has led to rapid increases in the amount of data available to scientists in almost
 every discipline.  Solar physics is no exception to this trend. For example,
 NASA's \textit{Solar Dynamics Observatory} (\textit{SDO}) spacecraft, launched
-in February 2010, produces over 1 TB of data per day \citep{aia}. Managing and
+in February 2010, produces over 1 TB of data per day \cite{pesnell2012}. Managing and
 analysing this mountain of data requires increasingly sophisticated software
 tools. These tools should be robust, easy to use and modify, have a transparent
 development history, and conform to modern software-engineering
@@ -30,11 +30,13 @@ integrates well with many technologies such as web servers \citep{dolgert2008} a
 
 The development of a package such as SunPy is made possible by the rich ecosystem of 
 scientific packages available in Python. Core packages such as \texttt{NumPy}, 
-\texttt{SciPy}, and \texttt{matplotlib} provide the basic functionality expected of a 
-scientific programming language,
+\texttt{SciPy} \citep{jones2001}, and \texttt{matplotlib} \citep{hunter2007} provide 
+the basic functionality expected of a scientific programming language,
 such as array manipulation, core numerical algorithms, and visualisation, respectively.
-Building upon these foundations, packages such as \texttt{astropy} (astronomy), \texttt{pandas} (time-series), and
-\texttt{scikit-image} (image processing) provide more domain-specific functionality.
+Building upon these foundations, packages such as \texttt{astropy} (astronomy)
+\cite{theastropycollaboration2013}, \texttt{pandas} (time-series) 
+\cite{mckinney2010, mckinney2012}, and \texttt{scikit-image} (image processing)
+ \citep{vanderwalt2014} provide more domain-specific functionality.
 
 SunPy is designed to be a clean, simple-to-use, and well-structured open-source package that provides 
 the \textit{core} tools for solar data analysis, motivated by the need for a free and 
