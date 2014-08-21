@@ -20,7 +20,7 @@ identical to the two letter abbreviations found at the HEK website
 (\url{http://www.lmsal.com/hek/VOEvent_Spec.html}).
 
 \begin{listing}[H]
-\pythoncode{hek.py}
+\pythoncode{pycode_hek.txt}
 \caption{Example usage of the \texttt{hek} module showing a simple HEK search for solar flares
 on 2011 August 9.}
 \label{code:hek:simple}
@@ -42,7 +42,7 @@ result to return only those events that have the FRM `SSW Latest Events'.  Multi
 conditions on the attributes in the call to the HEK query method.
 
 \begin{listing}[H]
-\pythoncode{hek2.py}
+\pythoncode{pycode_hek2.txt}
 \caption{An HEK query that returns only those flares that were
   detected by the `SSW Latest Events' feature recognition method.}
 \label{code:hek:frm}
@@ -54,7 +54,7 @@ returns flares west of 50 arcseconds or those that have a peak flux above
 1000.0 (the units of the flux are FRM-dependent and are described at the HEK 
 website).
 \begin{listing}[H]
-\pythoncode{hek3.py}
+\pythoncode{pycode_hek3.txt}
 \caption{HEK query using the logical \texttt{or} operator.}
 \label{code:hek:or}
 \end{listing}
@@ -68,7 +68,7 @@ The results of a HEK query can be used to download the
 corresponding data from the VSO using SunPy's \texttt{H2VClient}, as 
 demonstrated in Listing~\ref{code:hek2vso}.
 \begin{listing}[H]
-\pythoncode{hek4.py}
+\pythoncode{pycode_hek4.txt}
 \caption{Code snippet continuing from Listing~\ref{code:hek:or} showing the 
 query and download of data from the first HEK result from the VSO.}
 \label{code:hek2vso}
