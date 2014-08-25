@@ -66,8 +66,8 @@ compatible with \texttt{sunpy.time.parse\_time()}.
 
 The \texttt{sun.constants} module provides a number of solar-related 
 constants in order to provide consistency in the calculations of derived solar 
-values  within the SunPy code base, but also to the user. Every solar 
-constant is provided as a \texttt{Constant} object as defined by Astropy. Each 
+values within SunPy, but also to the user. Every solar 
+constant is provided as a \texttt{Constant} object as defined by the Astropy \texttt{units} package. Each 
 \texttt{Constant} object defines a \texttt{Quantity}, a number associated with a unit, along with 
 the constant's provenance (i.e., reference) and its uncertainty. Using 
 Astropy's \texttt{Quantity} objects, any solar constant can easily be converted between 
@@ -76,7 +76,7 @@ As these objects inherit from
 NumPy's \texttt{ndarray}, they work well with standard representations of numbers.
 For convenience, a number of shortcuts to frequently used constants are provided 
 directly when importing the module. A larger list of constants can be 
-accessed through an interface modelled on that provided by the SciPy constants 
+accessed through an interface modeled on that provided by the SciPy constants 
 package and is available as a dictionary called \texttt{physical\_constants}. 
 To view them all quickly, a \texttt{print\_all()} function is available.
 
