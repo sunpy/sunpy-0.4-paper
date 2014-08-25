@@ -23,15 +23,7 @@ complete list and description of these abbreviations by looking at the documenta
 for \texttt{hek.attrs.EventType}.
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{pycon}
->>> from sunpy.net import hek
->>> client = hek.HEKClient()
->>> tstart, tend = "2011/08/09 00:00:00", "2011/08/10 00:00:00"
->>> result = client.query(hek.attrs.Time(tstart, tend), 
-...                       hek.attrs.EventType("FL")) # flares
->>> len(result)
-52
-\end{minted}
+\pythoncode{pycode_hek.txt}
 \caption{Example usage of the \texttt{hek} module showing a simple HEK search for solar flares
 on 2011 August 9.}
 \label{code:hek:simple}
@@ -52,13 +44,7 @@ Multiple comparisons can be made by including more comma-separated
 conditions on the attributes in the call to the HEK query method.
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{pycon}
->>> result = client.query(hek.attrs.Time(tstart, tend), 
-...                       hek.attrs.EventType("FL"),
-...                       hek.attrs.FRM.Name=="SSW Latest Events")
->>> len(result)
-9
-\end{minted}
+\pythoncode{pycode_hek2.txt}
 \caption{An HEK query that returns only those flares that were
   detected by the `SSW Latest Events' feature recognition method.}
 \label{code:hek:frm}
@@ -72,12 +58,7 @@ returns flares with helioprojective x coordinates west of 50 arcseconds or
 those that have a peak flux above 1000.0 in units defined by the FRM.
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{python}
->>> result = client.query(hek.attrs.Time(tstart, tend), 
-...                       hek.attrs.EventType("FL"),
-...                       (hek.attrs.Event.Coord1>50) 
-...                       or (hek.attrs.FL.PeakFlux>1000.0))
-\end{minted}
+\pythoncode{pycode_hek3.txt}
 \caption{HEK query using the logical \texttt{or} operator.}
 \label{code:hek:or}
 \end{listing}
@@ -90,12 +71,7 @@ download observational data. The \texttt{H2VClient} module makes this
 much easier by providing a translation layer between HEK query results
 and VSO queries. This capability is demonstrated in Listing~\ref{code:hek2vso}.
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{python}
->>> from sunpy.net import hek2vso
->>> h2v = hek2vso.H2VClient()
->>> vso_results = h2v.translate_and_query(result[0])
->>> h2v.vso_client.get(vso_results[0]).wait()
-\end{minted}
+\pythoncode{pycode_hek4.txt}
 \caption{Code snippet continuing from Listing~\ref{code:hek:or} showing the 
 query and download of data from the first HEK result from the VSO.}
 \label{code:hek2vso}

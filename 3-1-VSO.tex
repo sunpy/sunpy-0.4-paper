@@ -29,47 +29,13 @@ All attribute objects provided to the query as arguments are combined with a
 logical \texttt{and} operation.
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{pycon}
->>> from sunpy.net import vso
->>> client = vso.VSOClient()
->>> tstart, tend = "2011/6/7 05:30", "2011/6/7 10:30"
->>> lasco_query = client.query(vso.attrs.Time(tstart, tend),
-...                            vso.attrs.Instrument('lasco'))
->>> lasco_query.num_records()
-40
->>> lasco_query.show() 
-Start time           End time             Source  Instrument  Type
-----------           --------             ------  ----------  ----
-2011-06-07 05:35:23  2011-06-07 05:35:48  SOHO    LASCO       CORONA
-2011-06-07 05:43:09  2011-06-07 05:43:29  SOHO    LASCO       CORONA
-...
->>> pathformat = "/data/{instrument}/{detector}/{file}.fits"
->>> results = client.get(coronagraphs, path = pathformat)
-\end{minted}
+\pythoncode{pycode_vso1.txt}
 \caption{Example of querying a single instrument over a time range and downloading the data}
 \label{code:vso_query_simple}
 \end{listing}
 
 \begin{listing}[H]
-\begin{minted}[bgcolor=bg]{pycon}
->>> condition = (vso.attrs.Detector("cor1") |
-...              vso.attrs.Wave(125, 135) |
-...              vso.attrs.Wave(165, 175) ) # in angstroms
->>> advanced = client.query(vso.attrs.Time(tstart, tend), condition)
->>> advanced.num_records()
-4434
->>> advanced.show()
-Start time           End time             Source    Instrument  Type
-----------           --------             ------    ----------  ----
-2011-06-07 00:00:00  2011-06-08 00:00:00  SDO       EVE         FULLDISK
-...
-2011-06-07 05:31:09  2011-06-07 05:31:19  PROBA2    SWAP        FULLSUN
-...
-2011-06-07 10:25:43  2011-06-07 10:25:45  STEREO_B  SECCHI      CORONA
-2011-06-07 10:30:00  2011-06-07 10:30:01  STEREO_A  SECCHI      CORONA
-...
-2011-06-07 10:30:00  2011-06-07 10:30:01  SDO       AIA         FULLDISK
-\end{minted}
+\pythoncode{pycode_vso2.txt}
 \caption{Example of an advanced VSO query using attribute objects,
 combining both data from a detector and any data that falls within two wavelength ranges,
 continuing from Listing~\ref{code:vso_query_simple}.}
