@@ -14,8 +14,8 @@ assumes that the input data are time-ordered list(s) of numbers, and each
 list becomes a column in the \texttt{pandas} DataFrame object.
 
 Currently, the \texttt{LightCurve} class is compatible with the
-following data sources: the \textit{GOES} X-ray Sensor (XRS), \textit{PROBA2}/LYRA, and \textit{SDO}/EVE\footnote{Note that only the level ``OCS'' and
-average CSV files is currently implemented -- see \url{http://lasp.colorado.edu/home/eve/data/}}.  For each of these instruments, a subclass of the
+following data sources: the \textit{GOES} X-ray Sensor (XRS), the \textit{Nobeyama Radioheliograph (NoRH)}, \textit{PROBA2}/LYRA, \textit{RHESSI}, \textit{SDO}/EVE\footnote{Note that only the level ``OCS'' and
+average CSV files is currently implemented -- see \url{http://lasp.colorado.edu/home/eve/data/}}, and also supports a number of solar summary indices - such as average sunspot number - that are provided by the National Oceanic and Atmospheric Administration (NOAA).  For each of these instruments, a subclass of the
 \texttt{LightCurve} object is initialised
 (e.g., \texttt{GOESLightCurve}) which inherits from
 \texttt{LightCurve}, but allows instrument-specific functionality to be
