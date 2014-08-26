@@ -6,7 +6,7 @@ class provides methods for typical operations on 2D data, such as rotation and
 re-sampling, as well as visualisation functionality.
 The \texttt{Map} class also provides a convenient interface for loading data 
 from a variety of sources, including a FITS file as shown in 
-Listing~\ref{code:aia_1}.
+Listing~\ref{code:aia_1}.  
 
 The architecture of the map subpackage consists of a template map called
 \texttt{GenericMap}, which is a subclass of \texttt{astropy.nddata.NDData}. 
@@ -24,7 +24,7 @@ instruments:
 \textit{Yohkoh}/SXT, \textit{SOHO}/EIT and LASCO, \textit{RHESSI}, 
 \textit{STEREO}/EUVI and COR, \textit{Hinode}/XRT,
 \textit{PROBA2}/SWAP, \textit{SDO}/AIA and HMI, 
-and \textit{IRIS} SJI frames. 
+and \textit{IRIS} SJI (slit-jaw imager) frames. 
                         
 The \texttt{GenericMap} class stores all of the metadata retrieved from the header of
 the image file in the \texttt{meta} attribute and provides convenience 
