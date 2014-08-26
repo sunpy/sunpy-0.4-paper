@@ -1,14 +1,13 @@
 \section{Introduction}\label{sec:Intro}
 
 Science is driven by the analysis of data of an ever-growing variety and 
-complexity.
-Modern advances in sensor technology, combined with the availability of 
+complexity. Advances in sensor technology, combined with the availability of 
 inexpensive 
-storage, has led to rapid increases in the amount of data available to scientists in almost
+storage, have led to rapid increases in the amount of data available to scientists in almost
 every discipline.  Solar physics is no exception to this trend. For example,
 NASA's \textit{Solar Dynamics Observatory} (\textit{SDO}) spacecraft, launched
 in February 2010, produces over 1 TB of data per day \cite{pesnell2012}. Managing and
-analysing this mountain of data requires increasingly sophisticated software
+analysing these data requires increasingly sophisticated software
 tools. These tools should be robust, easy to use and modify, have a transparent
 development history, and conform to modern software-engineering
 standards. Software with these qualities provide a strong foundation that can support the
@@ -36,13 +35,39 @@ such as array manipulation, core numerical algorithms, and visualisation, respec
 Building upon these foundations, packages such as \texttt{astropy} (astronomy)
 \cite{theastropycollaboration2013}, \texttt{pandas} (time-series) 
 \cite{mckinney2010, mckinney2012}, and \texttt{scikit-image} (image processing)
- \citep{vanderwalt2014} provide more domain-specific functionality.
+\citep{vanderwalt2014} provide more domain-specific functionality.
 
-SunPy is designed to be a clean, simple-to-use, and well-structured open-source package that provides 
-the \textit{core} tools for solar data analysis, motivated by the need for a free and 
-modern alternative to the existing SolarSoft (SSW) library. While SSW is open source 
-and freely available, it relies on IDL (Interactive Data Language), a proprietary 
-data-analysis environment.
+A typical workflow begins with a solar physicist manually identifying
+a small number of events of interest on the Sun.  This is typically
+done in order to investigate in detail the physics of these events
+(for example, the large solar flare of 23 July 2002 has Astrophysical
+Journal Letters volume 595, dedicated to the analysis of this flare).
+In this workflow, data from many different instruments are obtained.
+These data are typically in many different storage formats (for
+example, FITS, CSV, or binary files), and contain many different types
+of data (such as images, lightcurves and spectra).  The repositories
+these data reside in can have different access methods.  This workflow
+is characterized by the large number of heterogeneous datasets used in
+the investigation of a small number of solar events.
+
+Another typical workflow begins with the solar physicist identifying a
+large sample of data or events.  The goal here is obtain information
+about the population in general.  An example might be to calculate the
+fractal dimension of a large number of active region magnetic fields
+\cite{2005ApJ...631..628M}, or to calculate the observed temperatures
+in a population of solar flares \cite{2012ApJS..202...11R}.  This
+workflow is typically characterized by lower data heterogeneity, but
+with a larger number of files.
+
+The volume and variety of solar data used in these workflows drives
+the need for an environment in which obtaining and performing common
+solar-physics operations on these data is as simple and intuitive as
+possible.  SunPy is designed to be a clean, simple-to-use, and
+well-structured open-source package that provides the \textit{core}
+tools for solar data analysis, motivated by the need for a free and
+modern alternative to the existing SolarSoft (SSW) library. While SSW
+is open source and freely available, it relies on IDL (Interactive
+Data Language), a proprietary data-analysis environment.
 
 The purpose of this paper is to provide an overview of SunPy's current
 capabilities, an overview of the project's development model, community aspects of the
