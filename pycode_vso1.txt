@@ -12,4 +12,4 @@ Start time           End time             Source  Instrument  Type
 2011-06-07 05:43:09  2011-06-07 05:43:29  SOHO    LASCO       CORONA
 ...
 >>> pathformat = "/data/{instrument}/{detector}/{file}.fits"
->>> results = client.get(coronagraphs, path = pathformat)
+>>> results = client.get(lasco_query, path = pathformat)
