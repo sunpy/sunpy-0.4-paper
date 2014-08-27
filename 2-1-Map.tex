@@ -21,10 +21,15 @@ with the \texttt{Map} creation factory, which will then automatically return an 
 of the specific \texttt{GenericMap} subclass dependent upon the data provided. 
 SunPy v0.4 has \texttt{GenericMap} specialisations for the following 
 instruments: 
-\textit{Yohkoh}/SXT, \textit{SOHO}/EIT and LASCO, \textit{RHESSI}, 
-\textit{STEREO}/EUVI and COR, \textit{Hinode}/XRT,
-\textit{PROBA2}/SWAP, \textit{SDO}/AIA and HMI, 
-and \textit{IRIS} SJI (slit-jaw imager) frames. 
+
+\textit{Yohkoh}/SXT\footnote{SXT: Solar X-ray Telescope \cite{1991SoPh..136....1O} and \cite{1991SoPh..136...37T}},
+\textit{SOHO}/EIT and LASCO\footnote{SOHO: Solar and Heliospheric Observatory \citep{domingo1995}, EIT: Extreme Ultraviolet Telescope \citep{1995SoPh..162..291D} and LASCO: Large Angle Spectroscopic COronagraph \citep{1995SoPh..162..357B}},
+\textit{RHESSI}\footnote{RHESSI: Reuven Ramaty High Energy Solar Spectroscopic Image \citep{2002SoPh..210....3L}},
+\textit{STEREO}/EUVI and COR1/2\footnote{STEREO: Solar TErrestrial RElations Observatory \citep{2005AdSpR..36.1483K}, EUVI: Extreme Ultraviolet Imager \citep{2004SPIE.5171..111W} and COR1/2: CORonagraph 1/2 \citep{2002AdSpR..29.2017H}},
+\textit{Hinode}/XRT\footnote{XRT: X-Ray Telescope, \cite{2007SoPh..243....3K} and \cite{2007SoPh..243...63G}},
+\textit{PROBA2}/SWAP\footnote{PROBA2: PRojects for On Board Autonomy 2 \citep{2013SoPh..286....5S}, SWAP: Sun Watcher Active Pixel \citep{2013SoPh..286...43S}},
+\textit{SDO}/AIA and HMI\footnote{HMI: Helioseismic Magnetic Imager, 2012SoPh..275..207S}, and
+\textit{IRIS}\footnote{IRIS: Interface Region Imaging Spectrograph \citep{2011SPD....42.1512L}} SJI (slit-jaw imager) frames.
                         
 The \texttt{GenericMap} class stores all of the metadata retrieved from the header of
 the image file in the \texttt{meta} attribute and provides convenience 
