@@ -14,17 +14,26 @@ assumes that the input data are time-ordered list(s) of numbers, and each
 list becomes a column in the \texttt{pandas} DataFrame object.
 
 Currently, the \texttt{LightCurve} class is compatible with the
-following data sources: the \textit{GOES} X-ray Sensor (XRS), the \textit{Nobeyama Radioheliograph (NoRH)}, \textit{PROBA2}/LYRA, \textit{RHESSI}, \textit{SDO}/EVE\footnote{Note that only the level ``OCS'' and
-average CSV files is currently implemented -- see \url{http://lasp.colorado.edu/home/eve/data/}}. \texttt{LightCurve} also supports a number of solar summary indices - such as average sunspot number - that are provided by the National Oceanic and Atmospheric Administration (NOAA).  For each of these sources, a subclass of the
-\texttt{LightCurve} object is initialised
-(e.g., \texttt{GOESLightCurve}) which inherits from
-\texttt{LightCurve}, but allows instrument-specific functionality to be
-included.  Future developments will introduce support for additional
-instruments and data products, as well as implementing an interface 
-similar to that of \texttt{Map}.  Since there is no established standard
-as to how time-series data should be stored and distributed, each SunPy 
-\texttt{LightCurve} object subclass provides the ability to download its corresponding 
-specific data format in its constructor and parse that file type.
+following data sources: the Geostationary Operational Environmental
+Satellite (\textit{GOES}) X-ray Sensor (XRS), the \textit{Nobeyama
+  Radioheliograph (NoRH)}, \textit{PROBA2} Large Yield Radiometer
+(LYRA, \citealt{2013SoPh..286...21D}), \textit{RHESSI},
+\textit{SDO} EUV Variability Experiment\footnote{Note that only the level ``OCS'' and average
+  CSV files is currently implemented -- see
+  \url{http://lasp.colorado.edu/home/eve/data/}} (EVE, \citealt{2012SoPh..275..115W}). \texttt{LightCurve}
+also supports a number of solar summary indices - such as average
+sunspot number - that are provided by the National Oceanic and
+Atmospheric Administration (NOAA).  For each of these sources, a
+subclass of the \texttt{LightCurve} object is initialised (e.g.,
+\texttt{GOESLightCurve}) which inherits from \texttt{LightCurve}, but
+allows instrument-specific functionality to be included.  Future
+developments will introduce support for additional instruments and
+data products, as well as implementing an interface similar to that of
+\texttt{Map}.  Since there is no established standard as to how
+time-series data should be stored and distributed, each SunPy
+\texttt{LightCurve} object subclass provides the ability to download
+its corresponding specific data format in its constructor and parse
+that file type.
 
 A \texttt{LightCurve} object may be created using a number of different methods. 
 For example, a \texttt{LightCurve} may be created for a specific instrument given
