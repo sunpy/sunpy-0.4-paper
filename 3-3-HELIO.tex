@@ -4,7 +4,7 @@ The HELiophysics Integrated Observatory (HELIO)\footnote{For more information
 see \url{http://helio-vo.eu}} has 
 compiled a list of web services which allows scientists to query and 
 discover data throughout the heliosphere, from solar and magnetospheric data to planetary and 
-inter-planetary data \citep{dps2012}.
+inter-planetary data \citep{perez-suarez2012}.
 HELIO is built with a Service-Oriented Architecture, 
 i.e., its capabilities are divided into a number of tasks that are 
 implemented as separate services. 
@@ -26,7 +26,7 @@ part of a Google Summer of Code (GSOC) project in 2013.
 The HEC service currently provides access to 84 catalogues from different
 sources.
 As with all of the HELIO services, the HEC service provides results in VOTable 
-data format (defined by IVOA \cite{ochsenbein_ivoa_2011}).
+data format (defined by IVOA, see \citealt{ochsenbein2011}).
 The \texttt{hec} module parses this output using the \texttt{astropy.io.votable} package.
 This format has the advantage of containing metadata with information like
 data provenance and the performed query.

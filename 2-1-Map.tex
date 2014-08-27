@@ -8,6 +8,7 @@ The \texttt{Map} class also provides a convenient interface for loading data
 from a variety of sources, including from FITS (Flexible Image Transport System) files, the standard format for storing image data in solar physics and astrophysics. An example of creating a \texttt{Map} object from a FITS file is shown in 
 Listing~\ref{code:aia_1}.
 
+
 The architecture of the map subpackage consists of a template map called
 \texttt{GenericMap}, which is a subclass of \texttt{astropy.nddata.NDData}. 
 \texttt{NDData} is a generic wrapper around a \texttt{numpy.ndarray} with a 
@@ -24,12 +25,18 @@ instruments:
 \textit{Yohkoh}/SXT, \textit{SOHO}/EIT and LASCO, \textit{RHESSI}, 
 \textit{STEREO}/EUVI and COR, \textit{Hinode}/XRT,
 \textit{PROBA2}/SWAP, \textit{SDO}/AIA and HMI, 
-and \textit{IRIS} SJI frames. 
+and \textit{IRIS} SJI (slit-jaw imager) frames. 
                         
-The \texttt{Map} class stores all of the metadata retrieved from the header of
+The \texttt{GenericMap} class stores all of the metadata retrieved from the header of
 the image file in the \texttt{meta} attribute and provides convenience 
 properties for commonly accessed metadata: e.g., \texttt{instrument}, 
-\texttt{wavelength} or \texttt{coordinate\_system}. 
+\texttt{wavelength} or \texttt{coordinate\_system}.
+These properties are dynamic mappings to the underlying metadata and all methods 
+of the \textit{GenericMap} class modify the meta data where needed.
+For example, if \verb|aiamap.meta[`instrume']| is modified then \verb|aiamap.instrument| 
+will reflect this change.
+Currently this is implemented by not preserving the keywords of the input data,
+instead modifying meta data to a set of ``standard" keys supported by SunPy.
 Listing \ref{code:aia_1} demonstrates the quick-look functionality of 
 \texttt{Map}.
 
