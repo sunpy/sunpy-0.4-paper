@@ -5,8 +5,9 @@ the images associated spatial coordinates, and other metadata. The \texttt{Map}
 class provides methods for typical operations on 2D data, such as rotation and 
 re-sampling, as well as visualisation functionality.
 The \texttt{Map} class also provides a convenient interface for loading data 
-from a variety of sources, including a FITS file as shown in 
+from a variety of sources, including from FITS (Flexible Image Transport System) files, the standard format for storing image data in solar physics and astrophysics. An example of creating a \texttt{Map} object from a FITS file is shown in 
 Listing~\ref{code:aia_1}.
+
 
 The architecture of the map subpackage consists of a template map called
 \texttt{GenericMap}, which is a subclass of \texttt{astropy.nddata.NDData}. 
@@ -70,8 +71,8 @@ interact with these classes.
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{comp_map_example}
 \end{center}
-\caption{Example showing the functionality of \texttt{CompositeMap}, with RHESSI data composited
-on top of \textit{SDO}/AIA data. The \texttt{CompositeMap} is plotted using the integration with the \texttt{matplotlib.pyplot} interface.}
+\caption{Example showing the functionality of \texttt{CompositeMap}, with RHESSI X-ray image data composited
+on top of an \textit{SDO}/AIA 1600 $\AA$ image. The \texttt{CompositeMap} is plotted using the integration with the \texttt{matplotlib.pyplot} interface.}
 \label{code:compmap_1}
 \end{listing}
 
@@ -80,7 +81,7 @@ on top of \textit{SDO}/AIA data. The \texttt{CompositeMap} is plotted using the 
 \begin{center}
 \includegraphics[width=0.8\columnwidth]{aia_cube_controls}
 \end{center}
-\caption{Example showing the creation of a \texttt{MapCube} from a list of files. The 
+\caption{Example showing the creation of a \texttt{MapCube} from a list of AIA image files. The 
 resultant plot makes use of \texttt{matplotlib}'s interactive widgets to allow scrolling 
 through the \texttt{MapCube}.}
 \label{code:mapcube_1}
