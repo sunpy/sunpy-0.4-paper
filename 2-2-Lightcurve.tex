@@ -20,7 +20,8 @@ Satellite (\textit{GOES}) X-ray Sensor (XRS), the \textit{Nobeyama
 (LYRA, \citealt{2013SoPh..286...21D}), \textit{RHESSI},
 \textit{SDO} EUV Variability Experiment\footnote{Note that only the level ``OCS'' and average
   CSV files is currently implemented -- see
-  \url{http://lasp.colorado.edu/home/eve/data/}} (EVE, \citealt{2012SoPh..275..115W}). \texttt{LightCurve}
+  \url{http://lasp.colorado.edu/home/eve/data/}} (EVE, \citealt{2012SoPh..275..115W}). 
+\texttt{LightCurve}
 also supports a number of solar summary indices - such as average
 sunspot number - that are provided by the National Oceanic and
 Atmospheric Administration (NOAA).  For each of these sources, a
@@ -33,7 +34,7 @@ data products, as well as implementing an interface similar to that of
 time-series data should be stored and distributed, each SunPy
 \texttt{LightCurve} object subclass provides the ability to download
 its corresponding specific data format in its constructor and parse
-that file type.
+that file type. A more general download interface is currently in development.
 
 A \texttt{LightCurve} object may be created using a number of different methods. 
 For example, a \texttt{LightCurve} may be created for a specific instrument given

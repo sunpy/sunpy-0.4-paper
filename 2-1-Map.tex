@@ -3,11 +3,12 @@ The map data type stores 2D spatial data, such as images of the Sun and
 inner heliosphere. It provides: a wrapper around a \texttt{numpy} data array, 
 the images associated spatial coordinates, and other metadata. The \texttt{Map} 
 class provides methods for typical operations on 2D data, such as rotation and 
-re-sampling, as well as visualisation functionality.
+re-sampling, as well as visualisation.
 The \texttt{Map} class also provides a convenient interface for loading data 
-from a variety of sources, including from FITS (Flexible Image Transport System) files, the standard format for storing image data in solar physics and astrophysics. An example of creating a \texttt{Map} object from a FITS file is shown in 
+from a variety of sources, including from FITS (Flexible Image Transport System) 
+files, the standard format for storing image data in solar physics and astrophysics community. 
+An example of creating a \texttt{Map} object from a FITS file is shown in 
 Listing~\ref{code:aia_1}.
-
 
 The architecture of the map subpackage consists of a template map called
 \texttt{GenericMap}, which is a subclass of \texttt{astropy.nddata.NDData}. 
@@ -18,20 +19,22 @@ not yet make full use of its capabilities, but this inheritance structure
 provides for future integration with \texttt{astropy}. In order to provide 
 instrument- or detector-specific integration, \texttt{GenericMap} is designed
 to be subclassed. Each subclass of \texttt{GenericMap} can register 
-with the \texttt{Map} creation factory, which will then automatically return an instance
+with the \texttt{Map} creation function, which will then automatically return an instance
 of the specific \texttt{GenericMap} subclass dependent upon the data provided. 
-SunPy v0.4 has \texttt{GenericMap} specialisations for the following 
+SunPy v0.5 has \texttt{GenericMap} specialisations for the following 
 instruments: 
 
-\textit{Yohkoh}/SXT\footnote{SXT: Solar X-ray Telescope \citep{1991SoPh..136....1O, 1991SoPh..136...37T}.},
-\textit{SOHO}/EIT and LASCO\footnote{SOHO: Solar and Heliospheric Observatory \citep{domingo1995}, EIT: Extreme Ultraviolet Telescope \citep{1995SoPh..162..291D} and LASCO: Large Angle Spectroscopic COronagraph \citep{1995SoPh..162..357B}.},
-\textit{RHESSI}\footnote{RHESSI: Reuven Ramaty High Energy Solar Spectroscopic Image \citep{2002SoPh..210....3L}.},
-\textit{STEREO}/EUVI and COR1/2\footnote{STEREO: Solar TErrestrial RElations Observatory \citep{2005AdSpR..36.1483K}, EUVI: Extreme Ultraviolet Imager \citep{2004SPIE.5171..111W} and COR1/2: CORonagraph 1/2 \citep{2002AdSpR..29.2017H}.},
-\textit{Hinode}/XRT\footnote{XRT: X-Ray Telescope \citep{2007SoPh..243....3K, 2007SoPh..243...63G}.},
-\textit{PROBA2}/SWAP\footnote{PROBA2: PRojects for On Board Autonomy 2 \citep{2013SoPh..286....5S}, SWAP: Sun Watcher Active Pixel \citep{2013SoPh..286...43S}.},
-\textit{SDO}/AIA and HMI\footnote{HMI: Helioseismic Magnetic Imager, \citep{2012SoPh..275..207S}.}, and
-\textit{IRIS}\footnote{IRIS: Interface Region Imaging Spectrograph \citep{2011SPD....42.1512L}.} SJI (slit-jaw imager) frames.
-                        
+\begin{itemize}
+\item \textit{Yohkoh}/SXT - SXT: Solar X-ray Telescope \citep{1991SoPh..136....1O, 1991SoPh..136...37T},
+\item \textit{SOHO}/EIT and LASCO - SOHO: Solar and Heliospheric Observatory \citep{domingo1995}, EIT: Extreme Ultraviolet Telescope \citep{1995SoPh..162..291D} and LASCO: Large Angle Spectroscopic COronagraph \citep{1995SoPh..162..357B}
+\item \textit{RHESSI} - RHESSI: Reuven Ramaty High Energy Solar Spectroscopic Image \citep{2002SoPh..210....3L}.},
+\item \textit{STEREO}/EUVI and COR1/2 - STEREO: Solar TErrestrial RElations Observatory \citep{2005AdSpR..36.1483K}, EUVI: Extreme Ultraviolet Imager \citep{2004SPIE.5171..111W} and COR1/2: CORonagraph 1/2 \citep{2002AdSpR..29.2017H}
+\item \textit{Hinode}/XRT - XRT: X-Ray Telescope \citep{2007SoPh..243....3K, 2007SoPh..243...63G}.
+\item \textit{PROBA2}/SWAP - PROBA2: PRojects for On Board Autonomy 2 \citep{2013SoPh..286....5S}, SWAP: Sun Watcher Active Pixel \citep{2013SoPh..286...43S}
+\item \textit{SDO}/AIA and HMI - HMI: Helioseismic Magnetic Imager, \citep{2012SoPh..275..207S}
+\item \textit{IRIS} - IRIS: Interface Region Imaging Spectrograph \citep{2011SPD....42.1512L} SJI (slit-jaw imager) frames.           
+\end{itemize}
+             
 The \texttt{GenericMap} class stores all of the metadata retrieved from the header of
 the image file in the \texttt{meta} attribute and provides convenience 
 properties for commonly accessed metadata: e.g., \texttt{instrument}, 
@@ -51,7 +54,7 @@ Listing \ref{code:aia_1} demonstrates the quick-look functionality of
 \includegraphics[width=0.8\columnwidth]{aia_map_example}
 \end{center}
 \caption{Example of the \texttt{AIAMap} specialisation of 
-\texttt{GenericMap}. First, a map is created from an \textit{SDO}/AIA FITS file. In this case, a demonstration file contained within the SunPy repository is used. A cutout
+\texttt{GenericMap}. First, a map is created from a sample \textit{SDO}/AIA FITS file. In this case, a demonstration file contained within the SunPy repository is used. A cutout
 of the full map is then created by specifying the desired solar-$x$ and solar-$y$ ranges of the plot in data coordinates (in this case, arcseconds), and then a quick-view plot is created with lines of heliographic longitude and latitude over-plotted.}
 \label{code:aia_1}
 \end{listing}

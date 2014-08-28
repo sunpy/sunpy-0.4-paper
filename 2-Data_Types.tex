@@ -7,20 +7,15 @@ by the SunPy classes: \texttt{Map} (2D spatial data),
 \texttt{LightCurve} (1D temporal series), and \texttt{Spectrum} and
 \texttt{Spectrogram} (1D and 2D spectra).  The purpose of these
 classes is to provide the same core data type to the SunPy user
-regardless of the differences in source data.  For example, if two
-different instruments use different time formats to describe the
-observation time of their images, the corresponding SunPy \texttt{Map}
-object for each of them expresses the observation time in the same
-way.  This simplifies the workflow for the user when handling data
-from multiple sources.
+regardless of the differences in source data.  This simplifies 
+the workflow for the user when handling data from multiple sources.
 
 These classes allow access to the data
 and associated metadata and provide appropriate convenience functions to
 enable analysis and visualisation. For each of these classes, the data is
-stored in the \texttt{data} attribute, while the metadata should be stored 
-in the \texttt{meta} attribute (currently, only \texttt{Map} and \texttt{LightCurve} have this feature 
-fully implemented). 
-% schriste - change this until all fixed
+stored in the \texttt{data} attribute, while the metadata is stored 
+in the \texttt{meta} attribute\footnote{Note, that currently only \texttt{Map} and \texttt{LightCurve} have this feature 
+fully implemented}. 
 It is possible to instantiate the
 data types from various
 different sources: e.g., files, URLs, and arrays.  
@@ -30,7 +25,7 @@ sub-type for data from the \textit{SDO}/AIA (Atmospheric Imaging Assembly; \cite
 
 All of the core SunPy data types 
 include visualisation methods that are tailored to each data type. 
-These visualisation methods all currently utilise the \texttt{matplotlib} 
+These visualisation methods all utilise the \texttt{matplotlib} 
 package and are designed in such a way that they integrate well with 
 the \texttt{pyplot} functional interface of \texttt{matplotlib}.
 
