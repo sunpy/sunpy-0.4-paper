@@ -1,6 +1,6 @@
 \section{Introduction}\label{sec:Intro}
 
-Science is driven by the analysis of data of an ever-growing variety and 
+Science is driven by the analysis of data of ever-growing variety and 
 complexity. Advances in sensor technology, combined with the availability of 
 inexpensive 
 storage, have led to rapid increases in the amount of data available to scientists in almost
@@ -19,8 +19,8 @@ The SunPy project aims to provide a software package with these qualities for
 the analysis and visualisation of solar data. SunPy makes
 use of Python and scientific Python packages. Python is a free, general-purpose, 
 powerful, and easy-to-learn high-level programming language. Additionally, Python is 
-widely used outside of scientific fields in areas like `big data' analytics, web 
-development, and educational environments. For example, \texttt{pandas} was 
+widely used outside of scientific fields in areas such as `big data' analytics, web 
+development, and educational environments. For example, \texttt{pandas} \citep{mckinney2010, mckinney2012} was 
 originally developed for quantitative analysis of financial data and has since 
 grown into a generalised time-series data-analysis package. Python continues to 
 see increased use in the astronomy community \citep{greenfield2011}, which has 
@@ -32,10 +32,9 @@ scientific packages available in Python. Core packages such as \texttt{NumPy},
 \texttt{SciPy} \citep{jones2001}, and \texttt{matplotlib} \citep{hunter2007} provide 
 the basic functionality expected of a scientific programming language,
 such as array manipulation, core numerical algorithms, and visualisation, respectively.
-Building upon these foundations, packages such as \texttt{astropy} (astronomy)
-\citep{theastropycollaboration2013}, \texttt{pandas} (time-series)
-\citep{mckinney2010, mckinney2012}, and \texttt{scikit-image} (image processing)
-\citep{vanderwalt2014} provide more domain-specific functionality.
+Building upon these foundations, packages such as \texttt{astropy}
+\citep[astronomy;][]{theastropycollaboration2013}, \texttt{pandas} (time-series), and \texttt{scikit-image} 
+\citep[image processing;][]{vanderwalt2014} provide more domain-specific functionality.
 
 A typical workflow begins with a solar physicist manually identifying
 a small number of events of interest on the Sun.  This is typically
@@ -44,9 +43,9 @@ done in order to investigate in detail the physics of these events
 Journal Letters volume 595, dedicated to its analysis).
 In this workflow, an event is investigated in depth which requires 
 data from many different instruments.
-These data are typically provided in many different formats (for
-example, FITS (Flexible Image Transport System, \citealt{refId0}), CSV, or
-binary files), and contain many different types of data (such as
+These data are typically provided in many different formats - for
+example, FITS \citep[Flexible Image Transport System,][]{refId0}, CSV, or
+binary files - and contain many different types of data (such as
 images, lightcurves and spectra).  In addition, the repositories these data reside
 in can have different access methods.  This workflow is characterized
 by the large number of heterogeneous datasets used in the
@@ -63,7 +62,7 @@ with a larger number of files.
 
 The volume and variety of solar data used in these workflows drives
 the need for an environment in which obtaining and performing common
-solar-physics operations on these data is as simple and intuitive as
+solar physics operations on these data is as simple and intuitive as
 possible.  SunPy is designed to be a clean, simple-to-use, and
 well-structured open-source package that provides the \textit{core}
 tools for solar data analysis, motivated by the need for a free and
