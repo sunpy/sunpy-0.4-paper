@@ -32,7 +32,6 @@ on 2011 August 9.}
 Short-cuts are also provided for some often-used event types. For example, 
 the flare attribute can be declared as either 
 \texttt{hek.attrs.EventType("FL")} or as \texttt{hek.attrs.FL}. 
-
 HEK attributes differ from VSO attributes (Section \ref{ssec:vso}) in that many 
 of them are wrappers that conveniently expose comparisons by overloading Python 
 operators. This allows filtering of the HEK entries by the properties of the 
@@ -63,11 +62,14 @@ those that have a peak flux above 1000.0 (in units defined by the FRM).
 \caption{HEK query using the logical \texttt{or} operator.}
 \label{code:hek:or}
 \end{listing}
-All FRMs report the required feature attributes, but the optional attributes 
-are FRM dependent.  If a FRM does not have one of the optional attributes, 
-\texttt{None} is returned by the \texttt{hek} module. 
+All FRMs report their required feature attributes (as defined by the
+HEK), but the optional attributes are FRM dependent\footnote{See
+  \url{http://www.lmsal.com/hek/VOEvent_Spec.html} for a list of
+  features and their attributes.}.  If a FRM does not have one of the
+optional attributes, \texttt{None} is returned by the \texttt{hek}
+module.
  
-Frequently after users have found events of interest the next step is to 
+After users have found events of interest the next step is to 
 download observational data. The \texttt{H2VClient} module makes this
 easier by providing a translation layer between HEK query results
 and VSO data queries. This capability is demonstrated in Listing~\ref{code:hek2vso}.
