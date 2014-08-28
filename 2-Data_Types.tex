@@ -7,7 +7,12 @@ by the SunPy classes: \texttt{Map} (2D spatial data),
 \texttt{LightCurve} (1D temporal series), and \texttt{Spectrum} and
 \texttt{Spectrogram} (1D and 2D spectra).  The purpose of these
 classes is to provide the same core data type to the SunPy user
-regardless of the differences in source data.  This simplifies 
+regardless of the differences in source data.  For example, if two
+different instruments use different time formats to describe the
+observation time of their images, the corresponding SunPy \texttt{Map}
+object for each of them expresses the observation time in the same
+way.  This simplifies the workflow for the user when handling data
+from multiple sources. This simplifies 
 the workflow for the user when handling data from multiple sources.
 
 These classes allow access to the data

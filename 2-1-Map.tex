@@ -19,7 +19,7 @@ not yet make full use of its capabilities, but this inheritance structure
 provides for future integration with \texttt{astropy}. In order to provide 
 instrument- or detector-specific integration, \texttt{GenericMap} is designed
 to be subclassed. Each subclass of \texttt{GenericMap} can register 
-with the \texttt{Map} creation function, which will then automatically return an instance
+with the \texttt{Map} creation factory, which will then automatically return an instance
 of the specific \texttt{GenericMap} subclass dependent upon the data provided. 
 SunPy v0.5 has \texttt{GenericMap} specialisations for the following 
 instruments: 
