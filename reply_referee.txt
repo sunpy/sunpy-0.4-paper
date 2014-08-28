@@ -7,11 +7,11 @@ RESPONSE TO REFEREE 1
 
 2) We have added appropriate references to the Introduction for the software packages that are mentioned in the text (e.g. Astropy, scipy, pandas) in accordance with the referee’s suggestion. 
 
-3)
+3) The SunPy database holds data for any supported (and probably a few unsupported) instruments, performing a query without specifying an instrument will return all records in the database matching those criteria, for all data for all instruments. The example has been clarified.
 
 4) In the example on p.11, the term ‘coronagraphs’ was included here by mistake. Instead, the query result ‘lasco_query’ should have been referred to. The listing has been corrected.
 
-5) 
+5) Different data providers such as the VSO and the HEK have different interfaces and different available search options, which made it much simpler to implement these as separate hierarchies. There has been some work done over this summer to create a unified search interface to different providers. This feature will hopefully appear in SunPy 0.6 towards the end of the year.
 
 6) We have corrected the list of references as requested.
 
@@ -31,15 +31,11 @@ RESPONSE TO REFEREE 2
 
 6) We agree with the referee that more Python-like idioms should be used in the code listing examples. Code snippets such as lasco_query.num_records() (e.g. Listing 6) have hence been replaced with len(lasco_query.records) throughout the manuscript.
 
-7) We have clarified the construction of the file paths in Listing 6 by adding more description to the Listing caption. We have also endeavored to clarify the code listings throughout the manuscript, as the referee has suggested.
+7) We have clarified the construction of the file paths in Listing 6 by adding more description to the Listing caption. We have also endeavoured to clarify the code listings throughout the manuscript, as the referee has suggested.
 
-8) 
+8) There is no real reason why show() was chosen over __str__. We have taken this suggestion on board and will be changing the functionality in SunPy in the future.
 
 9) We agree with the referee that full descriptions of the allowed attrs should be easily available for HEK and VSO. Unfortunately this feature is not yet available within SunPy. However, we plan to address this in the near future.
 
 10) We agree with the distinction made by the referee - we clarify the text to refer to 'database software supported by SQLAlchemy' in Section 3.5.
-
- 
-
-7)
 
