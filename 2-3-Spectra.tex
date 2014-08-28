@@ -12,8 +12,8 @@ built so that each instrument initialises using a subclass containing the instru
 functionalities. The common functionality provided by the base \texttt{Spectrogram} class includes
 joining different time ranges and frequencies, performing frequency-dependent background subtraction,
 and convenient visualization and sampling of the data.
-Currently, the \texttt{Spectrogram} class supports radio spectrograms from the 
-\href{http://www.e-callisto.org/}{e-Callisto}
+Currently, the \texttt{Spectrogram} class supports radio spectrograms from the e-Callisto (
+\url{http://www.e-callisto.org/})
 solar radio spectrometer network \citep{2009EM&P..104..277B} and \textit{STEREO}/SWAVES spectrograms \citep{2008SSRv..136..487B}.
 
 Listing \ref{code:spectra} shows how the \texttt{CallistoSpectrogram}
@@ -36,7 +36,7 @@ a constant background over time for each frequency channel.
 \caption{Example of how \texttt{CallistoSpectrogram} retrieves the
   data for the requested time range and observatory, merges it, and
   removes the background signal.  The data requested -- `BIR' -- is
-  the code name of the \href{http://www.rosseobservatory.ie}{Rosse Observatory}
+  the code name of the Rosse Observatory \url{http://www.rosseobservatory.ie}
   at Birr Castle in Ireland.}
 \label{code:spectra}
 \end{listing}
