@@ -5,7 +5,7 @@ RESPONSE TO REFEREE 1
 
 1) We agree that the paper should illustrate how SunPy enables science. To that end, we have added descriptions in the Introduction section of typical workflows for solar physicists and discuss how the features of SunPy are suited to enabling those workflows.
 
-2) 
+2) We have added appropriate references to the Introduction for the software packages that are mentioned in the text (e.g. Astropy, scipy, pandas) in accordance with the referee’s suggestion. 
 
 3)
 
