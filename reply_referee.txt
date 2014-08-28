@@ -9,7 +9,7 @@ RESPONSE TO REFEREE 1
 
 3)
 
-4) 
+4) In the example on p.11, the term ‘coronagraphs’ was included here by mistake. Instead, the query result ‘lasco_query’ should have been referred to. The listing has been corrected.
 
 5) 
 
@@ -29,13 +29,13 @@ RESPONSE TO REFEREE 2
 
 5) We add to our discussion of units in SunPy, as the referee suggested. The goal of SunPy in the future is for all units to be handled using the Astropy sub-package. As of 0.5 however this feature has not been implemented, except in the sunpy.sun module. This is now discussed in Section 4 of the manuscript.
 
-6)
+6) We agree with the referee that more Python-like idioms should be used in the code listing examples. Code snippets such as lasco_query.num_records() (e.g. Listing 6) have hence been replaced with len(lasco_query.records) throughout the manuscript.
 
-7) 
+7) We have clarified the construction of the file paths in Listing 6 by adding more description to the Listing caption. We have also endeavored to clarify the code listings throughout the manuscript, as the referee has suggested.
 
-8)
+8) 
 
-9) 
+9) We agree with the referee that full descriptions of the allowed attrs should be easily available for HEK and VSO. Unfortunately this feature is not yet available within SunPy. However, we plan to address this in the near future.
 
 10) We agree with the distinction made by the referee - we clarify the text to refer to 'database software supported by SQLAlchemy' in Section 3.5.
 
