@@ -1,7 +1,7 @@
 \subsection{Helioviewer}\label{ssec:hv}
 
 SunPy provides the ability to download images hosted by the
-Helioviewer Project (\url{http://helioviewer.org}).  
+Helioviewer Project (\url{http://wiki.helioviewer.org}).  
 The aim of the Helioviewer Project is to enable
 the exploration of solar and heliospheric data from multiple data
 sources (such as instrumentation and feature/event catalogues) via
@@ -9,9 +9,8 @@ easy-to-use visual interfaces. The Helioviewer Project have developed two client
 applications that allow users to browse images and create movies of the Sun taken 
 by a variety of instruments: \url{http://www.helioviewer.org}, a 
 Google Maps-like web application, and \url{http://www.jhelioviewer.org}, 
-a movie streaming desktop application. In order to manage all of this data, the Helioviewer
-project maintains archives of all of its data in JPEG2000 format (for further
-details on the Helioviewer Project, see \citealt{muller2009}). The
+a movie streaming desktop application. The Helioviewer
+project maintains archives of all its image data in JPEG2000 format (\citealt{muller2009}). The
 JPEG2000 files are typically highly compressed compared to the source
 FITS files from which they are generated, but are still high-fidelity, and thus can be used to quickly
 visualise large amounts of data from multiple sources.  SunPy is
@@ -21,8 +20,7 @@ ingestion of JPEG2000 files from remote servers.
 The Helioviewer Project categorises image data based on the physical
 construction of the source instrument, using a simple hierarchy:
 observatory $\rightarrow$ instrument $\rightarrow$ detector
-$\rightarrow$ measurement, where '$\rightarrow$' means 'provides
-(possibly multiple)'.  
+$\rightarrow$ measurement, where ``$\rightarrow$'' means ``provides a''.  
 %schriste - say what?!
 Each Helioviewer Project JPEG2000 file contains
 metadata which are based on the original FITS header
