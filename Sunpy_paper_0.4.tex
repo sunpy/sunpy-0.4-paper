@@ -5,33 +5,45 @@
 \usepackage{natbib}
 \newcommand*{\newblock}{Bibliography}
 
-\usepackage[section]{minted}
-%\usepackage{upquote}
-%\AtBeginDocument{%
-%\def\PYZsq{\textquotesingle}%
-%}
-\definecolor{bg}{rgb}{0.95, 0.95, 0.95}
+% You can use either minted or listings to include the code 
+% in this file. listings will hopefully work on arxiv.
 
-\newmintedfile[pythoncode]{pycon}{
-bgcolor=bg,
-fontfamily=tt,
-linenos=true,
-numberblanklines=true,
-numbersep=12pt,
-numbersep=5pt,
-gobble=0,
-frame=leftline,
-framerule=0.4pt,
-framesep=2mm,
-funcnamehighlighting=true,
-tabsize=4,
-obeytabs=false,
-mathescape=false
-samepage=false, %with this setting you can force the list to appear on the same page
-showspaces=false,
-showtabs =false,
-texcl=false,
-}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Use Minted % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+%\usepackage[section]{minted}
+
+%\newmintedfile[pythoncode]{pycon}{
+%fontfamily=tt,
+%linenos=true,
+%numberblanklines=true,
+%numbersep=12pt,
+%numbersep=5pt,
+%gobble=0,
+%frame=leftline,
+%framerule=0.4pt,
+%framesep=2mm,
+%funcnamehighlighting=true,
+%tabsize=4,
+%obeytabs=false,
+%mathescape=false
+%samepage=false, %with this setting you can force the list to appear on the same page
+%showspaces=false,
+%showtabs =false,
+%texcl=false,
+%}
+
+
+% % % % % % % % % % % % % % % % % % % % %
+% Use Listings % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % 
+\usepackage{listings}
+\usepackage{float}
+\newfloat{listing}{thHp}{lop}
+\renewcommand{\pythoncode}{\lstinputlisting}
+
+% % % % % % % % % % % % % % % % % % % %
 
 \usepackage{hyperref}
 
@@ -71,6 +83,6 @@ texcl=false,
 
 %%% References
 \bibliographystyle{stunat}
-\bibliography{Sunpy_paper_0.4,refs}{}
+\bibliography{Sunpy_paper_0.4}{}
 
 \end{document}
