@@ -1,0 +1,355 @@
+\begin{thebibliography}{42}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Astropy Collaboration} et~al.(2013){Astropy Collaboration},
+  Robitaille, Tollerud, Greenfield, Droettboom, Bray, Aldcroft, Davis,
+  Ginsburg, {Price-Whelan}, Kerzendorf, Conley, Crighton, Barbary, Muna,
+  Ferguson, Grollier, Parikh, Nair, G\"{u}nther, Deil, Woillez, Conseil,
+  Kramer, Turner, Singer, Fox, Weaver, Zabalza, Edwards, Azalee~Bostroem,
+  Burke, Casey, Crawford, Dencheva, Ely, Jenness, Labrie, Lim, Pierfederici,
+  Pontzen, Ptak, Refsdal, Servillat, and
+  Streicher]{theastropycollaboration2013}
+The {Astropy Collaboration}, et~al.
+\newblock Astropy: A community python package for astronomy.
+\newblock \emph{Astronomy \& Astrophysics}, 558:\penalty0 A33, September 2013.
+\newblock URL \url{http://www.aanda.org/10.1051/0004-6361/201322068}.
+
+\bibitem[Bangerth and Heister(2013)]{bangerth2013}
+W.~Bangerth and T.~Heister.
+\newblock What makes computational open source software libraries successful?
+\newblock \emph{Computational Science \& Discovery}, 6\penalty0 (1):\penalty0
+  015010, 2013.
+\newblock URL \url{http://stacks.iop.org/1749-4699/6/i=1/a=015010}.
+
+\bibitem[{Benz} et~al.(2009){Benz}, {Monstein}, {Meyer}, {Manoharan}, {Ramesh},
+  {Altyntsev}, {Lara}, {Paez}, and {Cho}]{2009EM&P..104..277B}
+A.~O. {Benz}, C.~{Monstein}, H.~{Meyer}, P.~K. {Manoharan}, R.~{Ramesh},
+  A.~{Altyntsev}, A.~{Lara}, J.~{Paez}, and K.-S. {Cho}.
+\newblock {A World-Wide Net of Solar Radio Spectrometers: e-CALLISTO}.
+\newblock \emph{Earth Moon and Planets}, 104:\penalty0 277--285, April 2009.
+
+\bibitem[{Bougeret} et~al.(2008){Bougeret}, {Goetz}, {Kaiser}, {Bale},
+  {Kellogg}, {Maksimovic}, {Monge}, {Monson}, {Astier}, {Davy}, {Dekkali},
+  {Hinze}, {Manning}, {Aguilar-Rodriguez}, {Bonnin}, {Briand}, {Cairns},
+  {Cattell}, {Cecconi}, {Eastwood}, {Ergun}, {Fainberg}, {Hoang}, {Huttunen},
+  {Krucker}, {Lecacheux}, {MacDowall}, {Macher}, {Mangeney}, {Meetre},
+  {Moussas}, {Nguyen}, {Oswald}, {Pulupa}, {Reiner}, {Robinson}, {Rucker},
+  {Salem}, {Santolik}, {Silvis}, {Ullrich}, {Zarka}, and
+  {Zouganelis}]{2008SSRv..136..487B}
+J.~L. {Bougeret}, et~al.
+\newblock {S/WAVES: The Radio and Plasma Wave Investigation on the STEREO
+  Mission}.
+\newblock \emph{\ssr}, 136:\penalty0 487--528, April 2008.
+
+\bibitem[{Brueckner} et~al.(1995){Brueckner}, {Howard}, {Koomen}, {Korendyke},
+  {Michels}, {Moses}, {Socker}, {Dere}, {Lamy}, {Llebaria}, {Bout}, {Schwenn},
+  {Simnett}, {Bedford}, and {Eyles}]{1995SoPh..162..357B}
+G.~E. {Brueckner}, et~al.
+\newblock {The Large Angle Spectroscopic Coronagraph (LASCO)}.
+\newblock \emph{\solphys}, 162:\penalty0 357--402, December 1995.
+
+\bibitem[{Delaboudini{\`e}re} et~al.(1995){Delaboudini{\`e}re}, {Artzner},
+  {Brunaud}, {Gabriel}, {Hochedez}, {Millier}, {Song}, {Au}, {Dere}, {Howard},
+  {Kreplin}, {Michels}, {Moses}, {Defise}, {Jamar}, {Rochus}, {Chauvineau},
+  {Marioge}, {Catura}, {Lemen}, {Shing}, {Stern}, {Gurman}, {Neupert},
+  {Maucherat}, {Clette}, {Cugnon}, and {van Dessel}]{1995SoPh..162..291D}
+J.-P. {Delaboudini{\`e}re}, et~al.
+\newblock {EIT: Extreme-Ultraviolet Imaging Telescope for the SOHO Mission}.
+\newblock \emph{\solphys}, 162:\penalty0 291--312, December 1995.
+
+\bibitem[Dolgert et~al.(2008)Dolgert, Gibbons, and Kuznetsov]{dolgert2008}
+A.~Dolgert, L.~Gibbons, and V.~Kuznetsov.
+\newblock Rapid web development using {AJAX} and python.
+\newblock \emph{Journal of Physics: Conference Series}, 119\penalty0
+  (4):\penalty0 042011, July 2008.
+\newblock URL
+  \url{http://stacks.iop.org/1742-6596/119/i=4/a=042011?key=crossref.eda0671577dafc3c78be7e071da5a2fe}.
+
+\bibitem[Domingo et~al.(1995)Domingo, Fleck, and Poland]{domingo1995}
+V.~Domingo, B.~Fleck, and A.~I. Poland.
+\newblock The {SOHO} mission: an overview.
+\newblock \emph{Solar Physics}, 162:\penalty0 1--37, December 1995.
+
+\bibitem[{Dominique} et~al.(2013){Dominique}, {Hochedez}, {Schmutz},
+  {Dammasch}, {Shapiro}, {Kretzschmar}, {Zhukov}, {Gillotay}, {Stockman}, and
+  {BenMoussa}]{2013SoPh..286...21D}
+M.~{Dominique}, et~al.
+\newblock {The LYRA Instrument Onboard PROBA2: Description and In-Flight
+  Performance}.
+\newblock \emph{\solphys}, 286:\penalty0 21--42, August 2013.
+
+\bibitem[Freeland and Handy(1998)]{freeland1998}
+{S.L.} Freeland and {B.N.} Handy.
+\newblock Data analysis with the {SolarSoft} system.
+\newblock \emph{Solar Physics}, 182\penalty0 (2):\penalty0 497{\textendash}500,
+  1998.
+
+\bibitem[{Golub} et~al.(2007){Golub}, {Deluca}, {Austin}, {Bookbinder},
+  {Caldwell}, {Cheimets}, {Cirtain}, {Cosmo}, {Reid}, {Sette}, {Weber},
+  {Sakao}, {Kano}, {Shibasaki}, {Hara}, {Tsuneta}, {Kumagai}, {Tamura},
+  {Shimojo}, {McCracken}, {Carpenter}, {Haight}, {Siler}, {Wright}, {Tucker},
+  {Rutledge}, {Barbera}, {Peres}, and {Varisco}]{2007SoPh..243...63G}
+L.~{Golub}, et~al.
+\newblock {The X-Ray Telescope (XRT) for the Hinode Mission}.
+\newblock \emph{\solphys}, 243:\penalty0 63--86, June 2007.
+
+\bibitem[Greenfield(2011)]{greenfield2011}
+P.~Greenfield.
+\newblock What python can do for astronomy.
+\newblock In \emph{Astronomical Data Analysis Software and Systems {XX}},
+  volume 442, page 425, 2011.
+
+\bibitem[Hill et~al.(2009)Hill, Martens, Yoshimura, Gurman, Hourcl\'{e},
+  Dimitoglou, {Su\'{a}rez-Sol\'{a}}, Wampler, Reardon, Davey, Bogart, and
+  Tian]{hill2009}
+F.~Hill, et~al.
+\newblock The virtual solar {Observatory{\textemdash}A} resource for
+  international heliophysics research.
+\newblock \emph{Earth, Moon, and Planets}, 104\penalty0 (1-4):\penalty0
+  315{\textendash}330, April 2009.
+\newblock URL
+  \url{http://solar.physics.montana.edu/martens/papers/Hill-VSO-Oct07.pdf}.
+
+\bibitem[{Howard} et~al.(2002){Howard}, {Moses}, {Socker}, {Dere}, {Cook}, and
+  {Secchi Consortium}]{2002AdSpR..29.2017H}
+R.~A. {Howard}, J.~D. {Moses}, D.~G. {Socker}, K.~P. {Dere}, J.~W. {Cook}, and
+  {Secchi Consortium}.
+\newblock {Sun earth connection coronal and heliospheric investigation
+  (SECCHI)}.
+\newblock \emph{Advances in Space Research}, 29:\penalty0 2017--2026, 2002.
+
+\bibitem[Hunter(2007)]{hunter2007}
+J.~D. Hunter.
+\newblock Matplotlib: A {2D} graphics environment.
+\newblock \emph{Computing in Science \& Engineering}, 9\penalty0 (3):\penalty0
+  90--95, 2007.
+\newblock URL
+  \url{http://scitation.aip.org/content/aip/journal/cise/9/3/10.1109/MCSE.2007.55}.
+
+\bibitem[Hurlburt et~al.(2012)Hurlburt, Cheung, Schrijver, Chang, Freeland,
+  Green, Heck, Jaffey, Kobashi, Schiff, Serafin, Seguin, Slater, Somani, and
+  Timmons]{hurlburt2012}
+N.~Hurlburt, et~al.
+\newblock Heliophysics event knowledgebase for the solar dynamics observatory
+  {(SDO)} and beyond.
+\newblock \emph{Solar Physics}, 275:\penalty0 67--78, January 2012.
+
+\bibitem[Jones et~al.(2001)Jones, Oliphant, Peterson, and Others]{jones2001}
+E.~Jones, T.~Oliphant, P.~Peterson, and Others.
+\newblock {SciPy:} open source scientific tools for python, 2001.
+\newblock URL \url{http://www.scipy.org/}.
+
+\bibitem[{Kaiser}(2005)]{2005AdSpR..36.1483K}
+M.~L. {Kaiser}.
+\newblock {The STEREO mission: an overview}.
+\newblock \emph{Advances in Space Research}, 36:\penalty0 1483--1488, 2005.
+
+\bibitem[{Kosugi} et~al.(2007){Kosugi}, {Matsuzaki}, {Sakao}, {Shimizu},
+  {Sone}, {Tachikawa}, {Hashimoto}, {Minesugi}, {Ohnishi}, {Yamada}, {Tsuneta},
+  {Hara}, {Ichimoto}, {Suematsu}, {Shimojo}, {Watanabe}, {Shimada}, {Davis},
+  {Hill}, {Owens}, {Title}, {Culhane}, {Harra}, {Doschek}, and
+  {Golub}]{2007SoPh..243....3K}
+T.~{Kosugi}, et~al.
+\newblock {The Hinode (Solar-B) Mission: An Overview}.
+\newblock \emph{\solphys}, 243:\penalty0 3--17, June 2007.
+
+\bibitem[{Lemen} et~al.(2011){Lemen}, {Title}, {De Pontieu}, {Schrijver},
+  {Tarbell}, {Wuelser}, {Golub}, and {Kankelborg}]{2011SPD....42.1512L}
+J.~{Lemen}, A.~{Title}, B.~{De Pontieu}, C.~{Schrijver}, T.~{Tarbell},
+  J.~{Wuelser}, L.~{Golub}, and C.~{Kankelborg}.
+\newblock {The Interface Region Imaging Spectrograph (IRIS) NASA SMEX}.
+\newblock In \emph{AAS/Solar Physics Division Abstracts \#42}, page 1512, May
+  2011.
+
+\bibitem[Lemen et~al.(2012)Lemen, Title, Akin, Boerner, Chou, Drake, Duncan,
+  Edwards, Friedlaender, Heyman, Hurlburt, Katz, Kushner, Levay, Lindgren,
+  Mathur, {McFeaters}, Mitchell, Rehse, Schrijver, Springer, Stern, Tarbell,
+  Wuelser, Wolfson, Yanari, Bookbinder, Cheimets, Caldwell, Deluca, Gates,
+  Golub, Park, Podgorski, Bush, Scherrer, Gummin, Smith, Auker, Jerram, Pool,
+  Soufli, Windt, Beardsley, Clapp, Lang, and Waltham]{lemen2012}
+J.~R. Lemen, et~al.
+\newblock The atmospheric imaging assembly {(AIA)} on the solar dynamics
+  observatory {(SDO)}.
+\newblock \emph{Solar Physics}, 275:\penalty0 17--40, January 2012.
+
+\bibitem[{Lin} et~al.(2002){Lin}, {Dennis}, {Hurford}, {Smith}, {Zehnder},
+  {Harvey}, {Curtis}, {Pankow}, {Turin}, {Bester}, {Csillaghy}, {Lewis},
+  {Madden}, {van Beek}, {Appleby}, {Raudorf}, {McTiernan}, {Ramaty}, {Schmahl},
+  {Schwartz}, {Krucker}, {Abiad}, {Quinn}, {Berg}, {Hashii}, {Sterling},
+  {Jackson}, {Pratt}, {Campbell}, {Malone}, {Landis}, {Barrington-Leigh},
+  {Slassi-Sennou}, {Cork}, {Clark}, {Amato}, {Orwig}, {Boyle}, {Banks},
+  {Shirey}, {Tolbert}, {Zarro}, {Snow}, {Thomsen}, {Henneck}, {McHedlishvili},
+  {Ming}, {Fivian}, {Jordan}, {Wanner}, {Crubb}, {Preble}, {Matranga}, {Benz},
+  {Hudson}, {Canfield}, {Holman}, {Crannell}, {Kosugi}, {Emslie}, {Vilmer},
+  {Brown}, {Johns-Krull}, {Aschwanden}, {Metcalf}, and
+  {Conway}]{2002SoPh..210....3L}
+R.~P. {Lin}, et~al.
+\newblock {The Reuven Ramaty High-Energy Solar Spectroscopic Imager (RHESSI)}.
+\newblock \emph{\solphys}, 210:\penalty0 3--32, November 2002.
+
+\bibitem[Martens et~al.(2012)Martens, Attrill, Davey, Engell, Farid, Grigis,
+  Kasper, Korreck, Saar, Savcheva, Su, Testa, {Wills-Davey}, Bernasconi,
+  Raouafi, Delouille, Hochedez, Cirtain, Deforest, Angryk, de~Moortel,
+  Wiegelmann, Georgoulis, {McAteer}, and Timmons]{martens2012}
+P.~C.~H. Martens, et~al.
+\newblock Computer vision for the solar dynamics observatory {(SDO)}.
+\newblock \emph{Sol. Phys.}, 275:\penalty0 79--113, January 2012.
+
+\bibitem[{McAteer} et~al.(2005){McAteer}, {Gallagher}, and
+  {Ireland}]{2005ApJ...631..628M}
+R.~T.~J. {McAteer}, P.~T. {Gallagher}, and J.~{Ireland}.
+\newblock {Statistics of Active Region Complexity: A Large-Scale Fractal
+  Dimension Survey}.
+\newblock \emph{\apj}, 631:\penalty0 628--635, September 2005.
+
+\bibitem[{McKinney}(2010)]{mckinney2010}
+W.~{McKinney}.
+\newblock Data structures for statistical computing in python.
+\newblock In S.~van~der Walt and J.~Millman, editors, \emph{Proceedings of the
+  9th Python in Science Conference}, pages 51 -- 56, 2010.
+
+\bibitem[{McKinney}(2012)]{mckinney2012}
+W.~{McKinney}.
+\newblock \emph{Python for Data Analysis}.
+\newblock {O'Reilly} Media, Sebastopol, {CA}, 2012.
+\newblock ISBN 9781449323622 1449323626 9781449323615 1449323618 1449319793
+  9781449319793.
+\newblock URL \url{http://proquest.safaribooksonline.com/?fpi=9781449323592}.
+
+\bibitem[Muller et~al.(2009)Muller, Fleck, Dimitoglou, Caplins, Amadigwe,
+  Ortiz, Wamsler, Alexanderian, Hughitt, and Ireland]{muller2009}
+D.~Muller, et~al.
+\newblock {JHelioviewer:} visualizing large sets of solar images using {JPEG}
+  2000.
+\newblock \emph{Computing in Science \& Engineering}, 11\penalty0 (5):\penalty0
+  38{\textendash}47, September 2009.
+\newblock URL
+  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5228714}.
+
+\bibitem[Ochsenbein et~al.(2011)Ochsenbein, Williams, Davenhall, Durand,
+  Fernique, Giaretta, Hanisch, {McGlynn}, Szalay, Taylor, and
+  Wicenec]{ochsenbein2011}
+F.~Ochsenbein, et~al.
+\newblock {IVOA} recommendation: {VOTable} format definition version 1.2.
+\newblock \emph{{ArXiv} e-prints}, October 2011.
+
+\bibitem[{Ogawara} et~al.(1991){Ogawara}, {Takano}, {Kato}, {Kosugi},
+  {Tsuneta}, {Watanabe}, {Kondo}, and {Uchida}]{1991SoPh..136....1O}
+Y.~{Ogawara}, T.~{Takano}, T.~{Kato}, T.~{Kosugi}, S.~{Tsuneta}, T.~{Watanabe},
+  I.~{Kondo}, and Y.~{Uchida}.
+\newblock {The SOLAR-A Mission - An Overview}.
+\newblock \emph{\solphys}, 136:\penalty0 1--16, November 1991.
+
+\bibitem[{Pence} et~al.(2010){Pence}, {Chiappetti}, {Page}, {Shaw}, and
+  {Stobie}]{refId0}
+W.~D. {Pence}, L.~{Chiappetti}, C.~G. {Page}, R.~A. {Shaw}, and E.~{Stobie}.
+\newblock Definition of the flexible image transport system (fits), version
+  3.0.
+\newblock \emph{Astronomy \& Astrophysics}, 524:\penalty0 A42, 2010.
+\newblock URL \url{http://dx.doi.org/10.1051/0004-6361/201015362}.
+
+\bibitem[{P\'{e}rez-Su\'{a}rez} et~al.(2012){P\'{e}rez-Su\'{a}rez}, Maloney,
+  Higgins, Bloomfield, Gallagher, Pierantoni, Bonnin, Cecconi, Alberti,
+  Bocchialini, Dierckxsens, Opitz, Le~Blanc, Aboudarham, Bentley, Brooke,
+  Coghlan, Csillaghy, Jacquey, Lavraud, and Messerotti]{perez-suarez2012}
+D.~{P\'{e}rez-Su\'{a}rez}, et~al.
+\newblock Studying {Sun-Planet} connections using the heliophysics integrated
+  observatory {(HELIO)}.
+\newblock \emph{Solar Physics}, 280:\penalty0 603--621, October 2012.
+
+\bibitem[Pesnell et~al.(2012)Pesnell, Thompson, and Chamberlin]{pesnell2012}
+W.~D. Pesnell, B.~J. Thompson, and P.~C. Chamberlin.
+\newblock The solar dynamics observatory {(SDO)}.
+\newblock \emph{Solar Physics}, 275:\penalty0 3--15, January 2012.
+
+\bibitem[{Robbrecht} et~al.(2009){Robbrecht}, {Berghmans}, and {Van der
+  Linden}]{robbrecht_automated_2009}
+E.~{Robbrecht}, D.~{Berghmans}, and R.~A.~M. {Van der Linden}.
+\newblock {Automated LASCO CME Catalog for Solar Cycle 23: Are CMEs Scale
+  Invariant?}
+\newblock \emph{\apj}, 691:\penalty0 1222--1234, February 2009.
+
+\bibitem[{Ryan} et~al.(2012){Ryan}, {Milligan}, {Gallagher}, {Dennis},
+  {Tolbert}, {Schwartz}, and {Young}]{2012ApJS..202...11R}
+D.~F. {Ryan}, R.~O. {Milligan}, P.~T. {Gallagher}, B.~R. {Dennis}, A.~K.
+  {Tolbert}, R.~A. {Schwartz}, and C.~A. {Young}.
+\newblock {The Thermal Properties of Solar Flares over Three Solar Cycles Using
+  GOES X-Ray Observations}.
+\newblock \emph{\apjs}, 202:\penalty0 11, October 2012.
+
+\bibitem[{Santandrea} et~al.(2013){Santandrea}, {Gantois}, {Strauch}, {Teston},
+  {Tilmans}, {Baijot}, {Gerrits}, {De Groof}, {Schwehm}, and
+  {Zender}]{2013SoPh..286....5S}
+S.~{Santandrea}, et~al.
+\newblock {PROBA2: Mission and Spacecraft Overview}.
+\newblock \emph{\solphys}, 286:\penalty0 5--19, August 2013.
+
+\bibitem[{Scherrer} et~al.(2012){Scherrer}, {Schou}, {Bush}, {Kosovichev},
+  {Bogart}, {Hoeksema}, {Liu}, {Duvall}, {Zhao}, {Title}, {Schrijver},
+  {Tarbell}, and {Tomczyk}]{2012SoPh..275..207S}
+P.~H. {Scherrer}, et~al.
+\newblock {The Helioseismic and Magnetic Imager (HMI) Investigation for the
+  Solar Dynamics Observatory (SDO)}.
+\newblock \emph{\solphys}, 275:\penalty0 207--227, January 2012.
+
+\bibitem[{Seaton} et~al.(2013){Seaton}, {Berghmans}, {Nicula}, {Halain}, {De
+  Groof}, {Thibert}, {Bloomfield}, {Raftery}, {Gallagher}, {Auch{\`e}re},
+  {Defise}, {D'Huys}, {Lecat}, {Mazy}, {Rochus}, {Rossi}, {Sch{\"u}hle},
+  {Slemzin}, {Yalim}, and {Zender}]{2013SoPh..286...43S}
+D.~B. {Seaton}, et~al.
+\newblock {The SWAP EUV Imaging Telescope Part I: Instrument Overview and
+  Pre-Flight Testing}.
+\newblock \emph{\solphys}, 286:\penalty0 43--65, August 2013.
+
+\bibitem[Thompson(2006)]{thompson2006}
+W.~T. Thompson.
+\newblock Coordinate systems for solar image data.
+\newblock \emph{Astronomy and Astrophysics}, 449\penalty0 (2):\penalty0
+  791{\textendash}803, April 2006.
+\newblock URL
+  \url{http://www.aanda.org/index.php?option=com_article&access=doi&doi=10.1051/0004-6361:20054262&Itemid=129}.
+
+\bibitem[{Tsuneta} et~al.(1991){Tsuneta}, {Acton}, {Bruner}, {Lemen}, {Brown},
+  {Caravalho}, {Catura}, {Freeland}, {Jurcevich}, {Morrison}, {Ogawara},
+  {Hirayama}, and {Owens}]{1991SoPh..136...37T}
+S.~{Tsuneta}, et~al.
+\newblock {The Soft X-ray Telescope for the SOLAR-A Mission}.
+\newblock \emph{\solphys}, 136:\penalty0 37--67, November 1991.
+
+\bibitem[van~der Walt et~al.(2014)van~der Walt, Sch\"{o}nberger,
+  {Nunez-Iglesias}, Boulogne, Warner, Yager, Gouillart, and Yu]{vanderwalt2014}
+S.~van~der Walt, J.~L. Sch\"{o}nberger, J.~{Nunez-Iglesias}, F.~Boulogne, J.~D.
+  Warner, N.~Yager, E.~Gouillart, and T.~Yu.
+\newblock scikit-image: image processing in python.
+\newblock \emph{{PeerJ}}, 2:\penalty0 e453, June 2014.
+\newblock URL \url{https://peerj.com/articles/453/}.
+
+\bibitem[{Woods} et~al.(2012){Woods}, {Eparvier}, {Hock}, {Jones}, {Woodraska},
+  {Judge}, {Didkovsky}, {Lean}, {Mariska}, {Warren}, {McMullin}, {Chamberlin},
+  {Berthiaume}, {Bailey}, {Fuller-Rowell}, {Sojka}, {Tobiska}, and
+  {Viereck}]{2012SoPh..275..115W}
+T.~N. {Woods}, et~al.
+\newblock {Extreme Ultraviolet Variability Experiment (EVE) on the Solar
+  Dynamics Observatory (SDO): Overview of Science Objectives, Instrument
+  Design, Data Products, and Model Developments}.
+\newblock \emph{\solphys}, 275:\penalty0 115--143, January 2012.
+
+\bibitem[{Wuelser} et~al.(2004){Wuelser}, {Lemen}, {Tarbell}, {Wolfson},
+  {Cannon}, {Carpenter}, {Duncan}, {Gradwohl}, {Meyer}, {Moore}, {Navarro},
+  {Pearson}, {Rossi}, {Springer}, {Howard}, {Moses}, {Newmark},
+  {Delaboudiniere}, {Artzner}, {Auchere}, {Bougnet}, {Bouyries}, {Bridou},
+  {Clotaire}, {Colas}, {Delmotte}, {Jerome}, {Lamare}, {Mercier}, {Mullot},
+  {Ravet}, {Song}, {Bothmer}, and {Deutsch}]{2004SPIE.5171..111W}
+J.-P. {Wuelser}, et~al.
+\newblock {EUVI: the STEREO-SECCHI extreme ultraviolet imager}.
+\newblock In S.~{Fineschi} and M.~A. {Gummin}, editors, \emph{Telescopes and
+  Instrumentation for Solar Astrophysics}, volume 5171 of \emph{Society of
+  Photo-Optical Instrumentation Engineers (SPIE) Conference Series}, pages
+  111--122, February 2004.
+\newblock \doi{10.1117/12.506877}.
+
+\end{thebibliography}
